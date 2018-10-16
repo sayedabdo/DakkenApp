@@ -17,6 +17,7 @@
 		161864322176136A000EABAA /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 1618642E21761369000EABAA /* Model */; };
 		161864332176136A000EABAA /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 1618642F21761369000EABAA /* Help */; };
 		161864352176138A000EABAA /* LocalizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161864342176138A000EABAA /* LocalizationSystem.swift */; };
+		9D8DF19D92965402243F6152 /* Pods_DakkenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01113039E7705157B2952EE /* Pods_DakkenApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,9 @@
 		1618642E21761369000EABAA /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 		1618642F21761369000EABAA /* Help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Help; sourceTree = "<group>"; };
 		161864342176138A000EABAA /* LocalizationSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationSystem.swift; sourceTree = "<group>"; };
+		C01113039E7705157B2952EE /* Pods_DakkenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DakkenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1160FF3D1322A5ADCC9CB3D /* Pods-DakkenApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DA57055B25249367AEE8D085 /* Pods-DakkenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8DF19D92965402243F6152 /* Pods_DakkenApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +58,8 @@
 			children = (
 				1618641121761235000EABAA /* DakkenApp */,
 				1618641021761235000EABAA /* Products */,
+				50FBF502D7B835ED4ECEB636 /* Pods */,
+				18502B06227DF2244FAEF465 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +105,23 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		18502B06227DF2244FAEF465 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C01113039E7705157B2952EE /* Pods_DakkenApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50FBF502D7B835ED4ECEB636 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D1160FF3D1322A5ADCC9CB3D /* Pods-DakkenApp.debug.xcconfig */,
+				DA57055B25249367AEE8D085 /* Pods-DakkenApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,9 +129,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1618642121761235000EABAA /* Build configuration list for PBXNativeTarget "DakkenApp" */;
 			buildPhases = (
+				BE9E59E6D092C26C2C160B69 /* [CP] Check Pods Manifest.lock */,
 				1618640B21761235000EABAA /* Sources */,
 				1618640C21761235000EABAA /* Frameworks */,
 				1618640D21761235000EABAA /* Resources */,
+				EAF4A9E397542E5AE29581A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,6 +195,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BE9E59E6D092C26C2C160B69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DakkenApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAF4A9E397542E5AE29581A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1618640B21761235000EABAA /* Sources */ = {
@@ -325,6 +390,7 @@
 		};
 		1618642221761235000EABAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1160FF3D1322A5ADCC9CB3D /* Pods-DakkenApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -339,6 +405,7 @@
 		};
 		1618642321761235000EABAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA57055B25249367AEE8D085 /* Pods-DakkenApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
