@@ -22,6 +22,8 @@ class LoginVC: UIViewController {
         emailTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailPlaceHolder", comment: "")
         passwordTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordPlaceHolder", comment: "")
         buttonborder(button_outlet_name:loginBtn)
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     // function to login
@@ -90,5 +92,15 @@ class LoginVC: UIViewController {
                     )
                 }
         }
+    }
+}
+extension LoginVC {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(LoginVC.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

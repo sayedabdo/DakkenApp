@@ -7,20 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616EA4E21762D3100373D16 /* LogInVC.swift */; };
 		1618641321761235000EABAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641221761235000EABAA /* AppDelegate.swift */; };
 		1618641521761235000EABAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641421761235000EABAA /* ViewController.swift */; };
 		1618641821761235000EABAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1618641621761235000EABAA /* Main.storyboard */; };
 		1618641A21761235000EABAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1618641921761235000EABAA /* Assets.xcassets */; };
 		1618641D21761235000EABAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1618641B21761235000EABAA /* LaunchScreen.storyboard */; };
 		1618642821761339000EABAA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1618642A21761339000EABAA /* Localizable.strings */; };
-		161864312176136A000EABAA /* Controller in Resources */ = {isa = PBXBuildFile; fileRef = 1618642D21761369000EABAA /* Controller */; };
-		161864322176136A000EABAA /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 1618642E21761369000EABAA /* Model */; };
-		161864332176136A000EABAA /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 1618642F21761369000EABAA /* Help */; };
 		161864352176138A000EABAA /* LocalizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161864342176138A000EABAA /* LocalizationSystem.swift */; };
+		1618643B2176194A000EABAA /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618643A2176194A000EABAA /* SignUpVC.swift */; };
+		1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618643D2176198D000EABAA /* ChooseSignupVC.swift */; };
+		161864402176199E000EABAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618643F2176199E000EABAA /* User.swift */; };
+		1618644321761CF9000EABAA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618644221761CF9000EABAA /* Helper.swift */; };
 		9D8DF19D92965402243F6152 /* Pods_DakkenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01113039E7705157B2952EE /* Pods_DakkenApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1616EA4E21762D3100373D16 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInVC\U0010.swift"; sourceTree = "<group>"; };
 		1618640F21761235000EABAA /* DakkenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DakkenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1618641221761235000EABAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1618641421761235000EABAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,10 +35,11 @@
 		1618642521761307000EABAA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1618642921761339000EABAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1618642B2176133B000EABAA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1618642D21761369000EABAA /* Controller */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controller; sourceTree = "<group>"; };
-		1618642E21761369000EABAA /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
-		1618642F21761369000EABAA /* Help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Help; sourceTree = "<group>"; };
 		161864342176138A000EABAA /* LocalizationSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationSystem.swift; sourceTree = "<group>"; };
+		1618643A2176194A000EABAA /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		1618643D2176198D000EABAA /* ChooseSignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSignupVC.swift; sourceTree = "<group>"; };
+		1618643F2176199E000EABAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1618644221761CF9000EABAA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		C01113039E7705157B2952EE /* Pods_DakkenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DakkenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1160FF3D1322A5ADCC9CB3D /* Pods-DakkenApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA57055B25249367AEE8D085 /* Pods-DakkenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,11 +78,12 @@
 		1618641121761235000EABAA /* DakkenApp */ = {
 			isa = PBXGroup;
 			children = (
+				1618644421761D06000EABAA /* help */,
+				16186441217619A7000EABAA /* model */,
+				1618643F2176199E000EABAA /* User.swift */,
+				1618643C21761959000EABAA /* controller */,
 				1618643721761455000EABAA /* Localization */,
-				1618642E21761369000EABAA /* Model */,
 				1618643621761425000EABAA /* View */,
-				1618642D21761369000EABAA /* Controller */,
-				1618642F21761369000EABAA /* Help */,
 				1618641221761235000EABAA /* AppDelegate.swift */,
 				1618641421761235000EABAA /* ViewController.swift */,
 				1618641621761235000EABAA /* Main.storyboard */,
@@ -103,6 +108,34 @@
 				1618642A21761339000EABAA /* Localizable.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		1618643C21761959000EABAA /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1618643A2176194A000EABAA /* SignUpVC.swift */,
+				1618643D2176198D000EABAA /* ChooseSignupVC.swift */,
+				1616EA4E21762D3100373D16 /* LogInVC.swift */,
+			);
+			name = controller;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		16186441217619A7000EABAA /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		1618644421761D06000EABAA /* help */ = {
+			isa = PBXGroup;
+			children = (
+				1618644221761CF9000EABAA /* Helper.swift */,
+			);
+			name = help;
+			path = "New Group2";
 			sourceTree = "<group>";
 		};
 		18502B06227DF2244FAEF465 /* Frameworks */ = {
@@ -186,10 +219,7 @@
 			files = (
 				1618641D21761235000EABAA /* LaunchScreen.storyboard in Resources */,
 				1618642821761339000EABAA /* Localizable.strings in Resources */,
-				161864312176136A000EABAA /* Controller in Resources */,
 				1618641A21761235000EABAA /* Assets.xcassets in Resources */,
-				161864322176136A000EABAA /* Model in Resources */,
-				161864332176136A000EABAA /* Help in Resources */,
 				1618641821761235000EABAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,8 +271,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				161864352176138A000EABAA /* LocalizationSystem.swift in Sources */,
+				1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */,
 				1618641521761235000EABAA /* ViewController.swift in Sources */,
+				1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */,
+				1618643B2176194A000EABAA /* SignUpVC.swift in Sources */,
 				1618641321761235000EABAA /* AppDelegate.swift in Sources */,
+				161864402176199E000EABAA /* User.swift in Sources */,
+				1618644321761CF9000EABAA /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

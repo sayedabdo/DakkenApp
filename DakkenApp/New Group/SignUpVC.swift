@@ -12,21 +12,15 @@ import Alamofire
 class SignUpVC: UIViewController {
 
     @IBOutlet weak var imagebtn: UIButton!
-    
     @IBOutlet weak var profileImageLabel: UILabel!
-    
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var phoneTextField: UITextField!
-    
     @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var selectLocationBtn: UIButton!
     @IBOutlet weak var mapContinerView: UIView!
-    
+    var type : Int!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -124,7 +118,7 @@ class SignUpVC: UIViewController {
     @IBAction func toLoginAction(_ sender: Any) {
         print("sdfsd")
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
         self.present(nextViewController, animated:true, completion:nil)
     }
     

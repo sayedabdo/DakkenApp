@@ -23,3 +23,6 @@
 "password" = "password is empty ☹️";
 "email" = "☹️E-mail is InValid";
 "phone" = "☹️phone is empty";
+//ChooseSignupVC
+"user Sign up" = "User Sign Up";
+"Dealer Sign up" = "Dealer Sign Up";

@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 extension UIViewController {
-    
+   
     //start function to display alert
     func displayAlertMessage(title: String,messageToDisplay: String, titleofaction : String)
     {
