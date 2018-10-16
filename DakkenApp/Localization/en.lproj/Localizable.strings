@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  DakkenApp
+
+  Created by Sayed Abdo on 10/16/18.
+  Copyright © 2018 sayedAbdo. All rights reserved.
+*/
+
+"log in" = "log in";
+"Error" = "Error!!";
+"email" = "☹️E-mail is InValid";
+"Try Again" = "Try Again";
+"password" = "password is empty ☹️";
+"emailOrPassword" = "email or password is wong 😞";
+"emailPlaceHolder" = "E-mail";
+"passwordPlaceHolder" = "Password";
+//sign Up VC
+"namePlaceHolder" = "User Name";
+"emailPlaceHolder" = "E-mail";
+"passwordPlaceHolder" = "Password";
+"phonePlaceHolder" = "Phone";
+"username" = "☹️name is empty";
+"password" = "password is empty ☹️";
+"email" = "☹️E-mail is InValid";
+"phone" = "☹️phone is empty";
