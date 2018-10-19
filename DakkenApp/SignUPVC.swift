@@ -204,8 +204,9 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                             case .success(let value):
                                 print("responseObject: \(value)")
                                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SignUPVC") as! SignUPVC
-                                nextViewController.type = 0
+                                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                                nextViewController.userEmail = self.emailTextField.text!
+                                nextViewController.userPassword = self.passwordTextField.text!
                                 self.present(nextViewController, animated:true, completion:nil)
                             case .failure(let responseError):
                                 print("responseError: \(responseError)")

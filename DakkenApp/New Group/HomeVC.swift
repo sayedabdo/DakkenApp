@@ -11,17 +11,15 @@ import Alamofire
 
 class HomeVC: UIViewController {
     
-    let userEmail : String!
-    let userPassword : String!
+    var userEmail : String! = ""
+    var userPassword : String! = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        getUserData()
     }
-
-
-    
-
+    // get user data when sign up
     func getUserData(){
         let loginurl = "https://dkaken.alsalil.net/api/login"
         let params: [String : String] =
@@ -70,7 +68,8 @@ class HomeVC: UIViewController {
                 }
         }
     }
+    
 }
-        
+    
 
-}
+
