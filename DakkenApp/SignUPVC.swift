@@ -12,7 +12,6 @@ import Alamofire
 class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     @IBOutlet weak var imagebtn: UIButton!
-    @IBOutlet weak var profileImageLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -207,6 +206,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                                 nextViewController.userEmail = self.emailTextField.text!
                                 nextViewController.userPassword = self.passwordTextField.text!
+                                nextViewController.fromsignUp = true
                                 self.present(nextViewController, animated:true, completion:nil)
                             case .failure(let responseError):
                                 print("responseError: \(responseError)")

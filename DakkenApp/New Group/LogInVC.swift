@@ -91,6 +91,9 @@ class LogInVC: UIViewController {
                         user_hash : userData["user_hash"] as! String,
                         countryname : userData["countryname"] as! String
                     )
+                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                    self.present(nextViewController, animated:true, completion:nil)
                 }
         }
     }

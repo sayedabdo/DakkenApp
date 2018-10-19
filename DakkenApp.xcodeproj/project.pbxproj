@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1606D7FE217A3373005278D4 /* ChangePassWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */; };
 		1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616EA4E21762D3100373D16 /* LogInVC.swift */; };
 		1618641321761235000EABAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641221761235000EABAA /* AppDelegate.swift */; };
 		1618641521761235000EABAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641421761235000EABAA /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordVC.swift; sourceTree = "<group>"; };
 		1616EA4E21762D3100373D16 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInVC\U0010.swift"; sourceTree = "<group>"; };
 		1618640F21761235000EABAA /* DakkenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DakkenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1618641221761235000EABAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				1618643D2176198D000EABAA /* ChooseSignupVC.swift */,
 				1616EA4E21762D3100373D16 /* LogInVC.swift */,
 				167199D6217A13580031CB95 /* HomeVC.swift */,
+				1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -280,6 +283,7 @@
 				1618641521761235000EABAA /* ViewController.swift in Sources */,
 				1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */,
 				1618641321761235000EABAA /* AppDelegate.swift in Sources */,
+				1606D7FE217A3373005278D4 /* ChangePassWordVC.swift in Sources */,
 				161864402176199E000EABAA /* User.swift in Sources */,
 				1618644321761CF9000EABAA /* Helper.swift in Sources */,
 			);

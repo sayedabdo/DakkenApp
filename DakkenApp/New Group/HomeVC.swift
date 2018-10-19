@@ -13,11 +13,14 @@ class HomeVC: UIViewController {
     
     var userEmail : String! = ""
     var userPassword : String! = ""
+    var fromsignUp : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        getUserData()
+        if(fromsignUp == true){
+            getUserData()
+        }
     }
     // get user data when sign up
     func getUserData(){
