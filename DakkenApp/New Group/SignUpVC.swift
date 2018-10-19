@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class SignUpVC: UIViewController {
+class SignUpVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     @IBOutlet weak var imagebtn: UIButton!
     @IBOutlet weak var profileImageLabel: UILabel!
@@ -115,6 +115,51 @@ class SignUpVC: UIViewController {
         }
     }
     
+    @IBAction func changeimage(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+            self.camera()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+            self.photoLibrary()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func camera()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let myPickerController = UIImagePickerController()
+            myPickerController.delegate = self;
+            myPickerController.sourceType = .camera
+            present(myPickerController, animated: true, completion: nil)
+        }
+        
+    }
+    func photoLibrary()
+    {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let myPickerController = UIImagePickerController()
+            myPickerController.delegate = self;
+            myPickerController.sourceType = .photoLibrary
+            present(myPickerController, animated: true, completion: nil)
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+          //  photouploaded = pickedImage
+          //  image.image=pickedImage
+            imagebtn.setImage(pickedImage, for: .normal)
+            
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
     @IBAction func toLoginAction(_ sender: Any) {
         print("sdfsd")
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)

@@ -15,10 +15,11 @@
 		1618641D21761235000EABAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1618641B21761235000EABAA /* LaunchScreen.storyboard */; };
 		1618642821761339000EABAA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1618642A21761339000EABAA /* Localizable.strings */; };
 		161864352176138A000EABAA /* LocalizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161864342176138A000EABAA /* LocalizationSystem.swift */; };
-		1618643B2176194A000EABAA /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618643A2176194A000EABAA /* SignUpVC.swift */; };
 		1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618643D2176198D000EABAA /* ChooseSignupVC.swift */; };
 		161864402176199E000EABAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618643F2176199E000EABAA /* User.swift */; };
 		1618644321761CF9000EABAA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618644221761CF9000EABAA /* Helper.swift */; };
+		165ECF6B217766E200F7FA0F /* SignUPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165ECF6A217766E200F7FA0F /* SignUPVC.swift */; };
+		167199D7217A13590031CB95 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167199D6217A13580031CB95 /* HomeVC.swift */; };
 		9D8DF19D92965402243F6152 /* Pods_DakkenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01113039E7705157B2952EE /* Pods_DakkenApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,10 +37,11 @@
 		1618642921761339000EABAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1618642B2176133B000EABAA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		161864342176138A000EABAA /* LocalizationSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationSystem.swift; sourceTree = "<group>"; };
-		1618643A2176194A000EABAA /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		1618643D2176198D000EABAA /* ChooseSignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSignupVC.swift; sourceTree = "<group>"; };
 		1618643F2176199E000EABAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1618644221761CF9000EABAA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		165ECF6A217766E200F7FA0F /* SignUPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUPVC.swift; path = ../SignUPVC.swift; sourceTree = "<group>"; };
+		167199D6217A13580031CB95 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		C01113039E7705157B2952EE /* Pods_DakkenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DakkenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1160FF3D1322A5ADCC9CB3D /* Pods-DakkenApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA57055B25249367AEE8D085 /* Pods-DakkenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,9 +115,10 @@
 		1618643C21761959000EABAA /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				1618643A2176194A000EABAA /* SignUpVC.swift */,
+				165ECF6A217766E200F7FA0F /* SignUPVC.swift */,
 				1618643D2176198D000EABAA /* ChooseSignupVC.swift */,
 				1616EA4E21762D3100373D16 /* LogInVC.swift */,
+				167199D6217A13580031CB95 /* HomeVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -271,10 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				161864352176138A000EABAA /* LocalizationSystem.swift in Sources */,
+				165ECF6B217766E200F7FA0F /* SignUPVC.swift in Sources */,
 				1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */,
+				167199D7217A13590031CB95 /* HomeVC.swift in Sources */,
 				1618641521761235000EABAA /* ViewController.swift in Sources */,
 				1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */,
-				1618643B2176194A000EABAA /* SignUpVC.swift in Sources */,
 				1618641321761235000EABAA /* AppDelegate.swift in Sources */,
 				161864402176199E000EABAA /* User.swift in Sources */,
 				1618644321761CF9000EABAA /* Helper.swift in Sources */,

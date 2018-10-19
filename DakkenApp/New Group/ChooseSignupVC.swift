@@ -16,7 +16,6 @@ class ChooseSignupVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         asTagerbtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "Dealer Sign up", comment: ""), for: .normal)
         as3meal.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "user Sign up", comment: ""), for: .normal)
@@ -27,13 +26,13 @@ class ChooseSignupVC: UIViewController {
     }
     @IBAction func signUpAsTager(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SignUPVC") as! SignUPVC
         nextViewController.type = 0
         self.present(nextViewController, animated:true, completion:nil)
     }
     @IBAction func signUpAs3amel(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SignUPVC") as! SignUPVC
         nextViewController.type = 1
         self.present(nextViewController, animated:true, completion:nil)
     }

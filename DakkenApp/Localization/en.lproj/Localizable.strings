@@ -18,11 +18,17 @@
 "namePlaceHolder" = "User Name";
 "emailPlaceHolder" = "E-mail";
 "passwordPlaceHolder" = "Password";
+"confirmpasswordPlaceHolder" = "confirm password";
 "phonePlaceHolder" = "Phone";
 "username" = "☹️name is empty";
 "password" = "password is empty ☹️";
+"confirmpassword" = "confirm password is empty ☹️";
 "email" = "☹️E-mail is InValid";
 "phone" = "☹️phone is empty";
-//ChooseSignupVC
+"passwordlenght" = "☹️password less than 6 characher";
+"chooseprofileimage" = "choose profile image";
+"profile image" = "please, chosse image😞";
+"signuperoor" = "error while sign Up please try again";
+//sChooseSignupVC
 "user Sign up" = "User Sign Up";
 "Dealer Sign up" = "Dealer Sign Up";
