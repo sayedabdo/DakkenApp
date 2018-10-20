@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1606D7FE217A3373005278D4 /* ChangePassWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */; };
+		16159EA2217B2F3F0093B5AF /* HomeproductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */; };
+		16159EA4217B321D0093B5AF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA3217B321D0093B5AF /* Product.swift */; };
 		1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616EA4E21762D3100373D16 /* LogInVC.swift */; };
 		1618641321761235000EABAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641221761235000EABAA /* AppDelegate.swift */; };
 		1618641521761235000EABAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641421761235000EABAA /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordVC.swift; sourceTree = "<group>"; };
+		16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeproductCell.swift; sourceTree = "<group>"; };
+		16159EA3217B321D0093B5AF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1616EA4E21762D3100373D16 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInVC\U0010.swift"; sourceTree = "<group>"; };
 		1618640F21761235000EABAA /* DakkenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DakkenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1618641221761235000EABAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +88,6 @@
 			children = (
 				1618644421761D06000EABAA /* help */,
 				16186441217619A7000EABAA /* model */,
-				1618643F2176199E000EABAA /* User.swift */,
 				1618643C21761959000EABAA /* controller */,
 				1618643721761455000EABAA /* Localization */,
 				1618643621761425000EABAA /* View */,
@@ -101,6 +104,7 @@
 		1618643621761425000EABAA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,8 +124,8 @@
 				165ECF6A217766E200F7FA0F /* SignUPVC.swift */,
 				1618643D2176198D000EABAA /* ChooseSignupVC.swift */,
 				1616EA4E21762D3100373D16 /* LogInVC.swift */,
-				167199D6217A13580031CB95 /* HomeVC.swift */,
 				1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */,
+				167199D6217A13580031CB95 /* HomeVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -130,6 +134,8 @@
 		16186441217619A7000EABAA /* model */ = {
 			isa = PBXGroup;
 			children = (
+				1618643F2176199E000EABAA /* User.swift */,
+				16159EA3217B321D0093B5AF /* Product.swift */,
 			);
 			name = model;
 			path = "New Group1";
@@ -283,11 +289,13 @@
 				1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */,
 				167199D7217A13590031CB95 /* HomeVC.swift in Sources */,
 				1618641521761235000EABAA /* ViewController.swift in Sources */,
+				16159EA4217B321D0093B5AF /* Product.swift in Sources */,
 				1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */,
 				1618641321761235000EABAA /* AppDelegate.swift in Sources */,
 				1606D7FE217A3373005278D4 /* ChangePassWordVC.swift in Sources */,
 				161864402176199E000EABAA /* User.swift in Sources */,
 				1618644321761CF9000EABAA /* Helper.swift in Sources */,
+				16159EA2217B2F3F0093B5AF /* HomeproductCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
