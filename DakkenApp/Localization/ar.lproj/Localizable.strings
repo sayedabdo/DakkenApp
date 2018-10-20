@@ -5,6 +5,11 @@
   Created by Sayed Abdo on 10/16/18.
   Copyright © 2018 sayedAbdo. All rights reserved.
 */
+//public
+"ok" = "موافق";
+"home" = "الرئيسية";
+"some_error" = "حدث خطأ برجاء اعاده المحاوله";
+"Done" = "تم";
 //Login VC
 "log in" = "دخول";
 "Error" = "خطأ!!";
@@ -32,3 +37,5 @@
 //ChooseSignupVC
 "user Sign up" = "التسجيل كعميل";
 "Dealer Sign up" = "التسجيل كتاجر";
+//ChangePassWordVC
+"passwordchanged" = "تم تغيير الرقم السرى بنجاح😍";

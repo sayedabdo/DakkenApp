@@ -181,7 +181,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                     "device_id"             : "\(UIDevice.current.identifierForVendor!.uuidString)",
                     "role"                  : "0",
                     "image"                 : ""
-                    ]
+                ]
             
             for (key, value) in params {
                 if let data = value.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) {

@@ -5,7 +5,12 @@
   Created by Sayed Abdo on 10/16/18.
   Copyright © 2018 sayedAbdo. All rights reserved.
 */
-
+//public
+"ok" = "OK";
+"home" = "Home";
+"some_error" = "some error done please,try again";
+"Done" = "Done";
+//Log in
 "log in" = "log in";
 "Error" = "Error!!";
 "email" = "☹️E-mail is InValid";
@@ -29,6 +34,8 @@
 "chooseprofileimage" = "choose profile image";
 "profile image" = "please, chosse image😞";
 "signuperoor" = "error while sign Up please try again";
-//sChooseSignupVC
+//ChooseSignupVC
 "user Sign up" = "User Sign Up";
 "Dealer Sign up" = "Dealer Sign Up";
+//ChangePassWordVC
+"passwordchanged" = "Password Changed Successfully😍";

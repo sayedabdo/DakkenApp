@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BB71EC3DDAC4517E23FE9744672E5AFB"
-               BlueprintName = "Pods-DakkenApp"
+               BlueprintIdentifier = "B2F96B02F683EE03F1C8C8B900F4D8ED"
+               BlueprintName = "ScrollableSegmentedControl"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-DakkenApp.framework">
+               BuildableName = "ScrollableSegmentedControl.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

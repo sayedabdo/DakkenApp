@@ -9,4 +9,5 @@ target 'DakkenApp' do
 
   # Pods for DakkenApp
   pod 'Alamofire'
+  pod 'ScrollableSegmentedControl', '~> 1.3.0'
 end

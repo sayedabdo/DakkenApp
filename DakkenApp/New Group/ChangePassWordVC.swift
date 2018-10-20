@@ -20,8 +20,12 @@ class ChangePassWordVC: UIViewController {
         // Do any additional setup after loading the view.
         confirmTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmpasswordPlaceHolder", comment: "")
         passwordTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordPlaceHolder", comment: "")
+        self.hideKeyboardWhenTappedAround()
     }
     
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func changePassWord(_ sender: Any) {
         //check if the password textfield is empty or not
         if(passwordTextField.text?.isEmpty)!{
@@ -52,15 +56,14 @@ class ChangePassWordVC: UIViewController {
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
-        let ChangePassWordURL = "https://dkaken.alsalil.net/api/changepassword"
+        let ReChangePassURL = "https://dkaken.alsalil.net/api/rechangepass"
         let params: [String : String] =
-            [   "old_password"        : "\(AppDelegate.global_user.password)",
+            [
                 "new_password"        : "\(passwordTextField.text!)",
                 "confirmpassword"     : "\(confirmTextField.text!)",
                 "user_hash"           : "\(AppDelegate.global_user.user_hash)",
-                "user_id"             : "\(AppDelegate.global_user.id)"
             ]
-        Alamofire.request(ChangePassWordURL, method: .post, parameters: params)
+        Alamofire.request(ReChangePassURL, method: .post, parameters: params)
             .responseJSON { response in
                 print("the response is : \(response)")
                 let result = response.result
@@ -68,21 +71,32 @@ class ChangePassWordVC: UIViewController {
                 if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
                     if(arrayOfDic["success"] as! Bool == false ){
                         self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
+                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "some_error", comment: ""),
                                                  titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
                         return
                     }
                     if(arrayOfDic["success"] as! Bool == true ){
-                        self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
-                                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
-                        return
+                        self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Done", comment: ""),
+                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordchanged", comment: ""),
+                                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "home", comment: ""))
+                        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                        self.present(nextViewController, animated:true, completion:nil)
                     }
                 }
         }
     }
 }
-    
+extension ChangePassWordVC {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(ChangePassWordVC.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
 
 
 
