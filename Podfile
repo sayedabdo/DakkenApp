@@ -11,3 +11,12 @@ target 'DakkenApp' do
   pod 'Alamofire'
   pod 'ScrollableSegmentedControl', '~> 1.3.0'
 end
+# Workaround for @IBDesignable (https://github.com/CocoaPods/CocoaPods/issues/5334)
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    next if target.product_type == "com.apple.product-type.bundle"
+    target.build_configurations.each do |config|
+      config.build_settings['CONFIGURATION_BUILD_DIR'] = '$PODS_CONFIGURATION_BUILD_DIR'
+    end
+  end
+end

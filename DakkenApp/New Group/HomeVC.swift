@@ -13,18 +13,17 @@ import ScrollableSegmentedControl
 class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collection: UICollectionView!
-    var dictclasses = Dictionary<String, Any>()
     var userEmail : String! = ""
     var userPassword : String! = ""
     var fromsignUp : Bool = false
+    var tab_data : [String] = ["الكل"]
+    var tab_data_count = 0
     var products = [Product]()
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.dataSource = self
         collection.delegate = self
         // Do any additional setup after loading the view.
-        dictclasses = [   "category"                  : "\(1)"]
-        //get_product(dict: dictclasses)
         get_product()
         if(fromsignUp == true){
             getUserData()
