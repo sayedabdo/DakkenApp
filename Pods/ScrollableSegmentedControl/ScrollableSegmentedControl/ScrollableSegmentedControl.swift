@@ -165,6 +165,7 @@ public enum ScrollableSegmentedControlSegmentStyle: Int {
         segmentsData.insert(segment, at: index)
         calculateLongestTextWidth(text: title)
         reloadSegments()
+        
     }
     
     /**

@@ -16,7 +16,6 @@ class TryJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
         jobsTableView.dataSource = self
         jobsTableView.delegate = self
-        print("asdsa")
         // Do any additional setup after loading the view.
         getCvinfo()
     }
