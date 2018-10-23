@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1606D7FE217A3373005278D4 /* ChangePassWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */; };
+		16083A41217E06AC00A1AB8A /* UpdateJobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16083A40217E06AC00A1AB8A /* UpdateJobsVC.swift */; };
+		16083A43217E085800A1AB8A /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16083A42217E085800A1AB8A /* StatusCell.swift */; };
 		16159EA2217B2F3F0093B5AF /* HomeproductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */; };
 		16159EA4217B321D0093B5AF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA3217B321D0093B5AF /* Product.swift */; };
 		1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616EA4E21762D3100373D16 /* LogInVC.swift */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordVC.swift; sourceTree = "<group>"; };
+		16083A40217E06AC00A1AB8A /* UpdateJobsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobsVC.swift; sourceTree = "<group>"; };
+		16083A42217E085800A1AB8A /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeproductCell.swift; sourceTree = "<group>"; };
 		16159EA3217B321D0093B5AF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1616EA4E21762D3100373D16 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInVC\U0010.swift"; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 			children = (
 				16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */,
 				164657EB217C795F005F22A7 /* JobCell.swift */,
+				16083A42217E085800A1AB8A /* StatusCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				167199D6217A13580031CB95 /* HomeVC.swift */,
 				164657E4217C698C005F22A7 /* TryJobsVC.swift */,
 				16AE8711217DBF43003C6107 /* ProfileVC.swift */,
+				16083A40217E06AC00A1AB8A /* UpdateJobsVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -301,10 +307,12 @@
 				164657EA217C6C49005F22A7 /* CVS.swift in Sources */,
 				164657EC217C795F005F22A7 /* JobCell.swift in Sources */,
 				16AE8712217DBF43003C6107 /* ProfileVC.swift in Sources */,
+				16083A43217E085800A1AB8A /* StatusCell.swift in Sources */,
 				1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */,
 				167199D7217A13590031CB95 /* HomeVC.swift in Sources */,
 				1618641521761235000EABAA /* ViewController.swift in Sources */,
 				16159EA4217B321D0093B5AF /* Product.swift in Sources */,
+				16083A41217E06AC00A1AB8A /* UpdateJobsVC.swift in Sources */,
 				1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */,
 				1618641321761235000EABAA /* AppDelegate.swift in Sources */,
 				1606D7FE217A3373005278D4 /* ChangePassWordVC.swift in Sources */,
