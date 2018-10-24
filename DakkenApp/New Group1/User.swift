@@ -26,11 +26,12 @@ class User{
     var notification : String
     var user_hash : String
     var countryname : String
+    var job : Int
     
     init(id : String , name : String , email : String , password : String ,phone : String,
         address : String , country : String , image : String , role : String , device_id : String,
         firebase_token  : String , forgetcode : String , suspensed : String ,notification : String,
-        user_hash : String , countryname : String){
+        user_hash : String , countryname : String , job : Int){
         
         self.id = id
         self.name = name
@@ -48,5 +49,6 @@ class User{
         self.notification = notification
         self.user_hash = user_hash
         self.countryname = countryname
+        self.job = job
     }
 }

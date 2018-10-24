@@ -89,7 +89,8 @@ class LogInVC: UIViewController {
                         suspensed : "\(userData["suspensed"] as! Int)",
                         notification : "\(userData["notification"] as! Int)",
                         user_hash : userData["user_hash"] as! String,
-                        countryname : userData["countryname"] as! String
+                        countryname : userData["countryname"] as! String,
+                        job : userData["job"] as! Int
                     )
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                     let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC

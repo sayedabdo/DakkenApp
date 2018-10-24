@@ -101,7 +101,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
-        uplaodImages()
+        SignUpWithData()
     }
     
     @IBAction func trytochosseimage(_ sender: UITapGestureRecognizer) {
@@ -167,7 +167,8 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
         mapContinerView.isHidden = false
     }
     ////////
-    func uplaodImages(){
+    //Start SignUpWithData
+    func SignUpWithData(){
         Alamofire.upload(multipartFormData: { multipartFormData in
             let params =
                 [   "name"                  : "\(self.nameTextField.text!)",
@@ -180,6 +181,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                     "firebase_token"        : "b",
                     "device_id"             : "\(UIDevice.current.identifierForVendor!.uuidString)",
                     "role"                  : "0",
+                    "job"                   : "0",
                     "image"                 : ""
                 ]
             
@@ -221,6 +223,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                 }
         })
     }
+    //End SignUpWithData
 }
 extension SignUPVC {
     func hideKeyboardWhenTappedAround() {

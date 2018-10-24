@@ -21,10 +21,11 @@ class CVS{
     var graduation_year : String
     var suspensed : Int
     var created_at : String
+    var image : String
     
     init(id : Int , user_id : Int , name : String , country : String , phone : String
         ,age : String , social_status : Int , job : String , certification : String
-        ,graduation_year : String , suspensed : Int , created_at : String){
+        ,graduation_year : String , suspensed : Int , created_at : String , image : String){
         
         self.id = id
         self.user_id = user_id
@@ -38,6 +39,6 @@ class CVS{
         self.graduation_year = graduation_year
         self.suspensed = suspensed
         self.created_at = created_at
-
+        self.image = image
     }
 }

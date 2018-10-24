@@ -148,7 +148,8 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                         suspensed : "\(userData["suspensed"] as! Int)",
                         notification : "\(userData["notification"] as! Int)",
                         user_hash : userData["user_hash"] as! String,
-                        countryname : userData["countryname"] as! String
+                        countryname : userData["countryname"] as! String,
+                        job : userData["job"] as! Int
                     )
                 }
         }
@@ -246,17 +247,15 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                         certification: aDic1["certification"] as! String,
                         graduation_year: aDic1["graduation_year"] as! String,
                         suspensed: aDic1["suspensed"] as! Int,
-                        created_at: aDic1["created_at"] as! String
+                        created_at: aDic1["created_at"] as! String,
+                        image : aDic1["image"] as! String
                     ))
-                    
                 }
                 self.jobsTableView.reloadData()
             }
         }
     }
     //end getCvinfo
- 
-    
 }
     
 

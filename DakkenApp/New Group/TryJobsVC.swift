@@ -63,7 +63,8 @@ class TryJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         certification: aDic1["certification"] as! String,
                         graduation_year: aDic1["graduation_year"] as! String,
                         suspensed: aDic1["suspensed"] as! Int,
-                        created_at: aDic1["created_at"] as! String
+                        created_at: aDic1["created_at"] as! String,
+                        image : aDic1["image"] as! String
                     ))
                    
                 }

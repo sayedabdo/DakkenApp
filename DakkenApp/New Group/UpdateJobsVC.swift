@@ -20,7 +20,10 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     @IBOutlet weak var images: UIImageView!
     @IBOutlet weak var statusTableView: UITableView!
     @IBOutlet weak var changeImage: UIButton!
+    var cvs : CVS!
     var status = ["متزوج","أعزب"]
+    var tableStatus = 0
+    var updateStatus : Int = 0
     let UPDATEJOB_URL = "https://dkaken.alsalil.net/api/updatejob"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +40,16 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatusCell") as? StatusCell
+            if(tableStatus == indexPath.row){
+                cell?.backgroundColor = UIColor.blue
+            }
         cell?.statusLabel.text = "\(status[indexPath.row])"
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+            selectedCell.contentView.backgroundColor = UIColor.blue
+            tableStatus = indexPath.row
     }
     //end table view status
     //Start change Image
@@ -208,9 +216,52 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     //End update data function
     //Start Get Job data
     func getJobData(){
+        let loginurl = "https://dkaken.alsalil.net/api/userjob"
+        let params: [String : String] =
+            [   "user_id"                  : "\(AppDelegate.global_user.id)",
+                "user_hash"                : "\(AppDelegate.global_user.user_hash)",
+            ]
+        Alamofire.request(loginurl, method: .post, parameters: params)
+            .responseJSON { response in
+                print("the response is : \(response)")
+                let result = response.result
+                print("the result is : \(String(describing: result.value))")
+                if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
+                    if(arrayOfDic["success"] as! Bool == false ){
+                        self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
+                                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                        return
+                    }
+                    let userData = arrayOfDic["message"]!
+                    self.cvs = CVS.init(
+                                   id : userData["id"] as! Int,
+                                   user_id : userData["user_id"] as! Int,
+                                   name : userData["name"] as! String,
+                                   country : userData["country"] as! String,
+                                   phone : userData["phone"] as! String,
+                                   age : userData["age"] as! String,
+                                   social_status : userData["social_status"] as! Int,
+                                   job : userData["job"] as! String,
+                                   certification : userData["certification"] as! String,
+                                   graduation_year : userData["graduation_year"] as! String,
+                                   suspensed : userData["suspensed"] as! Int,
+                                   created_at : userData["created_at"] as! String,
+                                   image : ""
+                    )
+                    self.nameTextField.text = "\(userData["name"] as! String)"
+                    self.ageTextField.text = "\(userData["age"] as! String)"
+                    self.jobTitle.text = "\(userData["job"] as! String)"
+                    self.certification.text = "\(userData["certification"] as! String)"
+                    self.graduationYear.text = "\(userData["graduation_year"] as! String)"
+                    download_image(image_url:"",imagedisplayed: self.images)
+                    self.tableStatus = userData["social_status"] as! Int
+                    self.statusTableView.reloadData()
+                }
+        }
         
     }
-    //End Job Data
+    //End Get Job data
 }
 extension UpdateJobsVC {
     func hideKeyboardWhenTappedAround() {
