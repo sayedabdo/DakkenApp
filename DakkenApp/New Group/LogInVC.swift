@@ -53,7 +53,7 @@ class LogInVC: UIViewController {
                 "password"               : "\(passwordTextField.text!)",
                 "firebase_token"         : "b",
                 "device_id"              : "\(UIDevice.current.identifierForVendor!.uuidString)"
-        ]
+            ]
         Alamofire.request(loginurl, method: .post, parameters: params)
             .responseJSON { response in
                 print("the response is : \(response)")

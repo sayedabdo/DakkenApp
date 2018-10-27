@@ -100,11 +100,10 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                         "email"               : "\(self.emailTextField.text!)",
                         "user_id"             : "\(AppDelegate.global_user.id)",
                         "user_hash"           : "\(AppDelegate.global_user.user_hash)",
-                        "address"             : "b",
+                        "address"             : "\(AppDelegate.global_user.address)",
                         "notification"        : "1",
-                        "country"             : "1",
-
-                ]
+                        "country"             : "\(AppDelegate.global_user.country)",
+                    ]
                 for (key, value) in params {
                     if let data = value.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) {
                         multipartFormData.append(data, withName: key)

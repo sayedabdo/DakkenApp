@@ -27,7 +27,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell") as? OrderCell
-        cell?.setOrder(Order: order[indexPath.row])
+       // cell?.setOrder(Order: order[indexPath.row])
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -38,8 +38,8 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     func getOrder(){
         let loginurl = "https://dkaken.alsalil.net/api/login"
         let params: [String : String] =
-            [   "user_hash"              : "\(userEmail!)",
-                "owner_id"               : "\(userPassword!)",
+            [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
+                "owner_id"               : "\(AppDelegate.global_user.id)",
         ]
         Alamofire.request(loginurl, method: .post, parameters: params)
             .responseJSON { response in

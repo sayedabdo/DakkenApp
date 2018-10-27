@@ -172,7 +172,7 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                     "job"               : "\(self.jobTitle.text!)",
                     "certification"     : "\(self.certification.text!)",
                     "graduation_year"   : "\(self.graduationYear.text!)",
-                    "job_id"            : "\(5)",
+                    "job_id"            : "\(self.cvs.id)",
                     "Image"             : ""
             ]
             for (key, value) in params {
