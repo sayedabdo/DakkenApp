@@ -41,14 +41,14 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatusCell") as? StatusCell
             if(tableStatus == indexPath.row){
-                cell?.backgroundColor = UIColor.blue
+                cell?.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
             }
         cell?.statusLabel.text = "\(status[indexPath.row])"
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
-            selectedCell.contentView.backgroundColor = UIColor.blue
+            selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
             tableStatus = indexPath.row
     }
     //end table view status
@@ -168,7 +168,7 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                     "user_hash"         : "\(AppDelegate.global_user.user_hash)",
                     "name"              : "\(self.nameTextField.text!)",
                     "age"               : "\(self.ageTextField.text!)",
-                    "social_status"     : "\(0)",
+                    "social_status"     : "\(self.tableStatus)",
                     "job"               : "\(self.jobTitle.text!)",
                     "certification"     : "\(self.certification.text!)",
                     "graduation_year"   : "\(self.graduationYear.text!)",

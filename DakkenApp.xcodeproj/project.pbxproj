@@ -10,6 +10,9 @@
 		1606D7FE217A3373005278D4 /* ChangePassWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */; };
 		16083A41217E06AC00A1AB8A /* UpdateJobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16083A40217E06AC00A1AB8A /* UpdateJobsVC.swift */; };
 		16083A43217E085800A1AB8A /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16083A42217E085800A1AB8A /* StatusCell.swift */; };
+		160AE2CF218092550076074C /* OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160AE2CE218092550076074C /* OrderVC.swift */; };
+		160AE2D1218093980076074C /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160AE2D0218093980076074C /* OrderCell.swift */; };
+		160AE2D3218096CD0076074C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160AE2D2218096CD0076074C /* Order.swift */; };
 		16159EA2217B2F3F0093B5AF /* HomeproductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */; };
 		16159EA4217B321D0093B5AF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA3217B321D0093B5AF /* Product.swift */; };
 		1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616EA4E21762D3100373D16 /* LogInVC.swift */; };
@@ -29,6 +32,7 @@
 		165ECF6B217766E200F7FA0F /* SignUPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165ECF6A217766E200F7FA0F /* SignUPVC.swift */; };
 		167199D7217A13590031CB95 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167199D6217A13580031CB95 /* HomeVC.swift */; };
 		16AE8712217DBF43003C6107 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE8711217DBF43003C6107 /* ProfileVC.swift */; };
+		16EBF79C2184640500134E05 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EBF79B2184640500134E05 /* ItemData.swift */; };
 		9D8DF19D92965402243F6152 /* Pods_DakkenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01113039E7705157B2952EE /* Pods_DakkenApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +40,9 @@
 		1606D7FD217A3373005278D4 /* ChangePassWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordVC.swift; sourceTree = "<group>"; };
 		16083A40217E06AC00A1AB8A /* UpdateJobsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJobsVC.swift; sourceTree = "<group>"; };
 		16083A42217E085800A1AB8A /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		160AE2CE218092550076074C /* OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVC.swift; sourceTree = "<group>"; };
+		160AE2D0218093980076074C /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		160AE2D2218096CD0076074C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeproductCell.swift; sourceTree = "<group>"; };
 		16159EA3217B321D0093B5AF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1616EA4E21762D3100373D16 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInVC\U0010.swift"; sourceTree = "<group>"; };
@@ -60,6 +67,7 @@
 		165ECF6A217766E200F7FA0F /* SignUPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUPVC.swift; path = ../SignUPVC.swift; sourceTree = "<group>"; };
 		167199D6217A13580031CB95 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		16AE8711217DBF43003C6107 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		16EBF79B2184640500134E05 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		C01113039E7705157B2952EE /* Pods_DakkenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DakkenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1160FF3D1322A5ADCC9CB3D /* Pods-DakkenApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA57055B25249367AEE8D085 /* Pods-DakkenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 				16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */,
 				164657EB217C795F005F22A7 /* JobCell.swift */,
 				16083A42217E085800A1AB8A /* StatusCell.swift */,
+				160AE2D0218093980076074C /* OrderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,6 +152,7 @@
 				164657E4217C698C005F22A7 /* TryJobsVC.swift */,
 				16AE8711217DBF43003C6107 /* ProfileVC.swift */,
 				16083A40217E06AC00A1AB8A /* UpdateJobsVC.swift */,
+				160AE2CE218092550076074C /* OrderVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -154,6 +164,8 @@
 				1618643F2176199E000EABAA /* User.swift */,
 				16159EA3217B321D0093B5AF /* Product.swift */,
 				164657E9217C6C49005F22A7 /* CVS.swift */,
+				160AE2D2218096CD0076074C /* Order.swift */,
+				16EBF79B2184640500134E05 /* ItemData.swift */,
 			);
 			name = model;
 			path = "New Group1";
@@ -304,17 +316,21 @@
 			files = (
 				161864352176138A000EABAA /* LocalizationSystem.swift in Sources */,
 				165ECF6B217766E200F7FA0F /* SignUPVC.swift in Sources */,
+				160AE2D1218093980076074C /* OrderCell.swift in Sources */,
 				164657EA217C6C49005F22A7 /* CVS.swift in Sources */,
 				164657EC217C795F005F22A7 /* JobCell.swift in Sources */,
 				16AE8712217DBF43003C6107 /* ProfileVC.swift in Sources */,
+				160AE2D3218096CD0076074C /* Order.swift in Sources */,
 				16083A43217E085800A1AB8A /* StatusCell.swift in Sources */,
 				1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */,
 				167199D7217A13590031CB95 /* HomeVC.swift in Sources */,
+				16EBF79C2184640500134E05 /* ItemData.swift in Sources */,
 				1618641521761235000EABAA /* ViewController.swift in Sources */,
 				16159EA4217B321D0093B5AF /* Product.swift in Sources */,
 				16083A41217E06AC00A1AB8A /* UpdateJobsVC.swift in Sources */,
 				1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */,
 				1618641321761235000EABAA /* AppDelegate.swift in Sources */,
+				160AE2CF218092550076074C /* OrderVC.swift in Sources */,
 				1606D7FE217A3373005278D4 /* ChangePassWordVC.swift in Sources */,
 				161864402176199E000EABAA /* User.swift in Sources */,
 				164657E5217C698C005F22A7 /* TryJobsVC.swift in Sources */,
