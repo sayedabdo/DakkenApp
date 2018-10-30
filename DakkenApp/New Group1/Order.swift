@@ -17,10 +17,10 @@ class Order{
     var owner : Int
     var trader : Int
     var qty : Int
-    var price : Int
+    var price : Double
     var status : Int
     var created_at : String
-    init(id : Int , item_id : Int , item_title : String , item_img : String , order_id : Int , owner : Int , trader : Int , qty : Int , price : Int , status : Int , created_at : String) {
+    init(id : Int , item_id : Int , item_title : String , item_img : String , order_id : Int , owner : Int , trader : Int , qty : Int , price : Double , status : Int , created_at : String) {
         
             self.id = id
             self.item_id = item_id

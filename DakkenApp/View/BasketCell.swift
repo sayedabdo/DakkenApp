@@ -17,12 +17,13 @@ class BasketCell: UITableViewCell {
     @IBOutlet weak var ProductCount: UITextField!
     @IBOutlet weak var productDetiles: UIButton!
     @IBOutlet weak var productDelete: UIButton!
+    @IBOutlet weak var stepper: UIStepper!
     
     func setOrder(Order: Order) {
         productName.text = Order.item_title
         productPrice.text = "\(Order.price) ريال "
         ProductCount.text  = "\(Order.qty)"
-        productTotalPrice.text = "\(Order.price * Order.qty)"
+        productTotalPrice.text = "\(Order.price * Double(Order.qty))"
         download_image(image_url: Order.item_img,imagedisplayed: productImage)
     }
 
