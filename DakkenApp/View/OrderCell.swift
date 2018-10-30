@@ -14,14 +14,15 @@ class OrderCell: UITableViewCell {
     @IBOutlet weak var orderCount: UILabel!
     @IBOutlet weak var priceOrder: UILabel!
     @IBOutlet weak var timeOrder: UILabel!
+    @IBOutlet weak var orderImage: UIImageView!
     
-//    func setOrder(order: Order) {
-//        orderName.text = order.
-//        orderCount.text = "\(Order.Price) ريال "
-//        timeOrder.text  = "\(Order.order_pro_quantity)"
-//        product_total_cost.text = "\(Order.Price * Double(Order.order_pro_quantity))"
-//        download_image(image_url: Order.Product_img,imagedisplayed: product_image)
-//
-//    }
+    func setOrder(order: Order) {
+        orderName.text = order.item_title
+        orderCount.text = "\(order.qty)"
+        timeOrder.text  = order.created_at
+        priceOrder.text = "\(order.price * Double(order.qty))"
+        download_image(image_url: order.item_img,imagedisplayed: orderImage)
+
+    }
     
 }

@@ -17,31 +17,33 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         // Do any additional setup after loading the view.
         orderTableView.dataSource = self
         orderTableView.delegate = self
+        getOrderDetails()
     }
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("the count is : \(order.count)")
         return order.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell") as? OrderCell
-       // cell?.setOrder(Order: order[indexPath.row])
+        cell?.setOrder(order: order[indexPath.row])
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     //end table view jobs
-    //Start Get Order
-    func getOrder(){
-        let loginurl = "https://dkaken.alsalil.net/api/login"
+    //Start getOrderDetails
+    func getOrderDetails(){
+        let OrderDetailsURL = "https://dkaken.alsalil.net/api/myorderdetails"
         let params: [String : String] =
-            [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
-                "owner_id"               : "\(AppDelegate.global_user.id)",
+            [   "user_hash"              : "$2y$10$mimFE9.sE/tvPdx9nqmya.JOjbOlnFcTECiUZNAxKEspzLC2KOOzq",
+                "owner_id"               : "\(23)"
         ]
-        Alamofire.request(loginurl, method: .post, parameters: params)
+        Alamofire.request(OrderDetailsURL, method: .post, parameters: params)
             .responseJSON { response in
                 print("the response is : \(response)")
                 let result = response.result
@@ -82,7 +84,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
                 }
         }
     }
-    //End Get Order
+    //ENd getOrderDetails
     
 
 }

@@ -30,6 +30,7 @@
 		1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618643D2176198D000EABAA /* ChooseSignupVC.swift */; };
 		161864402176199E000EABAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618643F2176199E000EABAA /* User.swift */; };
 		1618644321761CF9000EABAA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618644221761CF9000EABAA /* Helper.swift */; };
+		161E5DF7218877650038C44A /* MainOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161E5DF6218877650038C44A /* MainOrderCell.swift */; };
 		164657E5217C698C005F22A7 /* TryJobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164657E4217C698C005F22A7 /* TryJobsVC.swift */; };
 		164657EA217C6C49005F22A7 /* CVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164657E9217C6C49005F22A7 /* CVS.swift */; };
 		164657EC217C795F005F22A7 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164657EB217C795F005F22A7 /* JobCell.swift */; };
@@ -69,6 +70,7 @@
 		1618643D2176198D000EABAA /* ChooseSignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSignupVC.swift; sourceTree = "<group>"; };
 		1618643F2176199E000EABAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1618644221761CF9000EABAA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		161E5DF6218877650038C44A /* MainOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOrderCell.swift; sourceTree = "<group>"; };
 		164657E4217C698C005F22A7 /* TryJobsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryJobsVC.swift; sourceTree = "<group>"; };
 		164657E9217C6C49005F22A7 /* CVS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVS.swift; sourceTree = "<group>"; };
 		164657EB217C795F005F22A7 /* JobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				160AE2D0218093980076074C /* OrderCell.swift */,
 				1604138E218478CB0057D60C /* MyProductCell.swift */,
 				16080E262184C0A3007A7A6B /* BasketCell.swift */,
+				161E5DF6218877650038C44A /* MainOrderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */,
 				1618641321761235000EABAA /* AppDelegate.swift in Sources */,
 				160AE2CF218092550076074C /* OrderVC.swift in Sources */,
+				161E5DF7218877650038C44A /* MainOrderCell.swift in Sources */,
 				1606D7FE217A3373005278D4 /* ChangePassWordVC.swift in Sources */,
 				161864402176199E000EABAA /* User.swift in Sources */,
 				1604139121847A0B0057D60C /* MyProductVC.swift in Sources */,

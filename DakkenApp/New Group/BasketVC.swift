@@ -124,9 +124,9 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     //start Delete Item From Card
     func deleteItemFromCard(deleteitem : Int){
         let deleteitemsURL = "https://dkaken.alsalil.net/api/delcartitem"
-        let params: [String : Any] =
-            [   "user_hash"                  : "$2y$10$8Gra96kkwZ7oOtxrw5IUlesp8DawSKZ.F8hA4.0z0AfFAwRhBhu72",
-                "cart_id"                    : deleteitem,
+        let params: [String : String] =
+            [   "user_hash"                  : "$2y$10$mimFE9.sE/tvPdx9nqmya.JOjbOlnFcTECiUZNAxKEspzLC2KOOzq",
+                "cart_id"                    : "\(deleteitem)"
             ]
         Alamofire.request(deleteitemsURL, method: .post, parameters: params)
             .responseJSON { response in
