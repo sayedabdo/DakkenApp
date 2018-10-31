@@ -11,7 +11,7 @@ import Alamofire
 
 class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var order = [Order]()
-    var subOrder = [Order]()
+    var subOrder = [SubOrder]()
     @IBOutlet weak var subOrderTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +25,12 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("the count is : \(order.count)")
-        return order.count
+        print("the count is : \(subOrder.count)")
+        return subOrder.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subOrderCell") as? subOrderCell
-        cell?.setOrder(order: order[indexPath.row])
+        cell?.setOrder(subOrder: SubOrder[indexPath.row])
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -41,9 +41,9 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     func getOrderDetails(){
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/myorderdetails"
         let params: [String : String] =
-            [   "user_hash"              : "$2y$10$mimFE9.sE/tvPdx9nqmya.JOjbOlnFcTECiUZNAxKEspzLC2KOOzq",
-                "order_id"               :"\(11)" ,
-                "owner_id"               :"\(23)"
+            [   "user_hash"              : "$2y$10$opFJGvoUJy7rIEumoz.71.65zcLi7YAaPpNCJyQUfKuk5Da7zCttm",
+                "order_id"               :"\(9)" ,
+                "owner_id"               :"\(2)"
             ]
         Alamofire.request(OrderDetailsURL, method: .post, parameters: params)
             .responseJSON { response in
@@ -59,14 +59,11 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
                     }
                     var messagedata = arrayOfDic["message"] as? [[String: Any]]
                     for aDic1 in messagedata!{
-                        self.subOrder.append(Order(
-                            id : aDic1["id"] as! Int,
-                            item_id : aDic1["item_id"] as! Int,
-                            item_title : aDic1["item_title"] as! String,
-                            item_img : aDic1["item_img"] as! String,
-                            order_id : aDic1["order_id"] as! Int,
-                            owner : aDic1["owner"] as! Int,
-                            trader : aDic1["trader"] as! Int,
+                        self.subOrder.append(SubOrder(
+                            itemname : aDic1["itemname"] as! String,
+                            itemimg : aDic1["itemimg"] as! String,
+                            itemprice : aDic1["itemprice"] as! Int,
+                            trader : aDic1["trader"] as! String,
                             qty : aDic1["qty"] as! Int,
                             price : aDic1["price"] as! Double,
                             status : aDic1["status"] as! Int,
