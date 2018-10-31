@@ -16,7 +16,7 @@ class subOrderCell: UITableViewCell {
     @IBOutlet weak var timeOrder: UILabel!
     @IBOutlet weak var orderImage: UIImageView!
     
-    func setOrder(subOrder: SubOrder) {
+    func setSubOrder(subOrder: SubOrder) {
         orderName.text = subOrder.itemname
         orderCount.text = "\(subOrder.qty)"
         timeOrder.text  = subOrder.created_at

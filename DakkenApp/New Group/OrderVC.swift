@@ -10,28 +10,46 @@ import UIKit
 import Alamofire
 
 class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
-    var order = [Order]()
+    var superorder = [SuperOrder]()
     var subOrder = [SubOrder]()
+    var role = 0
     @IBOutlet weak var subOrderTableView: UITableView!
+    @IBOutlet weak var superOrderTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         subOrderTableView.dataSource = self
         subOrderTableView.delegate = self
-        getOrderDetails()
+       // getOrderDetails()
+        getOrder()
     }
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("the count is : \(subOrder.count)")
-        return subOrder.count
+        if role == 1{
+            print("the subOrder count is : \(subOrder.count)")
+            return subOrder.count
+        }
+         else{
+            print("the superOrder count is : \(superorder.count)")
+            return superorder.count
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subOrderCell") as? subOrderCell
-        cell?.setOrder(subOrder: SubOrder[indexPath.row])
-        return cell!
+        
+        if role == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "subOrderCell") as? subOrderCell
+            cell?.setSubOrder(subOrder: subOrder[indexPath.row])
+            return cell!
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "superOrderCell") as? superOrderCell
+            cell?.setSuperOrder(superOrder : superorder[indexPath.row])
+            cell?.orderDetailes.tag = superorder[indexPath.row].id
+            return cell!
+        }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -69,13 +87,47 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
                             status : aDic1["status"] as! Int,
                             created_at : aDic1["created_at"] as! String
                         ))
-                        
                     }
                     self.subOrderTableView.reloadData()
                 }
         }
     }
     //ENd getOrderDetails
-    
+    ////////////
+    //start get orders
+    func getOrder(){
+        let OrderDetailsURL = "https://dkaken.alsalil.net/api/myuserorders"
+        let params: [String : String] =
+            [   "user_hash"              : "$2y$10$opFJGvoUJy7rIEumoz.71.65zcLi7YAaPpNCJyQUfKuk5Da7zCttm",
+                "owner_id"               : "\(2)"
+            ]
+        Alamofire.request(OrderDetailsURL, method: .post, parameters: params)
+            .responseJSON { response in
+                print("the response is : \(response)")
+                let result = response.result
+                print("the result is : \(String(describing: result.value))")
+                if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
+                    if(arrayOfDic["success"] as! Bool == false ){
+                        self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
+                                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                        return
+                    }
+                    var messagedata = arrayOfDic["message"] as? [[String: Any]]
+                    for aDic1 in messagedata!{
+                        self.superorder.append(SuperOrder(
+                            id : aDic1["id"] as! Int,
+                            order_number : aDic1["order_number"] as! String,
+                            order_owner : aDic1["order_owner"] as! Int,
+                            status : aDic1["status"] as! Int,
+                            created_at : aDic1["created_at"] as! String
+                        ))
+                    }
+                    print("superOrder : \(self.superorder.count)")
+                    self.superOrderTableView.reloadData()
+                }
+        }
+    }
+    //end get orders
 
 }
