@@ -11,12 +11,13 @@ import Alamofire
 
 class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var order = [Order]()
-    @IBOutlet weak var orderTableView: UITableView!
+    var subOrder = [Order]()
+    @IBOutlet weak var subOrderTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        orderTableView.dataSource = self
-        orderTableView.delegate = self
+        subOrderTableView.dataSource = self
+        subOrderTableView.delegate = self
         getOrderDetails()
     }
     //start table view jobs
@@ -28,7 +29,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         return order.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell") as? OrderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subOrderCell") as? subOrderCell
         cell?.setOrder(order: order[indexPath.row])
         return cell!
     }
@@ -41,8 +42,9 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/myorderdetails"
         let params: [String : String] =
             [   "user_hash"              : "$2y$10$mimFE9.sE/tvPdx9nqmya.JOjbOlnFcTECiUZNAxKEspzLC2KOOzq",
-                "owner_id"               : "\(23)"
-        ]
+                "order_id"               :"\(11)" ,
+                "owner_id"               :"\(23)"
+            ]
         Alamofire.request(OrderDetailsURL, method: .post, parameters: params)
             .responseJSON { response in
                 print("the response is : \(response)")
@@ -55,32 +57,24 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
                                                  titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
                         return
                     }
-                    let userData = arrayOfDic["message"]!
-                    let forgetcode : String!
-                    if("\(userData["forgetcode"] as! NSNull)" == "<null>"){
-                        forgetcode = "null"
-                    }else{
-                        forgetcode = "\(userData["forgetcode"] as! String)"
+                    var messagedata = arrayOfDic["message"] as? [[String: Any]]
+                    for aDic1 in messagedata!{
+                        self.subOrder.append(Order(
+                            id : aDic1["id"] as! Int,
+                            item_id : aDic1["item_id"] as! Int,
+                            item_title : aDic1["item_title"] as! String,
+                            item_img : aDic1["item_img"] as! String,
+                            order_id : aDic1["order_id"] as! Int,
+                            owner : aDic1["owner"] as! Int,
+                            trader : aDic1["trader"] as! Int,
+                            qty : aDic1["qty"] as! Int,
+                            price : aDic1["price"] as! Double,
+                            status : aDic1["status"] as! Int,
+                            created_at : aDic1["created_at"] as! String
+                        ))
+                        
                     }
-                    AppDelegate.global_user = User(
-                        id : "\(userData["id"] as! Int)",
-                        name : userData["name"] as! String,
-                        email : userData["email"] as! String,
-                        password : userData["password"] as! String,
-                        phone : userData["phone"] as! String,
-                        address : userData["address"] as! String,
-                        country : "\(userData["country"] as! Int)",
-                        image : userData["image"] as! String,
-                        role : "\(userData["role"] as! Int)",
-                        device_id : userData["device_id"] as! String,
-                        firebase_token : userData["firebase_token"] as! String,
-                        forgetcode : "\(forgetcode)",
-                        suspensed : "\(userData["suspensed"] as! Int)",
-                        notification : "\(userData["notification"] as! Int)",
-                        user_hash : userData["user_hash"] as! String,
-                        countryname : userData["countryname"] as! String,
-                        job : userData["job"] as! Int
-                    )
+                    self.subOrderTableView.reloadData()
                 }
         }
     }
