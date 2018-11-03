@@ -17,7 +17,7 @@ class HomeproductCell: UICollectionViewCell {
     func setProduct(product: Product) {
         productName.text = "\(product.title)"
         productPrice.text = "\(product.price)"
-       // download_image(image_url: product.image,imagedisplayed: productImage)
+      //  download_image(image_url: product.image,imagedisplayed: productImage)
         buttonborder(button_outlet_name:addtToCard)
     }
 }

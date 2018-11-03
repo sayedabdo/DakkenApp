@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+
 class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     @IBOutlet weak var images: UIImageView!
@@ -22,6 +23,7 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         nameTextFiled.text  = "\(AppDelegate.global_user.name)"
         emailTextField.text = "\(AppDelegate.global_user.email)"
         PhoneTextField.text = "\(AppDelegate.global_user.phone)"
+        download_image(image_url: AppDelegate.global_user.image,imagedisplayed: images)
     }
 
     @IBAction func changeimage(_ sender: Any) {

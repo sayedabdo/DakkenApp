@@ -25,6 +25,8 @@ class BasketCell: UITableViewCell {
         ProductCount.text  = "\(Order.qty)"
         productTotalPrice.text = "\(Order.price * Double(Order.qty))"
         download_image(image_url: Order.item_img,imagedisplayed: productImage)
+        buttonborder(button_outlet_name:productDelete)
+        buttonborder(button_outlet_name:productDetiles)
     }
 
 

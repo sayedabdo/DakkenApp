@@ -52,6 +52,9 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
             tableStatus = indexPath.row
     }
     //end table view status
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     //Start change Image
     @IBAction func changeimage(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

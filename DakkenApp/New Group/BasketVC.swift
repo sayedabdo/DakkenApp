@@ -14,6 +14,7 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var basketTableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var confirmAllOrder: UIButton!
     var orders = [Order]()
     var count_before = 0
     var count_after = 0
@@ -24,6 +25,7 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         basketTableView.delegate = self
         // Do any additional setup after loading the view.
         getAllItemsFromCard(item : 23)
+        buttonborder(button_outlet_name:confirmAllOrder)
     }
     //start deleteItemAction
     @IBAction func deleteItemAction(_ sender: Any) {
@@ -63,6 +65,9 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = basketTableView.dequeueReusableCell(withIdentifier: "BasketCell", for: indexPath) as? BasketCell
             else { return UITableViewCell()
+        }
+        if(indexPath.row % 2 == 1){
+            cell.backgroundColor = UIColor.lightGray
         }
         cell.setOrder(Order: orders[indexPath.row])
         cell.productDetiles.tag = indexPath.row

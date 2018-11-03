@@ -29,7 +29,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         jobsTableView.dataSource = self
         jobsTableView.delegate = self
         // Do any additional setup after loading the view.
-        get_product()
+        get_product(category: 1)
         for tabDataCounter in tab_data{
             self.segmentedControl.insertSegment(withTitle: "\(tabDataCounter)", at: self.tab_data_count)
             self.tab_data_count = self.tab_data_count + 1
@@ -99,9 +99,21 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
        /// self.collection.reloadData()
         print("Segment at index \(sender.selectedSegmentIndex)  selected")
 //        let text_filtter = "\(tab_data[sender.selectedSegmentIndex])"
-//        if(sender.selectedSegmentIndex == 0){
-//            get_product()
-//        }
+        if(sender.selectedSegmentIndex == 0){
+            get_product(category: 1)
+        }
+        if(sender.selectedSegmentIndex == 1){
+            get_product(category: 2)
+        }
+        if(sender.selectedSegmentIndex == 2){
+            get_product(category: 3)
+        }
+        if(sender.selectedSegmentIndex == 3){
+            getCvinfo()
+        }
+        if(sender.selectedSegmentIndex == 4){
+            get_product(category: 5)
+        }
     }
     //end custom segement
     //start get user data when sign up
@@ -156,11 +168,11 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     }
     //end get user data when sign up
     //start get_product
-    func get_product(){
+    func get_product(category : Int){
         products.removeAll()
         let ProductURL = "https://dkaken.alsalil.net/api/allitems"
         let params: [String : String] =
-            [   "category"                  : "\(1)",
+            [   "category"                  : "\(category)",
         ]
         Alamofire.request(ProductURL, method: .post, parameters: params)
             .responseJSON { response in
