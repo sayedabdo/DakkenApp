@@ -26,6 +26,7 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         // Do any additional setup after loading the view.
         getAllItemsFromCard(item : 23)
         buttonborder(button_outlet_name:confirmAllOrder)
+        basketTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
     //start deleteItemAction
     @IBAction func deleteItemAction(_ sender: Any) {
@@ -67,7 +68,7 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             else { return UITableViewCell()
         }
         if(indexPath.row % 2 == 1){
-            cell.backgroundColor = UIColor.lightGray
+            cell.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         }
         cell.setOrder(Order: orders[indexPath.row])
         cell.productDetiles.tag = indexPath.row

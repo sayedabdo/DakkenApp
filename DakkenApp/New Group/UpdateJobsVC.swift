@@ -20,6 +20,9 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     @IBOutlet weak var images: UIImageView!
     @IBOutlet weak var statusTableView: UITableView!
     @IBOutlet weak var changeImage: UIButton!
+    @IBOutlet weak var updateJobBtn: UIButton!
+    @IBOutlet weak var deleteJobBtn: UIButton!
+    
     var cvs : CVS!
     var status = ["متزوج","أعزب"]
     var tableStatus = 0
@@ -30,6 +33,9 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         statusTableView.dataSource = self
         statusTableView.delegate = self
         // Do any additional setup after loading the view.
+        buttonborder(button_outlet_name:changeImage)
+        buttonborder(button_outlet_name:updateJobBtn)
+        buttonborder(button_outlet_name:deleteJobBtn)
     }
     //start table view status
     func numberOfSections(in tableView: UITableView) -> Int {

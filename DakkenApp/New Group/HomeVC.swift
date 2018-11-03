@@ -65,15 +65,18 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         guard let cell = collection.dequeueReusableCell(withReuseIdentifier: "HomeproductCell", for: indexPath) as? HomeproductCell
             else { return UICollectionViewCell()
         }
+        if(indexPath.row % 2 == 1){
+            cell.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        }
         cell.setProduct(product: products[indexPath.row])
        // cell.product_customer_name.tag = indexPath.row
-        cell.layer.cornerRadius = 5
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.yellow.cgColor
+        cell.layer.cornerRadius = 8
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 240)
+        return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 250)
     }
     //end collection view
     

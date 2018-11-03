@@ -16,6 +16,9 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var PhoneTextField: UITextField!
     @IBOutlet weak var updateDataBtn: UIButton!
+    @IBOutlet weak var chooseImageBtn: UIButton!
+    @IBOutlet weak var jobBtn: UIButton!
+    
     let UPDATEProfile_URL = "https://dkaken.alsalil.net/api/register"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,8 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         emailTextField.text = "\(AppDelegate.global_user.email)"
         PhoneTextField.text = "\(AppDelegate.global_user.phone)"
         download_image(image_url: AppDelegate.global_user.image,imagedisplayed: images)
+        buttonborder(button_outlet_name:updateDataBtn)
+        buttonborder(button_outlet_name:chooseImageBtn)
     }
 
     @IBAction func changeimage(_ sender: Any) {

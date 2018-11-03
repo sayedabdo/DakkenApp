@@ -20,6 +20,7 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         subOrderTableView.dataSource = self
         subOrderTableView.delegate = self
         getOrderDetails()
+        subOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
     
     @IBAction func closeOrderStatus(_ sender: Any) {
@@ -38,6 +39,9 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subOrderCell") as? subOrderCell
+        if(indexPath.row % 2 == 1){
+            cell?.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        }
         cell?.setSubOrder(subOrder: subOrder[indexPath.row])
         return cell!
     }

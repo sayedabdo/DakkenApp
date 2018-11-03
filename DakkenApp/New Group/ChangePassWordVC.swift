@@ -13,7 +13,7 @@ class ChangePassWordVC: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmTextField: UITextField!
-    
+    @IBOutlet weak var changeBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("hhhh : \(AppDelegate.global_user.user_hash)")
@@ -21,6 +21,7 @@ class ChangePassWordVC: UIViewController {
         confirmTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmpasswordPlaceHolder", comment: "")
         passwordTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordPlaceHolder", comment: "")
         self.hideKeyboardWhenTappedAround()
+        buttonborder(button_outlet_name:changeBtn)
     }
     
     @IBAction func back(_ sender: Any) {

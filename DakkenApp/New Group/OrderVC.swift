@@ -24,6 +24,8 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         superOrderTableView.delegate = self
        // getOrderDetails()
         getOrder()
+        superOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
+        subOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,11 +45,17 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         
         if role == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "subOrderCell") as? subOrderCell
+            if(indexPath.row % 2 == 1){
+                cell?.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+            }
             cell?.setSubOrder(subOrder: subOrder[indexPath.row])
             return cell!
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "superOrderCell") as? superOrderCell
+            if(indexPath.row % 2 == 1){
+                cell?.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+            }
             cell?.setSuperOrder(superOrder : superorder[indexPath.row])
             cell?.orderDetailes.tag = superorder[indexPath.row].id
             return cell!

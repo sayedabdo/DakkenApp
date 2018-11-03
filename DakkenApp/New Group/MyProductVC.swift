@@ -39,6 +39,9 @@ class MyProductVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
         guard let cell = MyProductcollection.dequeueReusableCell(withReuseIdentifier: "MyProductCell", for: indexPath) as? MyProductCell
             else { return UICollectionViewCell()
         }
+        if(indexPath.row % 2 == 1){
+            cell.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        }
         cell.setMyProduct(product: products[indexPath.row])
         cell.layer.cornerRadius = 5
         cell.layer.borderWidth = 1
