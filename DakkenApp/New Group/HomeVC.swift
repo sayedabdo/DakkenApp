@@ -18,7 +18,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     var userEmail : String! = ""
     var userPassword : String! = ""
     var fromsignUp : Bool = false
-    var tab_data : [String] = ["المجتمع","وظائف","منتجات مستعمله","الملابس","الأكلات"]
+    var tab_data : [String] = ["الأكلات","الملابس","منتجات مستعمله","وظائف","المجتمع"]
     var tab_data_count = 0
     var products = [Product]()
     var cvs = [CVS]()

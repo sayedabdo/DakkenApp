@@ -39,7 +39,9 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
         self.hideKeyboardWhenTappedAround()
     }
     
-    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func signUpAction(_ sender: Any) {
         
         //check if the nameTextField textfield is empty or not

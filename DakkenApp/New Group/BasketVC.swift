@@ -83,7 +83,7 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.total_price = 0
         let cartitemsURL = "https://dkaken.alsalil.net/api/cartitems"
         let params: [String : String] =
-            [   "user_hash"                  : "$2y$10$mimFE9.sE/tvPdx9nqmya.JOjbOlnFcTECiUZNAxKEspzLC2KOOzq",
+            [   "user_hash"                  : "\(AppDelegate.global_user.user_hash)",
                 "owner"                      : "\(item)"
             ]
         Alamofire.request(cartitemsURL, method: .post, parameters: params)

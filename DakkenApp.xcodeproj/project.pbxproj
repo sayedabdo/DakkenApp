@@ -23,6 +23,7 @@
 		160F9DB42189C2A40022C829 /* SubOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F9DB32189C2A40022C829 /* SubOrder.swift */; };
 		16159EA2217B2F3F0093B5AF /* HomeproductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */; };
 		16159EA4217B321D0093B5AF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA3217B321D0093B5AF /* Product.swift */; };
+		1616655F218DB62000511347 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616655E218DB62000511347 /* MainTabBar.swift */; };
 		1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616EA4E21762D3100373D16 /* LogInVC.swift */; };
 		1618641321761235000EABAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641221761235000EABAA /* AppDelegate.swift */; };
 		1618641521761235000EABAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641421761235000EABAA /* ViewController.swift */; };
@@ -62,6 +63,7 @@
 		160F9DB32189C2A40022C829 /* SubOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOrder.swift; sourceTree = "<group>"; };
 		16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeproductCell.swift; sourceTree = "<group>"; };
 		16159EA3217B321D0093B5AF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		1616655E218DB62000511347 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		1616EA4E21762D3100373D16 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInVC\U0010.swift"; sourceTree = "<group>"; };
 		1618640F21761235000EABAA /* DakkenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DakkenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1618641221761235000EABAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,15 +128,16 @@
 			children = (
 				1618644421761D06000EABAA /* help */,
 				16186441217619A7000EABAA /* model */,
+				1618643621761425000EABAA /* View */,
 				1618643C21761959000EABAA /* controller */,
 				1618643721761455000EABAA /* Localization */,
-				1618643621761425000EABAA /* View */,
 				1618641221761235000EABAA /* AppDelegate.swift */,
 				1618641421761235000EABAA /* ViewController.swift */,
 				1618641621761235000EABAA /* Main.storyboard */,
 				1618641B21761235000EABAA /* LaunchScreen.storyboard */,
 				1618641921761235000EABAA /* Assets.xcassets */,
 				1618641E21761235000EABAA /* Info.plist */,
+				1616655E218DB62000511347 /* MainTabBar.swift */,
 			);
 			path = DakkenApp;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				161864402176199E000EABAA /* User.swift in Sources */,
 				1604139121847A0B0057D60C /* MyProductVC.swift in Sources */,
 				164657E5217C698C005F22A7 /* TryJobsVC.swift in Sources */,
+				1616655F218DB62000511347 /* MainTabBar.swift in Sources */,
 				16080E272184C0A3007A7A6B /* BasketCell.swift in Sources */,
 				1618644321761CF9000EABAA /* Helper.swift in Sources */,
 				16159EA2217B2F3F0093B5AF /* HomeproductCell.swift in Sources */,

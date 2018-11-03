@@ -26,7 +26,15 @@ class LogInVC: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
     }
-    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func toSignUpAction(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SignUPVC") as! SignUPVC
+        nextViewController.type = type
+        self.present(nextViewController, animated:true, completion:nil)
+    }
     // function to login
     @IBAction func loginAction(_ sender: Any) {
         
@@ -93,7 +101,7 @@ class LogInVC: UIViewController {
                         job : userData["job"] as! Int
                     )
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
                     self.present(nextViewController, animated:true, completion:nil)
                 }
         }

@@ -50,7 +50,7 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     func getOrderDetails(){
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/myorderdetails"
         let params: [String : String] =
-            [   "user_hash"              : "$2y$10$5L3RGZLjOWXU2gWp7pL6VOXsgV9gFpaGvvlDRFQfgSNySnbLK5GoS",
+            [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
                 "order_id"               :"\(9)" ,
                 "owner_id"               :"\(2)"
             ]
@@ -89,7 +89,7 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     func changeOrdersStatus(itemID : Int , status : String){
         let changeOrderStatusURL = "https://dkaken.alsalil.net/api/orderprocess"
         let params: [String : String] =
-            [   "user_hash"                 : "$2y$10$opFJGvoUJy7rIEumoz.71.65zcLi7YAaPpNCJyQUfKuk5Da7zCttm",
+            [   "user_hash"                 : "\(AppDelegate.global_user.user_hash)",
                 "status"                    : "\(9)" ,
                 "item_id"                   : "\(2)"
         ]

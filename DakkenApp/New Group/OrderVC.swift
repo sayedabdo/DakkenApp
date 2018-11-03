@@ -61,7 +61,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     func getOrderDetails(){
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/myorderdetails"
         let params: [String : String] =
-            [   "user_hash"              : "$2y$10$opFJGvoUJy7rIEumoz.71.65zcLi7YAaPpNCJyQUfKuk5Da7zCttm",
+            [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
                 "order_id"               :"\(9)" ,
                 "owner_id"               :"\(2)"
             ]
@@ -100,7 +100,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     func getOrder(){
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/myuserorders"
         let params: [String : String] =
-            [   "user_hash"              : "$2y$10$opFJGvoUJy7rIEumoz.71.65zcLi7YAaPpNCJyQUfKuk5Da7zCttm",
+            [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
                 "owner_id"               : "\(2)"
             ]
         Alamofire.request(OrderDetailsURL, method: .post, parameters: params)
