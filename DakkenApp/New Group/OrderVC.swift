@@ -20,6 +20,8 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         // Do any additional setup after loading the view.
         subOrderTableView.dataSource = self
         subOrderTableView.delegate = self
+        superOrderTableView.dataSource = self
+        superOrderTableView.delegate = self
        // getOrderDetails()
         getOrder()
     }

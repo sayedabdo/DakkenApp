@@ -11,13 +11,22 @@ import Alamofire
 class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var subOrder = [SubOrder]()
     var order_id : Int!
+    var selectedID : Int!
     @IBOutlet weak var subOrderTableView: UITableView!
+    @IBOutlet weak var statusView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         subOrderTableView.dataSource = self
         subOrderTableView.delegate = self
         getOrderDetails()
+    }
+    
+    @IBAction func closeOrderStatus(_ sender: Any) {
+        statusView.isHidden = true
+    }
+    @IBAction func changeOrderStatus(_ sender: Any) {
+        changeOrdersStatus(itemID : 5 , status : "\((sender as AnyObject).tag)")
     }
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,14 +42,15 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        statusView.isHidden = false
+        selectedID = subOrder[indexPath.row].status
     }
     //end table view jobs
     //Start getOrderDetails
     func getOrderDetails(){
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/myorderdetails"
         let params: [String : String] =
-            [   "user_hash"              : "$2y$10$opFJGvoUJy7rIEumoz.71.65zcLi7YAaPpNCJyQUfKuk5Da7zCttm",
+            [   "user_hash"              : "$2y$10$5L3RGZLjOWXU2gWp7pL6VOXsgV9gFpaGvvlDRFQfgSNySnbLK5GoS",
                 "order_id"               :"\(9)" ,
                 "owner_id"               :"\(2)"
             ]
@@ -75,6 +85,31 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         }
     }
     //ENd getOrderDetails
+    //start change Order Status func
+    func changeOrdersStatus(itemID : Int , status : String){
+        let changeOrderStatusURL = "https://dkaken.alsalil.net/api/orderprocess"
+        let params: [String : String] =
+            [   "user_hash"                 : "$2y$10$opFJGvoUJy7rIEumoz.71.65zcLi7YAaPpNCJyQUfKuk5Da7zCttm",
+                "status"                    : "\(9)" ,
+                "item_id"                   : "\(2)"
+        ]
+        Alamofire.request(changeOrderStatusURL, method: .post, parameters: params)
+            .responseJSON { response in
+                print("the response is : \(response)")
+                let result = response.result
+                print("the result is : \(String(describing: result.value))")
+                if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
+                    if(arrayOfDic["success"] as! Bool == false ){
+                        self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
+                                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                        return
+                    }
+                    self.statusView.isHidden = true
+                }
+        }
+    }
+    //start change Order Status func
     
 }
 
