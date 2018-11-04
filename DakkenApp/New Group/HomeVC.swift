@@ -46,6 +46,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         segmentedControl.selectedSegmentContentColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         segmentedControl.backgroundColor = #colorLiteral(red: 1, green: 0.8256774545, blue: 0, alpha: 1)
         //end segmentedControl
+        jobsTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
     //start collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,18 +66,15 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         guard let cell = collection.dequeueReusableCell(withReuseIdentifier: "HomeproductCell", for: indexPath) as? HomeproductCell
             else { return UICollectionViewCell()
         }
-        if(indexPath.row % 2 == 1){
-            cell.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-        }
         cell.setProduct(product: products[indexPath.row])
        // cell.product_customer_name.tag = indexPath.row
-        cell.layer.cornerRadius = 8
-        cell.layer.borderWidth = 3
-        cell.layer.borderColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
+        cell.layer.cornerRadius = 5
+        cell.layer.borderWidth = 1.5
+        cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 250)
+        return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 220)
     }
     //end collection view
     
@@ -271,6 +269,59 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     //end getCvinfo
+    //Start Add To Card
+    func AddToCard(thisProduct : Product){
+        let AddToCardURL = "https://dkaken.alsalil.net/api/login"
+        let params: [String : String] =
+            [   "user_hash"            : "\(AppDelegate.global_user.user_hash)",
+                "item_id"              : "\(thisProduct.id)",
+                "owner"                : "\(AppDelegate.global_user.id)",
+                "trader"               : "\(thisProduct.trader_id)",
+                "qty"                  : "\(1)",
+                "price"                : "\(thisProduct.price)"
+        ]
+        Alamofire.request(AddToCardURL, method: .post, parameters: params)
+            .responseJSON { response in
+                print("the response is : \(response)")
+                let result = response.result
+                print("the result is : \(String(describing: result.value))")
+                if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
+                    if(arrayOfDic["success"] as! Bool == false ){
+                        self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
+                                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                        return
+                    }
+                    let userData = arrayOfDic["message"]!
+                    let forgetcode : String!
+                    if("\(userData["forgetcode"] as! NSNull)" == "<null>"){
+                        forgetcode = "null"
+                    }else{
+                        forgetcode = "\(userData["forgetcode"] as! String)"
+                    }
+                    AppDelegate.global_user = User(
+                        id : "\(userData["id"] as! Int)",
+                        name : userData["name"] as! String,
+                        email : userData["email"] as! String,
+                        password : userData["password"] as! String,
+                        phone : userData["phone"] as! String,
+                        address : userData["address"] as! String,
+                        country : "\(userData["country"] as! Int)",
+                        image : userData["image"] as! String,
+                        role : "\(userData["role"] as! Int)",
+                        device_id : userData["device_id"] as! String,
+                        firebase_token : userData["firebase_token"] as! String,
+                        forgetcode : "\(forgetcode)",
+                        suspensed : "\(userData["suspensed"] as! Int)",
+                        notification : "\(userData["notification"] as! Int)",
+                        user_hash : userData["user_hash"] as! String,
+                        countryname : userData["countryname"] as! String,
+                        job : userData["job"] as! Int
+                    )
+                }
+        }
+    }
+    //end Add To Card
 }
     
 

@@ -71,6 +71,6 @@ func download_image(image_url:String,imagedisplayed:UIImageView){
 //start button border
 func buttonborder(button_outlet_name:UIButton){
     button_outlet_name.layer.cornerRadius = 8
-    button_outlet_name.layer.borderWidth = 1.5
-    button_outlet_name.layer.borderColor = UIColor.black.cgColor
+    //button_outlet_name.layer.borderWidth = 0
+   // button_outlet_name.layer.borderColor = UIColor.black.cgColor
 }

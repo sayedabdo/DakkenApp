@@ -19,7 +19,7 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var chooseImageBtn: UIButton!
     @IBOutlet weak var jobBtn: UIButton!
     
-    let UPDATEProfile_URL = "https://dkaken.alsalil.net/api/register"
+    let UPDATEProfile_URL = "https://dkaken.alsalil.net/api/updateprofile"
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -71,6 +71,25 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func openJobAction(_ sender: Any) {
+        if(AppDelegate.global_user.job == 0){
+            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
+                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
+        }
+        else{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UpdateJobsVC") as! UpdateJobsVC
+            self.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    @IBAction func openchangePassWord(_ sender: Any) {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ChangePassWordVC") as! ChangePassWordVC
+            self.present(nextViewController, animated:true, completion:nil)
+    }
     @IBAction func updateAction(_ sender: Any) {
         //check if the nameTextField textfield is empty or not
         if(nameTextFiled.text?.isEmpty)!{
@@ -96,9 +115,11 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
+        uplaoddata()
+    }
         //Start update Profile
         ////////
-        func uplaodImages(){
+        func uplaoddata(){
             Alamofire.upload(multipartFormData: { multipartFormData in
                 let params =
                     [   "name"                : "\(self.nameTextFiled.text!)",
@@ -128,14 +149,43 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                             .validate()
                             .responseJSON { response in
                                 switch response.result {
-                                case .success(let value):
-                                    print("responseObject: \(value)")
-                                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-                                    nextViewController.userEmail = self.emailTextField.text!
-                                    nextViewController.userPassword = AppDelegate.global_user.password
-                                    nextViewController.fromsignUp = true
-                                    self.present(nextViewController, animated:true, completion:nil)
+                                    case .success(let value):
+                                        print("responseObject: \(value)")
+                                        if let arrayOfDic = value as? Dictionary<String, AnyObject> {
+                                            if(arrayOfDic["success"] as! Bool == false ){
+                                                self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                                                     messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
+                                                                     titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                                            return
+                                        }
+                                        let userData = arrayOfDic["message"]!
+                                        let forgetcode : String!
+                                        if("\(userData["forgetcode"] as! NSNull)" == "<null>"){
+                                            forgetcode = "null"
+                                        }else{
+                                            forgetcode = "\(userData["forgetcode"] as! String)"
+                                        }
+                                        AppDelegate.global_user = User(
+                                            id : "\(userData["id"] as! Int)",
+                                            name : userData["name"] as! String,
+                                            email : userData["email"] as! String,
+                                            password : userData["password"] as! String,
+                                            phone : userData["phone"] as! String,
+                                            address : userData["address"] as! String,
+                                            country : "\(userData["country"] as! Int)",
+                                            image : userData["image"] as! String,
+                                            role : "\(userData["role"] as! Int)",
+                                            device_id : userData["device_id"] as! String,
+                                            firebase_token : userData["firebase_token"] as! String,
+                                            forgetcode : "\(forgetcode)",
+                                            suspensed : "\(userData["suspensed"] as! Int)",
+                                            notification : "\(userData["notification"] as! Int)",
+                                            user_hash : userData["user_hash"] as! String,
+                                            countryname : userData["countryname"] as! String,
+                                            job : userData["job"] as! Int
+                                        )
+                                    }
+                                        self.upDateDoneAlert(title: "!!@",messageToDisplay: "تم تحديث الداتا بنجاح", titleofaction : "home")
                                 case .failure(let responseError):
                                     print("responseError: \(responseError)")
                                     self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
@@ -149,8 +199,19 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                     }
             })
         }
+    //start function to display alert
+    func upDateDoneAlert(title: String,messageToDisplay: String, titleofaction : String)
+    {
+        let alertController = UIAlertController(title: title, message: messageToDisplay, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: titleofaction, style: .default) { (action:UIAlertAction!) in
+            // Code in this block will trigger when OK button tapped.
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
+            self.present(nextViewController, animated:true, completion:nil)
+            return
+        }
+        alertController.addAction(OKAction)
+        present(alertController, animated: true, completion:nil)
+    }
         
     }
-    
-    
-}

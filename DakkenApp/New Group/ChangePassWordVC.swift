@@ -77,15 +77,24 @@ class ChangePassWordVC: UIViewController {
                         return
                     }
                     if(arrayOfDic["success"] as! Bool == true ){
-                        self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Done", comment: ""),
-                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordchanged", comment: ""),
-                                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "home", comment: ""))
-                        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-                        self.present(nextViewController, animated:true, completion:nil)
+                        self.PassWordChangedDoneAlert(title: "!!@",messageToDisplay: "تم تحديث الداتا بنجاح", titleofaction : "home")
                     }
                 }
         }
+    }
+    //start function to display alert
+    func PassWordChangedDoneAlert(title: String,messageToDisplay: String, titleofaction : String)
+    {
+        let alertController = UIAlertController(title: title, message: messageToDisplay, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: titleofaction, style: .default) { (action:UIAlertAction!) in
+            // Code in this block will trigger when OK button tapped.
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
+            self.present(nextViewController, animated:true, completion:nil)
+            return
+        }
+        alertController.addAction(OKAction)
+        present(alertController, animated: true, completion:nil)
     }
 }
 extension ChangePassWordVC {

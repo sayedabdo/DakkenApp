@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215.625" y="121.47887323943662"/>
+            <point key="canvasLocation" x="204" y="119"/>
         </scene>
         <!--SignUPVC-->
         <scene sceneID="1uh-8W-Ejy">
@@ -545,7 +545,7 @@
                                             <color key="titleColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ITH-D7-NFb" kind="show" id="oKz-2b-bqA"/>
+                                            <action selector="openchangePassWord:" destination="YLs-SF-4d1" eventType="touchUpInside" id="EIp-Lc-sWz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-XE-idE">
@@ -554,7 +554,7 @@
                                             <constraint firstAttribute="width" constant="25" id="5dM-M9-gSF"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="ITH-D7-NFb" kind="show" id="Nkh-qi-9xo"/>
+                                            <action selector="openchangePassWord:" destination="YLs-SF-4d1" eventType="touchUpInside" id="EBo-7H-DIy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -606,7 +606,7 @@
                                                     <color key="titleColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="xol-KU-I9c" kind="show" id="3i6-sa-zcR"/>
+                                                    <action selector="openJobAction:" destination="YLs-SF-4d1" eventType="touchUpInside" id="JBZ-bf-fTo"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAM-Gb-qMJ">
@@ -615,7 +615,7 @@
                                                     <constraint firstAttribute="width" constant="25" id="7IR-MV-bVO"/>
                                                 </constraints>
                                                 <connections>
-                                                    <segue destination="xol-KU-I9c" kind="show" id="yx4-Sn-X0D"/>
+                                                    <action selector="openJobAction:" destination="YLs-SF-4d1" eventType="touchUpInside" id="znY-8h-cn9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1010,7 +1010,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36C-uI-mfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965" y="833"/>
+            <point key="canvasLocation" x="1980" y="806"/>
         </scene>
         <!--My ProductVC-->
         <scene sceneID="JUD-8B-iGu">
@@ -1510,6 +1510,7 @@
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="back:" destination="tQp-j9-SBK" eventType="touchUpInside" id="6kT-Dg-O0S"/>
+                                            <action selector="back:" destination="vcN-2h-AN5" eventType="touchUpInside" id="JYo-VL-IiQ"/>
                                             <action selector="back:" destination="ITH-D7-NFb" eventType="touchUpInside" id="ejH-vJ-f9k"/>
                                         </connections>
                                     </button>
@@ -1776,7 +1777,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLl-7o-h3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-474" y="1589"/>
+            <point key="canvasLocation" x="-497" y="1589"/>
         </scene>
         <!--Basket-->
         <scene sceneID="CH0-Sa-WJr">
@@ -2322,7 +2323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUY-RX-Ylj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1576.875" y="807.04225352112678"/>
+            <point key="canvasLocation" x="-1566" y="808"/>
         </scene>
         <!--one-->
         <scene sceneID="FG9-Bm-L9D">
@@ -2430,6 +2431,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgimage" id="6nf-eo-8oQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="315"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
@@ -2523,7 +2525,6 @@
                                             <constraint firstItem="EtQ-ug-EPW" firstAttribute="leading" secondItem="Ge6-YP-MdH" secondAttribute="leading" id="lL9-R0-6bo"/>
                                             <constraint firstItem="hZk-Iz-78Z" firstAttribute="centerX" secondItem="Ge6-YP-MdH" secondAttribute="centerX" id="nQj-Fh-WLV"/>
                                             <constraint firstAttribute="trailing" secondItem="3md-S2-7Td" secondAttribute="trailing" id="pLR-xf-t75"/>
-                                            <constraint firstAttribute="bottom" secondItem="hZk-Iz-78Z" secondAttribute="bottom" constant="3" id="spK-8G-Sup"/>
                                         </constraints>
                                         <size key="customSize" width="149" height="204"/>
                                         <connections>
@@ -2782,7 +2783,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0pV-n2-LoV"/>
-        <segue reference="3i6-sa-zcR"/>
-        <segue reference="Nkh-qi-9xo"/>
     </inferredMetricsTieBreakers>
 </document>

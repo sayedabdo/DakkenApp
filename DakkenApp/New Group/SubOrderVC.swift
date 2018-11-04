@@ -22,7 +22,9 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         getOrderDetails()
         subOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
-    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func closeOrderStatus(_ sender: Any) {
         statusView.isHidden = true
     }
@@ -52,11 +54,12 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     //end table view jobs
     //Start getOrderDetails
     func getOrderDetails(){
+        print("Order : \(AppDelegate.global_user.id)")
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/myorderdetails"
         let params: [String : String] =
             [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
-                "order_id"               :"\(9)" ,
-                "owner_id"               :"\(2)"
+                "order_id"               : "\(order_id!)" ,
+                "owner_id"               : "\(AppDelegate.global_user.id)"
             ]
         Alamofire.request(OrderDetailsURL, method: .post, parameters: params)
             .responseJSON { response in

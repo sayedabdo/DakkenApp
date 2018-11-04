@@ -62,7 +62,10 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SubOrderVC") as! SubOrderVC
+        nextViewController.order_id = Int(superorder[indexPath.row].id)
+        self.present(nextViewController, animated:true, completion:nil)
     }
     //end table view jobs
     //Start getOrderDetails
@@ -109,7 +112,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/myuserorders"
         let params: [String : String] =
             [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
-                "owner_id"               : "\(2)"
+                "owner_id"               : "\(AppDelegate.global_user.id)"
             ]
         Alamofire.request(OrderDetailsURL, method: .post, parameters: params)
             .responseJSON { response in

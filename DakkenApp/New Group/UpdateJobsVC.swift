@@ -46,9 +46,6 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatusCell") as? StatusCell
-            if(tableStatus == indexPath.row){
-                cell?.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
-            }
         cell?.statusLabel.text = "\(status[indexPath.row])"
         return cell!
     }
