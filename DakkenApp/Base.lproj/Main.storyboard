@@ -1467,7 +1467,7 @@
                     <tabBarItem key="tabBarItem" title="two" id="yDY-9e-JSH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="subOrderTableView" destination="ALg-WR-GoU" id="Orl-Rt-z5D"/>
+                        <outlet property="requestedOrderTableView" destination="ALg-WR-GoU" id="GB6-bW-Bku"/>
                         <outlet property="superOrderTableView" destination="X7d-Zf-hA3" id="cay-UD-g2c"/>
                     </connections>
                 </viewController>

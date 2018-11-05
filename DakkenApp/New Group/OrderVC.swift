@@ -11,15 +11,15 @@ import Alamofire
 
 class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var superorder = [SuperOrder]()
-    var subOrder = [SubOrder]()
+    var requestedOrder = [RequestedOrder]()
     var role = 0
-    @IBOutlet weak var subOrderTableView: UITableView!
+    @IBOutlet weak var requestedOrderTableView: UITableView!
     @IBOutlet weak var superOrderTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        subOrderTableView.dataSource = self
-        subOrderTableView.delegate = self
+        requestedOrderTableView.dataSource = self
+        requestedOrderTableView.delegate = self
         superOrderTableView.dataSource = self
         superOrderTableView.delegate = self
        // getOrderDetails()
@@ -31,7 +31,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
           getOrder()
         }
         superOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
-        subOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
+        requestedOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,8 +39,8 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if role == 1{
-            print("the subOrder count is : \(subOrder.count)")
-            return subOrder.count
+            print("the subOrder count is : \(requestedOrder.count)")
+            return requestedOrder.count
         }
          else{
             print("the superOrder count is : \(superorder.count)")
@@ -54,7 +54,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
             if(indexPath.row % 2 == 1){
                 cell?.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
             }
-            cell?.setSubOrder(subOrder: subOrder[indexPath.row])
+            cell?.setSubOrder(requestedOrder: requestedOrder[indexPath.row])
             return cell!
         }
         else {
@@ -95,18 +95,19 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
                     }
                     var messagedata = arrayOfDic["message"] as? [[String: Any]]
                     for aDic1 in messagedata!{
-                        self.subOrder.append(SubOrder(
-                            itemname : aDic1["itemname"] as! String,
+                        self.requestedOrder.append(RequestedOrder(
+                            date : aDic1["date"] as! String,
+                            id : aDic1["id"] as! Int,
                             itemimg : aDic1["itemimg"] as! String,
+                            itemname : aDic1["itemname"] as! String,
                             itemprice : aDic1["itemprice"] as! Int,
-                            trader : aDic1["trader"] as! String,
-                            qty : aDic1["qty"] as! Int,
+                            owner : aDic1["owner"] as! String,
                             price : aDic1["price"] as! Double,
-                            status : aDic1["status"] as! Int,
-                            created_at : aDic1["created_at"] as! String
+                            qty : aDic1["qty"] as! Int,
+                            status : aDic1["status"] as! String
                         ))
                     }
-                    self.subOrderTableView.reloadData()
+                    self.requestedOrderTableView.reloadData()
                 }
         }
     }

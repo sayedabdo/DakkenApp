@@ -180,9 +180,9 @@
 				16AE8711217DBF43003C6107 /* ProfileVC.swift */,
 				16083A40217E06AC00A1AB8A /* UpdateJobsVC.swift */,
 				160AE2CE218092550076074C /* OrderVC.swift */,
+				1607BB972189D93100A6498F /* SubOrderVC.swift */,
 				1604139021847A0B0057D60C /* MyProductVC.swift */,
 				16080E282184C149007A7A6B /* BasketVC.swift */,
-				1607BB972189D93100A6498F /* SubOrderVC.swift */,
 			);
 			name = controller;
 			path = "New Group";

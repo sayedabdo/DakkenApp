@@ -16,12 +16,12 @@ class subOrderCell: UITableViewCell {
     @IBOutlet weak var timeOrder: UILabel!
     @IBOutlet weak var orderImage: UIImageView!
     
-    func setSubOrder(subOrder: SubOrder) {
-        orderName.text = subOrder.itemname
-        orderCount.text = "\(subOrder.qty)"
-        timeOrder.text  = subOrder.created_at
-        priceOrder.text = "\(subOrder.price * Double(subOrder.qty))"
-        download_image(image_url: subOrder.itemimg,imagedisplayed: orderImage)
+    func setSubOrder(requestedOrder: RequestedOrder) {
+        orderName.text = requestedOrder.itemname
+        orderCount.text = "\(requestedOrder.qty)"
+        timeOrder.text  = requestedOrder.date
+        priceOrder.text = "\(requestedOrder.price * Double(requestedOrder.qty))"
+        download_image(image_url: requestedOrder.itemimg,imagedisplayed: orderImage)
 
     }
     

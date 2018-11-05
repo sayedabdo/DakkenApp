@@ -9,18 +9,18 @@
 import Foundation
 
 
-class  ReequestedOrder{
+class  RequestedOrder{
     var date : String
     var id : Int
     var itemimg : String
     var itemname : String
     var itemprice : Int
     var owner : String
-    var price : Int
+    var price : Double
     var qty : Int
     var status : String
     init(date : String , id : Int , itemimg : String , itemname : String , itemprice : Int
-         ,owner : String , price : Int , qty : Int , status : String) {
+         ,owner : String , price : Double , qty : Int , status : String) {
         self.date = date
         self.id = id
         self.itemimg = itemimg
