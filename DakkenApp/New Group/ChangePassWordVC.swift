@@ -11,9 +11,11 @@ import Alamofire
 
 class ChangePassWordVC: UIViewController {
 
+    ///outlet
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmTextField: UITextField!
     @IBOutlet weak var changeBtn: UIButton!
+    //Start viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         print("hhhh : \(AppDelegate.global_user.user_hash)")
@@ -23,11 +25,14 @@ class ChangePassWordVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
         buttonborder(button_outlet_name:changeBtn)
     }
-    
+    //End viewDidLoad
+    //Start Back button Action
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    //End Back button Action
     @IBAction func changePassWord(_ sender: Any) {
+        //Start Validation
         //check if the password textfield is empty or not
         if(passwordTextField.text?.isEmpty)!{
             displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
@@ -57,6 +62,7 @@ class ChangePassWordVC: UIViewController {
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
+        //End Validation
         let ReChangePassURL = "https://dkaken.alsalil.net/api/rechangepass"
         let params: [String : String] =
             [
@@ -98,6 +104,7 @@ class ChangePassWordVC: UIViewController {
     }
 }
 extension ChangePassWordVC {
+    //Hidden Keyboard
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(ChangePassWordVC.dismissKeyboard))
         tap.cancelsTouchesInView = false

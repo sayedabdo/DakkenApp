@@ -15,9 +15,12 @@ class HomeproductCell: UICollectionViewCell {
     @IBOutlet weak var addtToCard: UIButton!
     
     func setProduct(product: Product) {
+        if(AppDelegate.global_user.role == "1"){
+            addtToCard.isHidden = true
+        }
         productName.text = "\(product.title)"
         productPrice.text = "\(product.price)"
-      //  download_image(image_url: product.image,imagedisplayed: productImage)
+        download_image(image_url: product.image,imagedisplayed: productImage)
         buttonborder(button_outlet_name:addtToCard)
     }
 }

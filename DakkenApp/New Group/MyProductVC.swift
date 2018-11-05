@@ -18,7 +18,7 @@ class MyProductVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
         MyProductcollection.dataSource = self
         MyProductcollection.delegate = self
         super.viewDidLoad()
-
+        get_My_product()
         // Do any additional setup after loading the view.
     }
     //start collection view
@@ -57,19 +57,19 @@ class MyProductVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
         dismiss(animated: true, completion: nil)
     }
     //end back
-    //start get_product
-    func get_product(){
+    //start get_My_product
+    func get_My_product(){
         products.removeAll()
-        let ProductURL = "https://dkaken.alsalil.net/api/allitems"
+        let ProductURL = "https://dkaken.alsalil.net/api/useritems"
         let params: [String : String] =
             [   "trader_id"                  : "\(AppDelegate.global_user.id)",
                 "user_hash"                  : "\(AppDelegate.global_user.user_hash)"
             ]
         Alamofire.request(ProductURL, method: .post, parameters: params)
             .responseJSON { response in
-                //  print("the response is : \(response)")
+                print("the response is : \(response)")
                 let result = response.result
-                //  print("the result is : \(result.value)")
+                print("the result is : \(result.value)")
                 var productnum : String = ""
                 var size : String = ""
                 var color : String = ""
@@ -106,7 +106,7 @@ class MyProductVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
                             title : aDic1["title"] as! String,
                             price : aDic1["price"] as! Double,
                             desc : aDic1["desc"] as! String,
-                            image : " ",
+                            image : aDic1["image"] as! String,
                             qty : aDic1["qty"] as! Int,
                             productnum : productnum,
                             size : size,
@@ -120,5 +120,5 @@ class MyProductVC: UIViewController,UICollectionViewDelegate, UICollectionViewDa
                 }
         }
     }
-    //end get_product
+    //end get_My_product
 }

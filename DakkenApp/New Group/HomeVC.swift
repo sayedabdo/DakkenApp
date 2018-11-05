@@ -12,9 +12,12 @@ import ScrollableSegmentedControl
 
 class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource {
     
+    
+    //Outlet
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var segmentedControl: ScrollableSegmentedControl!
+    //Var
     var userEmail : String! = ""
     var userPassword : String! = ""
     var fromsignUp : Bool = false
@@ -22,6 +25,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     var tab_data_count = 0
     var products = [Product]()
     var cvs = [CVS]()
+    //Start viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.dataSource = self
@@ -34,6 +38,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
             self.segmentedControl.insertSegment(withTitle: "\(tabDataCounter)", at: self.tab_data_count)
             self.tab_data_count = self.tab_data_count + 1
         }
+        //get user data after sign up
         if(fromsignUp == true){
             getUserData()
         }
@@ -41,14 +46,15 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         segmentedControl.segmentStyle = .textOnly
         segmentedControl.underlineSelected = true
         
-        // change some colors
+        // change some colors in segmentedControl
         segmentedControl.segmentContentColor = UIColor.white
         segmentedControl.selectedSegmentContentColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         segmentedControl.backgroundColor = #colorLiteral(red: 1, green: 0.8256774545, blue: 0, alpha: 1)
         //end segmentedControl
         jobsTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
-    //start collection view
+    //End viewDidLoad
+    //start collection view to display product
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("the count is : ", products.count)
         return products.count
@@ -67,17 +73,22 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
             else { return UICollectionViewCell()
         }
         cell.setProduct(product: products[indexPath.row])
-       // cell.product_customer_name.tag = indexPath.row
+        cell.addtToCard.tag = indexPath.row
         cell.layer.cornerRadius = 5
         cell.layer.borderWidth = 1.5
         cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 220)
+        
+        if(AppDelegate.global_user.role == "1"){
+            return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 180)
+        }else
+        {
+            return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 200)
+        }
     }
-    //end collection view
-    
+    //End collection view to display product
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -96,27 +107,39 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     //end table view jobs
     //start custom segement
     @IBAction func segmentSelected(sender:ScrollableSegmentedControl) {
-     //   products.removeAll()
-       /// self.collection.reloadData()
         print("Segment at index \(sender.selectedSegmentIndex)  selected")
-//        let text_filtter = "\(tab_data[sender.selectedSegmentIndex])"
         if(sender.selectedSegmentIndex == 0){
             get_product(category: 1)
+            collection.isHidden = false
+            jobsTableView.isHidden = true
         }
         if(sender.selectedSegmentIndex == 1){
             get_product(category: 2)
+            collection.isHidden = false
+            jobsTableView.isHidden = true
         }
         if(sender.selectedSegmentIndex == 2){
             get_product(category: 3)
+            collection.isHidden = false
+            jobsTableView.isHidden = true
         }
         if(sender.selectedSegmentIndex == 3){
             getCvinfo()
+            collection.isHidden = true
+            jobsTableView.isHidden = false
         }
         if(sender.selectedSegmentIndex == 4){
             get_product(category: 5)
+            collection.isHidden = false
+            jobsTableView.isHidden = true
         }
     }
     //end custom segement
+    //Start Add To Card Action
+    @IBAction func AddtocardAction(_ sender: Any) {
+        AddToCard(thisProduct : products[(sender as AnyObject).tag])
+    }
+    //End Add To Card Action
     //start get user data when sign up
     func getUserData(){
         let loginurl = "https://dkaken.alsalil.net/api/login"
@@ -184,9 +207,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                 var size : String = ""
                 var color : String = ""
                 if let arrayOfDic  = result.value as? [String:Any]{
-                    print("out : \(arrayOfDic["message"])")
                     let userData  = arrayOfDic["message"]  as? [[String: Any]]
-                    print("userData : \(userData)")
                     for aDic1  in userData!  {
                         ///
 //                        if("\(aDic1["productnum"]!)" == "<null>"){
@@ -216,7 +237,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                         title : aDic1["title"] as! String,
                         price : aDic1["price"] as! Double,
                         desc : aDic1["desc"] as! String,
-                        image : " ",
+                        image : aDic1["image"] as! String,
                         qty : aDic1["qty"] as! Int,
                         productnum : productnum,
                         size : size,
@@ -233,6 +254,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     //end get_product
     //start getCvinfo
     func getCvinfo(){
+        cvs.removeAll()
         let alljobsURL = "https://dkaken.alsalil.net/api/alljobs"
         Alamofire.request(alljobsURL).responseJSON { response in
             // print("the response is : \(response)")
@@ -271,7 +293,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     //end getCvinfo
     //Start Add To Card
     func AddToCard(thisProduct : Product){
-        let AddToCardURL = "https://dkaken.alsalil.net/api/login"
+        let AddToCardURL = "https://dkaken.alsalil.net/api/addtocart"
         let params: [String : String] =
             [   "user_hash"            : "\(AppDelegate.global_user.user_hash)",
                 "item_id"              : "\(thisProduct.id)",
@@ -293,31 +315,9 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                         return
                     }
                     let userData = arrayOfDic["message"]!
-                    let forgetcode : String!
-                    if("\(userData["forgetcode"] as! NSNull)" == "<null>"){
-                        forgetcode = "null"
-                    }else{
-                        forgetcode = "\(userData["forgetcode"] as! String)"
-                    }
-                    AppDelegate.global_user = User(
-                        id : "\(userData["id"] as! Int)",
-                        name : userData["name"] as! String,
-                        email : userData["email"] as! String,
-                        password : userData["password"] as! String,
-                        phone : userData["phone"] as! String,
-                        address : userData["address"] as! String,
-                        country : "\(userData["country"] as! Int)",
-                        image : userData["image"] as! String,
-                        role : "\(userData["role"] as! Int)",
-                        device_id : userData["device_id"] as! String,
-                        firebase_token : userData["firebase_token"] as! String,
-                        forgetcode : "\(forgetcode)",
-                        suspensed : "\(userData["suspensed"] as! Int)",
-                        notification : "\(userData["notification"] as! Int)",
-                        user_hash : userData["user_hash"] as! String,
-                        countryname : userData["countryname"] as! String,
-                        job : userData["job"] as! Int
-                    )
+                    self.displayAlertMessage(title : "Done",
+                                             messageToDisplay: "product Add to card",
+                                             titleofaction: "OK")
                 }
         }
     }

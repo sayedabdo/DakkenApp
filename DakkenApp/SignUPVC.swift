@@ -11,6 +11,7 @@ import Alamofire
 
 class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
+    //OutLet
     @IBOutlet weak var imagebtn: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,10 +22,11 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
     @IBOutlet weak var selectLocationBtn: UIButton!
     @IBOutlet weak var mapContinerView: UIView!
     @IBOutlet weak var imageas: UIImageView!
-    
-    var type : Int!
+    //Var
+    var role : Int!
     var imagedone : Bool = false
     let REGISTER_URL = "https://dkaken.alsalil.net/api/register"
+    //Start viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         print("\(UIDevice.current.identifierForVendor!.uuidString)")
@@ -38,12 +40,14 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
         buttonborder(button_outlet_name:signUpBtn)
         self.hideKeyboardWhenTappedAround()
     }
-    
+    //End viewDidLoad
+    //Start Back Buttton Action
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    //End Back Buttton Action
     @IBAction func signUpAction(_ sender: Any) {
-        
+        //Start Validation
         //check if the nameTextField textfield is empty or not
         if(nameTextField.text?.isEmpty)!{
             displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
@@ -103,9 +107,11 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
+        //End Validation
+        //Call signUp function
         SignUpWithData()
     }
-    
+    //Start choosr image from calary or camera as a Acction Sheet
     @IBAction func trytochosseimage(_ sender: UITapGestureRecognizer) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -134,7 +140,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
         
         present(actionSheet, animated: true, completion: nil)
     }
-    
+    //open Camera
     func camera()
     {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
@@ -144,6 +150,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
             present(myPickerController, animated: true, completion: nil)
         }
     }
+    //open galary photo
     func photoLibrary()
     {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
@@ -153,6 +160,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
             present(myPickerController, animated: true, completion: nil)
         }
     }
+    ////display selected Image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageas.image = pickedImage
@@ -160,20 +168,19 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    @IBAction func toLoginAction(_ sender: Any) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
-        self.present(nextViewController, animated:true, completion:nil)
-    }
+    //Start show map Action
     @IBAction func showMap(_ sender: Any) {
         mapContinerView.isHidden = false
     }
+    //End show map Action
     ////////
     //Start SignUpWithData
     func SignUpWithData(){
         Alamofire.upload(multipartFormData: { multipartFormData in
             let params =
-                [   "name"                  : "\(self.nameTextField.text!)",
+                [
+                    
+                    "name"                  : "\(self.nameTextField.text!)",
                     "email"                 : "\(self.emailTextField.text!)",
                     "password"              : "\(self.passwordTextField.text!)",
                     "confirmpass"           : "\(self.confirmTextField.text!)",
@@ -182,7 +189,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                     "address"               : "b",
                     "firebase_token"        : "b",
                     "device_id"             : "\(UIDevice.current.identifierForVendor!.uuidString)",
-                    "role"                  : "0",
+                    "role"                  : "\(self.role)",
                     "job"                   : "0",
                     "image"                 : ""
                 ]
@@ -228,6 +235,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
     //End SignUpWithData
 }
 extension SignUPVC {
+    //Hideen Keyboard
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(SignUPVC.dismissKeyboard))
         tap.cancelsTouchesInView = false

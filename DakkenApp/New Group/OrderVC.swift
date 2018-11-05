@@ -23,7 +23,13 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         superOrderTableView.dataSource = self
         superOrderTableView.delegate = self
        // getOrderDetails()
-        getOrder()
+        
+        
+        if(AppDelegate.global_user.role == "1"){
+         getOrderDetails()
+        }else{
+          getOrder()
+        }
         superOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
         subOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
@@ -70,11 +76,10 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     //end table view jobs
     //Start getOrderDetails
     func getOrderDetails(){
-        let OrderDetailsURL = "https://dkaken.alsalil.net/api/myorderdetails"
+        let OrderDetailsURL = "https://dkaken.alsalil.net/api/mytraderorders"
         let params: [String : String] =
             [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
-                "order_id"               :"\(9)" ,
-                "owner_id"               :"\(2)"
+                "trader_id"               : "\(AppDelegate.global_user.id)"
             ]
         Alamofire.request(OrderDetailsURL, method: .post, parameters: params)
             .responseJSON { response in

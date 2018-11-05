@@ -54,6 +54,7 @@ extension UIViewController {
 }
 //start download image
 func download_image(image_url:String,imagedisplayed:UIImageView){
+    print(":( :( :( : \(image_url)")
     let remoteImageURL = URL(string: "https://dkaken.alsalil.net/users/images/\(image_url)")!
     Alamofire.request(remoteImageURL).responseData { (response) in
         if response.error == nil {

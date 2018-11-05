@@ -12,10 +12,13 @@ import Alamofire
 
 class LogInVC: UIViewController {
     
+    //outlet
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    var type : Int!
+    //var
+    var role : Int!
+    //start viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -26,18 +29,23 @@ class LogInVC: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
     }
+    //End viewDidLoad
+    //Start back Button Action
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    //End back Button Action
+    //Start to Sign UP VC with role
     @IBAction func toSignUpAction(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SignUPVC") as! SignUPVC
-        nextViewController.type = type
+        nextViewController.role = role
         self.present(nextViewController, animated:true, completion:nil)
     }
+    //End to Sign UP VC with role
     // function to login
     @IBAction func loginAction(_ sender: Any) {
-        
+        //Start Function Validation
         //check if the email textfield is valid or not
         let EmailAddress = emailTextField.text
         let isEmailAddressValid = isValidEmailAddress(emailAddressString: EmailAddress!)
@@ -55,6 +63,8 @@ class LogInVC: UIViewController {
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
+        //End Function Validation
+        //server Request by Alamofire
         let loginurl = "https://dkaken.alsalil.net/api/login"
         let params: [String : String] =
             [   "email"                  : "\(emailTextField.text!)",
@@ -100,6 +110,7 @@ class LogInVC: UIViewController {
                         countryname : userData["countryname"] as! String,
                         job : userData["job"] as! Int
                     )
+                    //got to MainTabBar
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                     let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
                     self.present(nextViewController, animated:true, completion:nil)
@@ -108,6 +119,7 @@ class LogInVC: UIViewController {
     }
 }
 extension LogInVC {
+    //To Hidden Keyboard
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(LogInVC.dismissKeyboard))
         tap.cancelsTouchesInView = false

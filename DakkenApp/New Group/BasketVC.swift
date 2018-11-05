@@ -90,7 +90,7 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let cartitemsURL = "https://dkaken.alsalil.net/api/cartitems"
         let params: [String : String] =
             [   "user_hash"                  : "\(AppDelegate.global_user.user_hash)",
-                "owner"                      : "\(item)"
+                "owner"                      : "\(AppDelegate.global_user.id)"
             ]
         Alamofire.request(cartitemsURL, method: .post, parameters: params)
             .responseJSON { response in
@@ -131,7 +131,7 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func deleteItemFromCard(deleteitem : Int){
         let deleteitemsURL = "https://dkaken.alsalil.net/api/delcartitem"
         let params: [String : String] =
-            [   "user_hash"                  : "$2y$10$mimFE9.sE/tvPdx9nqmya.JOjbOlnFcTECiUZNAxKEspzLC2KOOzq",
+            [   "user_hash"                  : "\(AppDelegate.global_user.user_hash)",
                 "cart_id"                    : "\(deleteitem)"
             ]
         Alamofire.request(deleteitemsURL, method: .post, parameters: params)

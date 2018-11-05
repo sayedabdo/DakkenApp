@@ -2462,7 +2462,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EtQ-ug-EPW">
-                                                    <rect key="frame" x="0.0" y="113" width="149" height="60"/>
+                                                    <rect key="frame" x="0.0" y="113" width="149" height="55"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="old items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXd-NM-vAm">
                                                             <rect key="frame" x="0.0" y="0.0" width="149" height="30"/>
@@ -2491,7 +2491,6 @@
                                                         <constraint firstAttribute="trailing" secondItem="iKQ-4a-wSc" secondAttribute="trailing" id="DGl-oi-8cD"/>
                                                         <constraint firstAttribute="trailing" secondItem="iKQ-4a-wSc" secondAttribute="trailing" id="KTG-RV-Rxe"/>
                                                         <constraint firstItem="iKQ-4a-wSc" firstAttribute="top" secondItem="GXd-NM-vAm" secondAttribute="bottom" id="but-9h-K8B"/>
-                                                        <constraint firstAttribute="height" constant="60" id="euy-NZ-7QQ"/>
                                                         <constraint firstAttribute="bottom" secondItem="iKQ-4a-wSc" secondAttribute="bottom" id="j2z-0G-x2o"/>
                                                         <constraint firstItem="iKQ-4a-wSc" firstAttribute="leading" secondItem="EtQ-ug-EPW" secondAttribute="leading" id="jZG-Ta-azc"/>
                                                         <constraint firstAttribute="bottom" secondItem="iKQ-4a-wSc" secondAttribute="bottom" id="r8e-wf-8Yv"/>
@@ -2499,7 +2498,7 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZk-Iz-78Z">
-                                                    <rect key="frame" x="8" y="176" width="133" height="25"/>
+                                                    <rect key="frame" x="8" y="171" width="133" height="25"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="133" id="2Yd-2o-xmz"/>
@@ -2508,6 +2507,9 @@
                                                     <state key="normal" title="اضف الى السله">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="AddtocardAction:" destination="lbf-84-k4g" eventType="touchUpInside" id="KQ3-N3-wLe"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -2540,7 +2542,7 @@
                                 <rect key="frame" x="0.0" y="160" width="320" height="315"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobCell" rowHeight="170" id="3X1-Zp-6HB" customClass="JobCell" customModule="DakkenApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="JobCell" rowHeight="170" id="3X1-Zp-6HB" customClass="JobCell" customModule="DakkenApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3X1-Zp-6HB" id="ccT-AL-mia">
