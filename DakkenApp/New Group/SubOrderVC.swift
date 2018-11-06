@@ -40,7 +40,7 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         return subOrder.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subOrderCell") as? subOrderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SubOrderCell") as? SubOrderCell
         if(indexPath.row % 2 == 1){
             cell?.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         }
@@ -49,7 +49,7 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         statusView.isHidden = false
-        selectedID = subOrder[indexPath.row].status
+        //selectedID = subOrder[indexPath.row].
     }
     //end table view jobs
     //Start getOrderDetails
@@ -82,10 +82,9 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
                             trader : aDic1["trader"] as! String,
                             qty : aDic1["qty"] as! Int,
                             price : aDic1["price"] as! Double,
-                            status : aDic1["status"] as! Int,
+                            status : aDic1["status"] as! String,
                             created_at : aDic1["created_at"] as! String
                         ))
-                        
                     }
                     self.subOrderTableView.reloadData()
                 }

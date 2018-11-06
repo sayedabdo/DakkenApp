@@ -16,10 +16,10 @@ class SubOrder{
     var trader : String
     var qty : Int
     var price : Double
-    var status : Int
+    var status : String
     var created_at : String
     
-    init(itemname : String , itemimg : String , itemprice : Int , trader : String , qty : Int , price : Double , status : Int , created_at : String ) {
+    init(itemname : String , itemimg : String , itemprice : Int , trader : String , qty : Int , price : Double , status : String , created_at : String ) {
         self.itemname = itemname
         self.itemimg = itemimg
         self.itemprice = itemprice

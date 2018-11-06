@@ -12,9 +12,10 @@ import Alamofire
 class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var superorder = [SuperOrder]()
     var requestedOrder = [RequestedOrder]()
-    var role = 0
+    var selectedID : String!
     @IBOutlet weak var requestedOrderTableView: UITableView!
     @IBOutlet weak var superOrderTableView: UITableView!
+    @IBOutlet weak var statusView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,24 +23,32 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         requestedOrderTableView.delegate = self
         superOrderTableView.dataSource = self
         superOrderTableView.delegate = self
-       // getOrderDetails()
-        
         
         if(AppDelegate.global_user.role == "1"){
-         getOrderDetails()
+            requestedOrderTableView.isHidden = false
+            superOrderTableView.isHidden = true
+            getOrderDetails()
         }else{
-          getOrder()
+            requestedOrderTableView.isHidden = true
+            superOrderTableView.isHidden = false
+            getOrder()
         }
         superOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
         requestedOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
+    }
+    @IBAction func closeOrderStatus(_ sender: Any) {
+        statusView.isHidden = true
+    }
+    @IBAction func changeOrderStatus(_ sender: Any) {
+        changeOrdersStatus(itemID : 5 , status : "\((sender as AnyObject).tag)")
     }
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if role == 1{
-            print("the subOrder count is : \(requestedOrder.count)")
+        if AppDelegate.global_user.role == "1"{
+            print("the requestedOrder count is : \(requestedOrder.count)")
             return requestedOrder.count
         }
          else{
@@ -49,8 +58,8 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if role == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "subOrderCell") as? subOrderCell
+        if AppDelegate.global_user.role == "1" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "requestedOrderCell") as? requestedOrderCell
             if(indexPath.row % 2 == 1){
                 cell?.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
             }
@@ -68,10 +77,16 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SubOrderVC") as! SubOrderVC
-        nextViewController.order_id = Int(superorder[indexPath.row].id)
-        self.present(nextViewController, animated:true, completion:nil)
+        if AppDelegate.global_user.role == "1" {
+             statusView.isHidden = false
+             selectedID = "\(requestedOrder[indexPath.row].status)"
+        }
+        else{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SubOrderVC") as! SubOrderVC
+            nextViewController.order_id = Int(superorder[indexPath.row].id)
+            self.present(nextViewController, animated:true, completion:nil)
+        }
     }
     //end table view jobs
     //Start getOrderDetails
@@ -93,7 +108,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
                                                  titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
                         return
                     }
-                    var messagedata = arrayOfDic["message"] as? [[String: Any]]
+                    let messagedata = arrayOfDic["message"] as? [[String: Any]]
                     for aDic1 in messagedata!{
                         self.requestedOrder.append(RequestedOrder(
                             date : aDic1["date"] as! String,
@@ -148,5 +163,29 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         }
     }
     //end get orders
-
+    //start change Order Status func
+    func changeOrdersStatus(itemID : Int , status : String){
+        let changeOrderStatusURL = "https://dkaken.alsalil.net/api/orderprocess"
+        let params: [String : String] =
+            [   "user_hash"                 : "\(AppDelegate.global_user.user_hash)",
+                "status"                    : "\(9)" ,
+                "item_id"                   : "\(2)"
+        ]
+        Alamofire.request(changeOrderStatusURL, method: .post, parameters: params)
+            .responseJSON { response in
+                print("the response is : \(response)")
+                let result = response.result
+                print("the result is : \(String(describing: result.value))")
+                if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
+                    if(arrayOfDic["success"] as! Bool == false ){
+                        self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
+                                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                        return
+                    }
+                    self.statusView.isHidden = true
+                }
+        }
+    }
+    //start change Order Status func
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class subOrderCell: UITableViewCell {
+class requestedOrderCell: UITableViewCell {
 
     @IBOutlet weak var orderName: UILabel!
     @IBOutlet weak var orderCount: UILabel!
