@@ -10,6 +10,9 @@
 "home" = "Home";
 "some_error" = "some error done please,try again";
 "Done" = "Done";
+//ChooseSignupVC
+"user Sign up" = "User LogIn";
+"Dealer Sign up" = "Dealer LogIn";
 //Log in
 "VCTitle0" = "Log in as Tager";
 "VCTitle1" = "Log in as 3amel";
@@ -22,6 +25,8 @@
 "emailPlaceHolder" = "E-mail";
 "passwordPlaceHolder" = "Password";
 //sign Up VC
+"VCSignUpTitle0" = "Sign Up as tager";
+"VCSignUpTitle1" = "Sign Up as 3amel";
 "namePlaceHolder" = "User Name";
 "emailPlaceHolder" = "E-mail";
 "passwordPlaceHolder" = "Password";
@@ -36,8 +41,8 @@
 "chooseprofileimage" = "choose profile image";
 "profile image" = "please, chosse image😞";
 "signuperoor" = "error while sign Up please try again";
-//ChooseSignupVC
-"user Sign up" = "User Sign Up";
-"Dealer Sign up" = "Dealer Sign Up";
 //ChangePassWordVC
+"newPassWordPlaceholder" = "New PassWord";
+"confirmNewPassWordPlaceholder" = "Confirm New Password";
+"change" = "change";
 "passwordchanged" = "Password Changed Successfully😍";

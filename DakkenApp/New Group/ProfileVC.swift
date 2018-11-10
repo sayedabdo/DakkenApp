@@ -29,6 +29,7 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         download_image(image_url: AppDelegate.global_user.image,imagedisplayed: images)
         buttonborder(button_outlet_name:updateDataBtn)
         buttonborder(button_outlet_name:chooseImageBtn)
+        self.hideKeyboardWhenTappedAround()
     }
 
     @IBAction func changeimage(_ sender: Any) {
@@ -214,4 +215,16 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         present(alertController, animated: true, completion:nil)
     }
         
+}
+extension ProfileVC {
+    //Hideen Keyboard
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(ProfileVC.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+

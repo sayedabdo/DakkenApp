@@ -10,6 +10,7 @@ target 'DakkenApp' do
   # Pods for DakkenApp
   pod 'Alamofire'
   pod 'ScrollableSegmentedControl', '~> 1.3.0'
+  pod 'TextFieldEffects'
 end
 # Workaround for @IBDesignable (https://github.com/CocoaPods/CocoaPods/issues/5334)
 post_install do |installer|

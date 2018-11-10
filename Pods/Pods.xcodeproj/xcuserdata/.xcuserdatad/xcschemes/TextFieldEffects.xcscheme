@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4BC1167A02E75063C96D17CBD60DC064"
-               BlueprintName = "Pods-DakkenApp"
+               BlueprintIdentifier = "E79482D90A00EBE38DBA1FBEC17E36D1"
+               BlueprintName = "TextFieldEffects"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-DakkenApp.framework">
+               BuildableName = "TextFieldEffects.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

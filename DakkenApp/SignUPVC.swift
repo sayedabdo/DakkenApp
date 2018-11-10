@@ -22,6 +22,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
     @IBOutlet weak var selectLocationBtn: UIButton!
     @IBOutlet weak var mapContinerView: UIView!
     @IBOutlet weak var imageas: UIImageView!
+    @IBOutlet weak var VCTitle: UILabel!
     //Var
     var role : Int!
     var imagedone : Bool = false
@@ -29,7 +30,6 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
     //Start viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(UIDevice.current.identifierForVendor!.uuidString)")
         // Do any additional setup after loading the view.
         imagebtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "chooseprofileimage", comment: ""), for: .normal)
         nameTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "namePlaceHolder", comment: "")
@@ -38,7 +38,14 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
         phoneTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "phonePlaceHolder", comment: "")
         confirmTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmpasswordPlaceHolder", comment: "")
         buttonborder(button_outlet_name:signUpBtn)
+        buttonborder(button_outlet_name:imagebtn)
         self.hideKeyboardWhenTappedAround()
+        if(role == 0 ){
+            VCTitle.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "VCSignUpTitle0", comment: ""))"
+        }
+        if(role == 1 ){
+            VCTitle.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "VCSignUpTitle1", comment: ""))"
+        }
     }
     //End viewDidLoad
     //Start Back Buttton Action

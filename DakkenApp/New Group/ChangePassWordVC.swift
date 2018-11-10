@@ -18,10 +18,10 @@ class ChangePassWordVC: UIViewController {
     //Start viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hhhh : \(AppDelegate.global_user.user_hash)")
         // Do any additional setup after loading the view.
-        confirmTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmpasswordPlaceHolder", comment: "")
-        passwordTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordPlaceHolder", comment: "")
+        confirmTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "newPassWordPlaceholder", comment: "")
+        passwordTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmNewPassWordPlaceholder", comment: "")
+        changeBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "change", comment: ""), for: .normal)
         self.hideKeyboardWhenTappedAround()
         buttonborder(button_outlet_name:changeBtn)
     }

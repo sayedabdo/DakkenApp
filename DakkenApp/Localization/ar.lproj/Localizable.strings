@@ -10,6 +10,9 @@
 "home" = "الرئيسية";
 "some_error" = "حدث خطأ برجاء اعاده المحاوله";
 "Done" = "تم";
+//ChooseSignupVC
+"user Sign up" = "الدخول كتاجر";
+"Dealer Sign up" = "الدخول كعميل";
 //Login VC
 "VCTitle0" = "الدخول كتاجر";
 "VCTitle1" = "الدخول كعميل";
@@ -22,6 +25,8 @@
 "emailPlaceHolder" = "البريد الالكترونى";
 "passwordPlaceHolder" = "الرقم السرى";
 //sign Up VC
+"VCSignUpTitle0" = "التسجيل كتاجر";
+"VCSignUpTitle1" = "التسجيل كعميل";
 "emailPlaceHolder" = "البريد الالكترونى";
 "passwordPlaceHolder" = "الرقم السرى";
 "confirmpasswordPlaceHolder" = "تأكيد الرقم السرى";
@@ -36,8 +41,8 @@
 "chooseprofileimage" = "اختار الصوره الشخصيه";
 "profile image" = "قم باختيار صوره للبروفيل😞";
 "signuperoor" = "حدث خطأ اثناء التسجيل حاول مره اخرى";
-//ChooseSignupVC
-"user Sign up" = "التسجيل كعميل";
-"Dealer Sign up" = "التسجيل كتاجر";
 //ChangePassWordVC
+"newPassWordPlaceholder" = "رقم سرى جديد";
+"confirmNewPassWordPlaceholder" = "تأكيد الرقم السرى الجديد";
+"change" = "تحديث";
 "passwordchanged" = "تم تغيير الرقم السرى بنجاح😍";
