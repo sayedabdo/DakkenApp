@@ -41,6 +41,7 @@
 		164657E5217C698C005F22A7 /* TryJobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164657E4217C698C005F22A7 /* TryJobsVC.swift */; };
 		164657EA217C6C49005F22A7 /* CVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164657E9217C6C49005F22A7 /* CVS.swift */; };
 		164657EC217C795F005F22A7 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164657EB217C795F005F22A7 /* JobCell.swift */; };
+		1653A9262192EBD400D13816 /* AddJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1653A9252192EBD400D13816 /* AddJobVC.swift */; };
 		165ECF6B217766E200F7FA0F /* SignUPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165ECF6A217766E200F7FA0F /* SignUPVC.swift */; };
 		167199D7217A13590031CB95 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167199D6217A13580031CB95 /* HomeVC.swift */; };
 		16AE8712217DBF43003C6107 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE8711217DBF43003C6107 /* ProfileVC.swift */; };
@@ -88,6 +89,7 @@
 		164657E4217C698C005F22A7 /* TryJobsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryJobsVC.swift; sourceTree = "<group>"; };
 		164657E9217C6C49005F22A7 /* CVS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVS.swift; sourceTree = "<group>"; };
 		164657EB217C795F005F22A7 /* JobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
+		1653A9252192EBD400D13816 /* AddJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobVC.swift; sourceTree = "<group>"; };
 		165ECF6A217766E200F7FA0F /* SignUPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUPVC.swift; path = ../SignUPVC.swift; sourceTree = "<group>"; };
 		167199D6217A13580031CB95 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		16AE8711217DBF43003C6107 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				1607BB972189D93100A6498F /* SubOrderVC.swift */,
 				1604139021847A0B0057D60C /* MyProductVC.swift */,
 				16080E282184C149007A7A6B /* BasketVC.swift */,
+				1653A9252192EBD400D13816 /* AddJobVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -371,6 +374,7 @@
 				16159EA4217B321D0093B5AF /* Product.swift in Sources */,
 				16083A41217E06AC00A1AB8A /* UpdateJobsVC.swift in Sources */,
 				1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */,
+				1653A9262192EBD400D13816 /* AddJobVC.swift in Sources */,
 				1607BB982189D93100A6498F /* SubOrderVC.swift in Sources */,
 				1618641321761235000EABAA /* AppDelegate.swift in Sources */,
 				160AE2CF218092550076074C /* OrderVC.swift in Sources */,

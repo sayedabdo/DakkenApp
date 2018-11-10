@@ -11,6 +11,8 @@
 "some_error" = "some error done please,try again";
 "Done" = "Done";
 //Log in
+"VCTitle0" = "Log in as Tager";
+"VCTitle1" = "Log in as 3amel";
 "log in" = "log in";
 "Error" = "Error!!";
 "email" = "☹️E-mail is InValid";

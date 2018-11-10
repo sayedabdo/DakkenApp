@@ -16,12 +16,21 @@ class LogInVC: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var VCTitle: UILabel!
+    
     //var
     var role : Int!
     //start viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+       
+        if(role == 0 ){
+            VCTitle.text =  LocalizationSystem.sharedInstance.localizedStringForKey(key: "VCTitle0", comment: "")
+        }
+        if(role == 1 ){
+           VCTitle.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "VCTitle1", comment: ""))"
+        }
         loginBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "log in", comment: ""), for: .normal)
         emailTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailPlaceHolder", comment: "")
         passwordTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordPlaceHolder", comment: "")
