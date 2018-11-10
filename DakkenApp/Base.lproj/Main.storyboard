@@ -197,19 +197,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fuc-bI-umh">
-                                <rect key="frame" x="16" y="197" width="288" height="300"/>
+                                <rect key="frame" x="16" y="197" width="288" height="340"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="X6d-UU-vod">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="25.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="31.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KAA-CA-OqK">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="25.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="31.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="7wp-au-fmb"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XZd-3b-0XR" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="55" y="0.0" width="233" height="25.5"/>
+                                                <rect key="frame" x="40" y="0.0" width="248" height="31.5"/>
                                                 <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -228,16 +228,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wdn-9o-i5Y">
-                                        <rect key="frame" x="0.0" y="45.5" width="288" height="26"/>
+                                        <rect key="frame" x="0.0" y="51.5" width="288" height="31.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H4Z-Wx-NBs">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="31.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="C5g-E4-aP6"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mik-0h-yC6" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="55" y="0.0" width="233" height="26"/>
+                                                <rect key="frame" x="40" y="0.0" width="248" height="31.5"/>
                                                 <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -256,16 +256,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q6a-cb-i6f">
-                                        <rect key="frame" x="0.0" y="91.5" width="288" height="25.5"/>
+                                        <rect key="frame" x="0.0" y="103" width="288" height="31.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Ii-T0-KKh">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="25.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="31.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="uIf-OU-Ro0"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nap-wW-puN" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="55" y="0.0" width="233" height="25.5"/>
+                                                <rect key="frame" x="40" y="0.0" width="248" height="31.5"/>
                                                 <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -284,16 +284,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eve-Vf-dcP">
-                                        <rect key="frame" x="0.0" y="137" width="288" height="26"/>
+                                        <rect key="frame" x="0.0" y="154.5" width="288" height="31"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="liT-xi-byE">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="jXh-9E-Kfg"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z3R-KG-TCd" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="55" y="0.0" width="233" height="26"/>
+                                                <rect key="frame" x="40" y="0.0" width="248" height="31"/>
                                                 <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -312,16 +312,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3gY-iC-kMM">
-                                        <rect key="frame" x="0.0" y="183" width="288" height="25.5"/>
+                                        <rect key="frame" x="0.0" y="205.5" width="288" height="31.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DEm-Gj-22x">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="25.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="31.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="1z7-O6-Wef"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6fW-u5-Skz" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="55" y="0.0" width="233" height="25.5"/>
+                                                <rect key="frame" x="40" y="0.0" width="248" height="31.5"/>
                                                 <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -340,16 +340,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Iwy-8g-RVt">
-                                        <rect key="frame" x="0.0" y="228.5" width="288" height="26"/>
+                                        <rect key="frame" x="0.0" y="257" width="288" height="31.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-sx-3tH">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="31.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="CRI-sB-qHu"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOn-Yt-iLW">
-                                                <rect key="frame" x="55" y="0.0" width="233" height="26"/>
+                                                <rect key="frame" x="40" y="0.0" width="248" height="31.5"/>
                                                 <state key="normal" title="اضغط لتحديد الموقع">
                                                     <color key="titleColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -357,16 +357,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nec-hb-bLi">
-                                        <rect key="frame" x="0.0" y="274.5" width="288" height="25.5"/>
+                                        <rect key="frame" x="0.0" y="308.5" width="288" height="31.5"/>
                                         <subviews>
                                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfF-fp-msj">
-                                                <rect key="frame" x="-16" y="-471.5" width="0.0" height="22"/>
+                                                <rect key="frame" x="-16" y="-505.5" width="0.0" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHi-JX-I0K">
-                                                <rect key="frame" x="-16" y="-471.5" width="0.0" height="22"/>
+                                                <rect key="frame" x="-16" y="-505.5" width="0.0" height="22"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -402,7 +402,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bej-a5-iKi">
-                                <rect key="frame" x="16" y="520" width="288" height="30"/>
+                                <rect key="frame" x="16" y="560" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="N1K-Ix-ere"/>
@@ -415,7 +415,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="931-7x-thQ">
-                                <rect key="frame" x="0.0" y="-8" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اسم المنتج" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMF-dR-fXS">
                                         <rect key="frame" x="123.5" y="39" width="73.5" height="21"/>
@@ -427,7 +427,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nun-ek-wLg">
-                                        <rect key="frame" x="12" y="28" width="17" height="31"/>
+                                        <rect key="frame" x="8" y="35" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="0SU-TE-bde"/>
                                             <constraint firstAttribute="height" constant="25" id="Bcj-nb-CCR"/>
@@ -526,7 +526,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ww9-a0-gc1">
-                                <rect key="frame" x="16" y="378" width="288" height="30"/>
+                                <rect key="frame" x="16" y="390" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="f1x-zR-rZN"/>
@@ -558,7 +558,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="MHK-zM-p93">
-                                <rect key="frame" x="16" y="220" width="288" height="150"/>
+                                <rect key="frame" x="16" y="232" width="288" height="150"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8C8-9t-T7t">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="33.5"/>
@@ -569,11 +569,22 @@
                                                     <constraint firstAttribute="width" constant="25" id="Dia-q0-xeI"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KDz-jA-lES">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KDz-jA-lES" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                 <rect key="frame" x="35" y="0.0" width="253" height="33.5"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -586,11 +597,22 @@
                                                     <constraint firstAttribute="width" constant="25" id="mz5-BW-wUo"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i0u-E9-CoF">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i0u-E9-CoF" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                 <rect key="frame" x="35" y="0.0" width="253" height="33"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -603,11 +625,22 @@
                                                     <constraint firstAttribute="width" constant="25" id="97F-rY-MfW"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZQ-XG-675">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZQ-XG-675" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                 <rect key="frame" x="35" y="0.0" width="253" height="33.5"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -617,7 +650,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cg7-tF-NA1">
-                                <rect key="frame" x="16" y="416" width="288" height="33"/>
+                                <rect key="frame" x="16" y="428" width="288" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shY-If-5Uh">
                                         <rect key="frame" x="0.0" y="0.0" width="253" height="33"/>
@@ -646,7 +679,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ndt-Gl-mrZ">
-                                <rect key="frame" x="6" y="465" width="308" height="33"/>
+                                <rect key="frame" x="6" y="477" width="308" height="33"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hba-92-nFx">
                                         <rect key="frame" x="0.0" y="0.0" width="154" height="33"/>
@@ -744,7 +777,7 @@
                             <constraint firstItem="1ct-0K-jBO" firstAttribute="bottom" secondItem="dYJ-EK-zZM" secondAttribute="bottom" id="ff5-pV-chg"/>
                             <constraint firstItem="GYu-nb-2Js" firstAttribute="leading" secondItem="dYJ-EK-zZM" secondAttribute="leading" constant="16" id="hlE-B3-DuI"/>
                             <constraint firstItem="dYJ-EK-zZM" firstAttribute="trailing" secondItem="MHK-zM-p93" secondAttribute="trailing" constant="16" id="mF2-Eg-qeJ"/>
-                            <constraint firstItem="MHK-zM-p93" firstAttribute="top" secondItem="GYu-nb-2Js" secondAttribute="bottom" constant="8" id="n2Y-tU-r0A"/>
+                            <constraint firstItem="MHK-zM-p93" firstAttribute="top" secondItem="GYu-nb-2Js" secondAttribute="bottom" constant="20" id="n2Y-tU-r0A"/>
                             <constraint firstItem="Rc3-jl-WHy" firstAttribute="centerX" secondItem="WMc-VJ-V4D" secondAttribute="centerX" id="nAs-Be-qNJ"/>
                             <constraint firstItem="1ct-0K-jBO" firstAttribute="trailing" secondItem="dYJ-EK-zZM" secondAttribute="trailing" id="omf-Gp-3wX"/>
                             <constraint firstItem="GYu-nb-2Js" firstAttribute="top" secondItem="q8m-je-JNC" secondAttribute="bottom" constant="6.5" id="q04-VR-TOk"/>
@@ -764,6 +797,8 @@
                         <outlet property="images" destination="gcB-32-9Lc" id="gh4-ro-Flu"/>
                         <outlet property="jobBtn" destination="Id5-vJ-Vrq" id="ix5-b3-F9T"/>
                         <outlet property="jobsTableView" destination="YHa-fm-7gn" id="Ah1-GR-aZb"/>
+                        <outlet property="myInfoLabel" destination="GYu-nb-2Js" id="DUu-hb-wh0"/>
+                        <outlet property="myProductBtn" destination="ros-32-Kt3" id="DdH-DV-5Qu"/>
                         <outlet property="nameTextFiled" destination="KDz-jA-lES" id="zsm-PU-Shx"/>
                         <outlet property="updateDataBtn" destination="Ww9-a0-gc1" id="Kjh-vS-lYR"/>
                     </connections>
@@ -819,7 +854,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="EK5-yf-gEh">
                                 <rect key="frame" x="16" y="233" width="288" height="178"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" placeholder="رقم سرى جديد" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZ0-Ue-dH9" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" placeholder="رقم سرى جديد" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZ0-Ue-dH9" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="36"/>
                                         <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -836,7 +871,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" placeholder="تأكيد الرقم السرى الجديد" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uc2-RL-hH9" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" placeholder="تأكيد الرقم السرى الجديد" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uc2-RL-hH9" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="71" width="288" height="36"/>
                                         <color key="textColor" red="0.2255695164" green="0.47587597370000001" blue="0.59657037260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -899,7 +934,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUv-63-Uhu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="145.77464788732394"/>
+            <point key="canvasLocation" x="1980" y="118"/>
         </scene>
         <!--Update JobsVC-->
         <scene sceneID="1uj-zj-xAR">
@@ -921,13 +956,13 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2w-0Y-yBM">
-                                        <rect key="frame" x="8" y="35" width="25" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2w-0Y-yBM">
+                                        <rect key="frame" x="8" y="31" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="L3C-SD-pmz"/>
                                             <constraint firstAttribute="height" constant="25" id="Z9z-ue-fcz"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" image="back1"/>
                                         <connections>
                                             <action selector="back:" destination="xol-KU-I9c" eventType="touchUpInside" id="Hks-vE-x8X"/>
                                         </connections>
@@ -935,7 +970,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="S2w-0Y-yBM" secondAttribute="bottom" id="8Wh-dL-OQl"/>
+                                    <constraint firstAttribute="bottom" secondItem="S2w-0Y-yBM" secondAttribute="bottom" constant="4" id="8Wh-dL-OQl"/>
                                     <constraint firstAttribute="bottom" secondItem="U3u-K9-Zp8" secondAttribute="bottom" id="FIp-gf-Mes"/>
                                     <constraint firstItem="S2w-0Y-yBM" firstAttribute="leading" secondItem="zhf-0Z-5Su" secondAttribute="leading" constant="8" id="lX6-aL-hMX"/>
                                     <constraint firstItem="U3u-K9-Zp8" firstAttribute="centerX" secondItem="zhf-0Z-5Su" secondAttribute="centerX" id="sFK-1u-F8B"/>
@@ -945,42 +980,53 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgimage" translatesAutoresizingMaskIntoConstraints="NO" id="Pkb-Ef-16R">
                                 <rect key="frame" x="0.0" y="60" width="320" height="508"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RWc-eS-0ro">
-                                <rect key="frame" x="16" y="179" width="288" height="200"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="RWc-eS-0ro">
+                                <rect key="frame" x="16" y="188" width="288" height="230"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCZ-aw-HKW">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="32"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCZ-aw-HKW" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="26"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xGg-I7-kFG" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="51" width="288" height="26"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xGg-I7-kFG">
-                                        <rect key="frame" x="0.0" y="42" width="288" height="32"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf4-Zs-gCq" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="102" width="288" height="26"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf4-Zs-gCq">
-                                        <rect key="frame" x="0.0" y="84" width="288" height="32"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7iF-kj-aDW" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="153" width="288" height="26"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7iF-kj-aDW">
-                                        <rect key="frame" x="0.0" y="126" width="288" height="32"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="deh-rK-kq2">
-                                        <rect key="frame" x="0.0" y="168" width="288" height="32"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="deh-rK-kq2" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="204" width="288" height="26"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="23g-ke-9QJ"/>
+                                    <constraint firstAttribute="height" constant="230" id="23g-ke-9QJ"/>
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="yYC-0h-rMs">
@@ -991,7 +1037,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cEI-og-YG6">
-                                <rect key="frame" x="16" y="387" width="288" height="50"/>
+                                <rect key="frame" x="16" y="426" width="288" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NzM-Pj-cQ8"/>
@@ -1028,7 +1074,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjh-D0-3GW">
-                                <rect key="frame" x="16" y="453" width="288" height="28"/>
+                                <rect key="frame" x="16" y="492" width="288" height="28"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="BlX-H0-FqO"/>
@@ -1042,7 +1088,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSC-hj-whd">
-                                <rect key="frame" x="16" y="489" width="288" height="28.5"/>
+                                <rect key="frame" x="16" y="528" width="288" height="28.5"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28.5" id="Moz-XM-iWN"/>
@@ -1085,7 +1131,7 @@
                             <constraint firstItem="Pkb-Ef-16R" firstAttribute="trailing" secondItem="qeF-2m-tlq" secondAttribute="trailing" id="eeR-rW-NN8"/>
                             <constraint firstItem="Pkb-Ef-16R" firstAttribute="bottom" secondItem="qeF-2m-tlq" secondAttribute="bottom" id="fCd-rJ-Tdk"/>
                             <constraint firstItem="cEI-og-YG6" firstAttribute="top" secondItem="RWc-eS-0ro" secondAttribute="bottom" constant="8" id="fDj-bA-gHF"/>
-                            <constraint firstItem="RWc-eS-0ro" firstAttribute="top" secondItem="Zes-5g-qkp" secondAttribute="bottom" constant="11" id="fsd-1X-iY9"/>
+                            <constraint firstItem="RWc-eS-0ro" firstAttribute="top" secondItem="Zes-5g-qkp" secondAttribute="bottom" constant="20" id="fsd-1X-iY9"/>
                             <constraint firstItem="bjh-D0-3GW" firstAttribute="top" secondItem="cEI-og-YG6" secondAttribute="bottom" constant="16" id="ol2-wn-BvE"/>
                             <constraint firstItem="RWc-eS-0ro" firstAttribute="leading" secondItem="qeF-2m-tlq" secondAttribute="leading" constant="16" id="pfx-yF-dzg"/>
                             <constraint firstItem="zhf-0Z-5Su" firstAttribute="leading" secondItem="qeF-2m-tlq" secondAttribute="leading" id="rLS-Ej-QGt"/>

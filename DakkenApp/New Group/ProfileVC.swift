@@ -18,6 +18,8 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var updateDataBtn: UIButton!
     @IBOutlet weak var chooseImageBtn: UIButton!
     @IBOutlet weak var jobBtn: UIButton!
+    @IBOutlet weak var myProductBtn: UIButton!
+    @IBOutlet weak var myInfoLabel: UILabel!
     
     let UPDATEProfile_URL = "https://dkaken.alsalil.net/api/updateprofile"
     override func viewDidLoad() {
@@ -29,6 +31,18 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         download_image(image_url: AppDelegate.global_user.image,imagedisplayed: images)
         buttonborder(button_outlet_name:updateDataBtn)
         buttonborder(button_outlet_name:chooseImageBtn)
+        buttonborder(button_outlet_name:jobBtn)
+        buttonborder(button_outlet_name:myProductBtn)
+        
+        
+        
+        updateDataBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "log in", comment: ""), for: .normal)
+        chooseImageBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "changeImage", comment: ""), for: .normal)
+            jobBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyJob", comment: ""), for: .normal)
+        myProductBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyProduct", comment: ""), for: .normal)
+        
+        
+       // emailTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailPlaceHolder", comment: "")
         self.hideKeyboardWhenTappedAround()
     }
 

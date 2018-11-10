@@ -46,3 +46,13 @@
 "confirmNewPassWordPlaceholder" = "Confirm New Password";
 "change" = "change";
 "passwordchanged" = "Password Changed Successfully😍";
+//profile
+"Name" = "Name";
+"E-mail" = "E-mail";
+"Phone" = "Phone";
+"MyInfo" = "My Info";
+"MyProduct" = "My Product";
+"changePassword" = "Change Password";
+"changeImage" = "change Image";
+"MyJob" = "My Job";
+"UpdateProfileData" = "update";
