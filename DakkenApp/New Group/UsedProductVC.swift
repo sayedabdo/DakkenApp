@@ -1,5 +1,5 @@
 //
-//  addFoodVC.swift
+//  UsedProductVC.swift
 //  DakkenApp
 //
 //  Created by Sayed Abdo on 11/12/18.
@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import Alamofire
 
-class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
-    
     @IBOutlet weak var VCTitle: UILabel!
     @IBOutlet weak var mainProductImage: UIImageView!
     @IBOutlet weak var chooseMainImageBtn: UIButton!
@@ -30,7 +28,6 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.hideKeyboardWhenTappedAround()
     }
     @IBAction func cancelimages(_ sender: Any) {
         if(imageCount == 2){
@@ -42,7 +39,7 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             imageCount -= 1
         }
         if(imageCount == 4){
-           image4.image = UIImage(named: "Logo")
+            image4.image = UIImage(named: "Logo")
             imageCount -= 1
         }
     }
@@ -181,3 +178,4 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             view.endEditing(true)
         }
     }
+
