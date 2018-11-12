@@ -44,6 +44,7 @@
 		1653A9262192EBD400D13816 /* AddJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1653A9252192EBD400D13816 /* AddJobVC.swift */; };
 		165ECF6B217766E200F7FA0F /* SignUPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165ECF6A217766E200F7FA0F /* SignUPVC.swift */; };
 		167199D7217A13590031CB95 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167199D6217A13580031CB95 /* HomeVC.swift */; };
+		168BD5492199A2BB00ACCC35 /* addFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BD5482199A2BB00ACCC35 /* addFoodVC.swift */; };
 		16AE8712217DBF43003C6107 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE8711217DBF43003C6107 /* ProfileVC.swift */; };
 		16EBF79C2184640500134E05 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EBF79B2184640500134E05 /* ItemData.swift */; };
 		9D8DF19D92965402243F6152 /* Pods_DakkenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01113039E7705157B2952EE /* Pods_DakkenApp.framework */; };
@@ -92,6 +93,7 @@
 		1653A9252192EBD400D13816 /* AddJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobVC.swift; sourceTree = "<group>"; };
 		165ECF6A217766E200F7FA0F /* SignUPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUPVC.swift; path = ../SignUPVC.swift; sourceTree = "<group>"; };
 		167199D6217A13580031CB95 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		168BD5482199A2BB00ACCC35 /* addFoodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFoodVC.swift; sourceTree = "<group>"; };
 		16AE8711217DBF43003C6107 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		16EBF79B2184640500134E05 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		C01113039E7705157B2952EE /* Pods_DakkenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DakkenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 				1604139021847A0B0057D60C /* MyProductVC.swift */,
 				16080E282184C149007A7A6B /* BasketVC.swift */,
 				1653A9252192EBD400D13816 /* AddJobVC.swift */,
+				168BD5482199A2BB00ACCC35 /* addFoodVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -371,6 +374,7 @@
 				1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */,
 				1604138F218478CB0057D60C /* MyProductCell.swift in Sources */,
 				167199D7217A13590031CB95 /* HomeVC.swift in Sources */,
+				168BD5492199A2BB00ACCC35 /* addFoodVC.swift in Sources */,
 				16EBF79C2184640500134E05 /* ItemData.swift in Sources */,
 				1618641521761235000EABAA /* ViewController.swift in Sources */,
 				16159EA4217B321D0093B5AF /* Product.swift in Sources */,

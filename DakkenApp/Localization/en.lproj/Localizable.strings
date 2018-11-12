@@ -46,6 +46,7 @@
 "confirmNewPassWordPlaceholder" = "Confirm New Password";
 "change" = "change";
 "passwordchanged" = "Password Changed Successfully😍";
+"changePasswordVCTitle" = "Change Password";
 //profile
 "Name" = "Name";
 "E-mail" = "E-mail";
@@ -56,3 +57,7 @@
 "changeImage" = "change Image";
 "MyJob" = "My Job";
 "UpdateProfileData" = "update";
+"nameProfileVCPlaceHolder" = "User Name";
+"emailProfileVCPlaceHolder" = "E-mail";
+"phoneProfileVCPlaceHolder" = "Phone";
+"changePassWord" = "changePassWord";

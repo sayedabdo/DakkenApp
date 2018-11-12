@@ -15,6 +15,8 @@ class ChangePassWordVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmTextField: UITextField!
     @IBOutlet weak var changeBtn: UIButton!
+    @IBOutlet weak var VCTitle: UILabel!
+    
     //Start viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class ChangePassWordVC: UIViewController {
         confirmTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "newPassWordPlaceholder", comment: "")
         passwordTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmNewPassWordPlaceholder", comment: "")
         changeBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "change", comment: ""), for: .normal)
+        VCTitle.text = "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "changePasswordVCTitle", comment: ""))"
         self.hideKeyboardWhenTappedAround()
         buttonborder(button_outlet_name:changeBtn)
     }

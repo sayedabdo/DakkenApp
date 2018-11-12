@@ -19,6 +19,7 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var chooseImageBtn: UIButton!
     @IBOutlet weak var jobBtn: UIButton!
     @IBOutlet weak var myProductBtn: UIButton!
+    @IBOutlet weak var changePassWord: UIButton!
     @IBOutlet weak var myInfoLabel: UILabel!
     
     let UPDATEProfile_URL = "https://dkaken.alsalil.net/api/updateprofile"
@@ -33,16 +34,19 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         buttonborder(button_outlet_name:chooseImageBtn)
         buttonborder(button_outlet_name:jobBtn)
         buttonborder(button_outlet_name:myProductBtn)
+        buttonborder(button_outlet_name:changePassWord)
         
         
-        
-        updateDataBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "log in", comment: ""), for: .normal)
+        changePassWord.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "changePassWord", comment: ""), for: .normal)
+        updateDataBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "UpdateProfileData", comment: ""), for: .normal)
         chooseImageBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "changeImage", comment: ""), for: .normal)
-            jobBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyJob", comment: ""), for: .normal)
+        jobBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyJob", comment: ""), for: .normal)
         myProductBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyProduct", comment: ""), for: .normal)
-        
-        
-       // emailTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailPlaceHolder", comment: "")
+        myInfoLabel.text = "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyInfo", comment: ""))"
+
+        nameTextFiled.placeholder  = LocalizationSystem.sharedInstance.localizedStringForKey(key: "nameProfileVCPlaceHolder", comment: "")
+        emailTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailProfileVCPlaceHolder", comment: "")
+        PhoneTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "phoneProfileVCPlaceHolder", comment: "")
         self.hideKeyboardWhenTappedAround()
     }
 
