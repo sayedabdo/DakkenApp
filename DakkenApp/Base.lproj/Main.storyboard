@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O4O-j1-cAh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M3Y-24-Yle">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2226,6 +2226,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgimage" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-8R-bDF">
+                                <rect key="frame" x="0.0" y="60" width="320" height="508"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-tH-0qo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
@@ -2242,6 +2245,20 @@
                                     <constraint firstAttribute="height" constant="60" id="HnV-um-8jG"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3G-sU-nq0">
+                                <rect key="frame" x="10" y="520" width="300" height="28"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="s8R-HU-o6H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="إضافه ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addProductAction:" destination="M3Y-24-Yle" eventType="touchUpInside" id="2Zg-yE-Ic9"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0oG-X5-eyN">
                                 <rect key="frame" x="22" y="432" width="250" height="80"/>
                                 <subviews>
@@ -2329,6 +2346,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAh-Fm-xXs">
                                         <rect key="frame" x="0.0" y="27.5" width="25" height="27.5"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeimage:" destination="M3Y-24-Yle" eventType="touchUpInside" id="P2t-0h-I0q"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -2336,24 +2356,6 @@
                                     <constraint firstAttribute="height" constant="55" id="ZE1-nX-0ZD"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bgimage" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-8R-bDF">
-                                <rect key="frame" x="0.0" y="60" width="320" height="508"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3G-sU-nq0">
-                                <rect key="frame" x="10" y="520" width="300" height="28"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="s8R-HU-o6H"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="إضافه ">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addProductAction:" destination="M3Y-24-Yle" eventType="touchUpInside" id="2Zg-yE-Ic9"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2363,17 +2365,21 @@
                             <constraint firstItem="JOp-Ab-OGy" firstAttribute="leading" secondItem="m8o-T5-gVe" secondAttribute="leading" constant="8" id="8ZP-O6-Mkk"/>
                             <constraint firstItem="m8o-T5-gVe" firstAttribute="trailing" secondItem="6os-K1-dpU" secondAttribute="trailing" constant="16" id="AU9-l8-Kjf"/>
                             <constraint firstItem="ZrB-tH-0qo" firstAttribute="leading" secondItem="m8o-T5-gVe" secondAttribute="leading" id="H97-jE-ZPJ"/>
+                            <constraint firstItem="cbp-8R-bDF" firstAttribute="bottom" secondItem="m8o-T5-gVe" secondAttribute="bottom" id="Iqj-e5-2c8"/>
                             <constraint firstItem="0oG-X5-eyN" firstAttribute="top" secondItem="JOp-Ab-OGy" secondAttribute="bottom" constant="8" id="LtS-AX-hrQ"/>
+                            <constraint firstItem="cbp-8R-bDF" firstAttribute="top" secondItem="ZrB-tH-0qo" secondAttribute="bottom" id="SJZ-s7-cUu"/>
                             <constraint firstItem="6os-K1-dpU" firstAttribute="top" secondItem="JOp-Ab-OGy" secondAttribute="bottom" constant="21" id="UGF-bs-Gj4"/>
                             <constraint firstItem="m8o-T5-gVe" firstAttribute="trailing" secondItem="JOp-Ab-OGy" secondAttribute="trailing" constant="8" id="Vpt-hv-ZN0"/>
                             <constraint firstItem="m8o-T5-gVe" firstAttribute="trailing" secondItem="v3G-sU-nq0" secondAttribute="trailing" constant="10" id="WWo-na-DjQ"/>
                             <constraint firstItem="OpO-YK-dIN" firstAttribute="top" secondItem="vkt-tH-iKJ" secondAttribute="bottom" constant="8" id="YzC-SW-dZe"/>
+                            <constraint firstItem="cbp-8R-bDF" firstAttribute="leading" secondItem="m8o-T5-gVe" secondAttribute="leading" id="crU-UY-fXH"/>
                             <constraint firstItem="ZrB-tH-0qo" firstAttribute="trailing" secondItem="m8o-T5-gVe" secondAttribute="trailing" id="e2H-8q-dOo"/>
                             <constraint firstItem="OpO-YK-dIN" firstAttribute="centerX" secondItem="Icz-NN-SMN" secondAttribute="centerX" id="e5M-LN-p8b"/>
                             <constraint firstItem="0oG-X5-eyN" firstAttribute="leading" secondItem="m8o-T5-gVe" secondAttribute="leading" constant="22" id="hbq-MY-H6f"/>
                             <constraint firstItem="vkt-tH-iKJ" firstAttribute="top" secondItem="ZrB-tH-0qo" secondAttribute="bottom" constant="8" id="ihf-7y-hwQ"/>
                             <constraint firstItem="v3G-sU-nq0" firstAttribute="leading" secondItem="m8o-T5-gVe" secondAttribute="leading" constant="10" id="lds-xt-38B"/>
                             <constraint firstItem="vkt-tH-iKJ" firstAttribute="centerX" secondItem="Icz-NN-SMN" secondAttribute="centerX" id="qVL-uW-OH6"/>
+                            <constraint firstItem="cbp-8R-bDF" firstAttribute="trailing" secondItem="m8o-T5-gVe" secondAttribute="trailing" id="sdd-f6-31u"/>
                             <constraint firstItem="v3G-sU-nq0" firstAttribute="top" secondItem="0oG-X5-eyN" secondAttribute="bottom" constant="8" id="xgH-O0-69Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m8o-T5-gVe"/>

@@ -24,9 +24,9 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var image3: UIImageView!
     @IBOutlet weak var image4: UIImageView!
     @IBOutlet weak var addProductBtn: UIButton!
+    var imagedone = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -34,7 +34,48 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     
     
     @IBAction func addProductAction(_ sender: Any) {
-        
+        //check to chosse main Image
+        if(imagedone == false){
+            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
+                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
+        }
+        //check if the productNameTextField textfield is empty or not
+        if(productNameTextField.text?.isEmpty)!{
+            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
+                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
+        }
+        //check if the productNumberextField textfield is empty or not
+        if(productNumberTextField.text?.isEmpty)!{
+            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
+                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
+        }
+        //check if the productCountTextField textfield is empty or not
+        if(productCountTextField.text?.isEmpty)!{
+            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
+                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
+        }
+        //check if the productPriceTextField textfield is empty or not
+        if(productPriceTextField.text?.isEmpty)!{
+            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
+                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
+        }
+        //check if the producDescriptionTextField textfield is empty or not
+        if(productDescriptionTextField.text?.isEmpty)!{
+            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
+                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
+        }
     }
     //chosse image
     @IBAction func changeimage(_ sender: Any) {
@@ -75,7 +116,7 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     ////display selected Image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageas.image = pickedImage
+            mainProductImage.image = pickedImage
             imagedone = true
         }
         picker.dismiss(animated: true, completion: nil)
