@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fKb-w5-HgY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O4O-j1-cAh">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1688,7 +1688,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xhY-3V-OqR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="two" id="yDY-9e-JSH"/>
+                    <tabBarItem key="tabBarItem" title="two" id="yDY-9e-JSH">
+                        <color key="badgeColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="requestedOrderTableView" destination="ALg-WR-GoU" id="GB6-bW-Bku"/>
@@ -2218,7 +2220,7 @@
             </objects>
             <point key="canvasLocation" x="-500.625" y="2266.9014084507044"/>
         </scene>
-        <!--Add FoodVC-->
+        <!--Item-->
         <scene sceneID="JNX-2T-yvo">
             <objects>
                 <viewController storyboardIdentifier="addFoodVC" id="M3Y-24-Yle" customClass="addFoodVC" customModule="DakkenApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -2227,7 +2229,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgimage" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-8R-bDF">
-                                <rect key="frame" x="0.0" y="60" width="320" height="508"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="459"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-tH-0qo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -2336,7 +2338,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeimage:" destination="gAG-Lq-Nih" eventType="touchUpInside" id="Fuj-Vu-Iy6"/>
                                     <action selector="changeimage:" destination="M3Y-24-Yle" eventType="touchUpInside" id="zP2-SJ-486"/>
                                 </connections>
                             </button>
@@ -2391,6 +2392,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m8o-T5-gVe"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="76h-RZ-0Lh">
+                        <color key="badgeColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="VCTitle" destination="5bC-jX-2oF" id="kOc-fz-gSk"/>
                         <outlet property="addProductBtn" destination="v3G-sU-nq0" id="NaG-US-sel"/>
@@ -2408,7 +2412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krZ-50-8zd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="170.625" y="2266.9014084507044"/>
+            <point key="canvasLocation" x="-486" y="1574"/>
         </scene>
         <!--Used ProductVC-->
         <scene sceneID="K64-XA-jhA">
@@ -2459,8 +2463,6 @@
                                 </state>
                                 <connections>
                                     <action selector="addProductAction:" destination="fKb-w5-HgY" eventType="touchUpInside" id="3RB-WY-4FB"/>
-                                    <action selector="changeimage:" destination="gAG-Lq-Nih" eventType="touchUpInside" id="H8z-Ra-xT9"/>
-                                    <action selector="changeimage:" destination="M3Y-24-Yle" eventType="touchUpInside" id="zel-qX-IWu"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="o2G-yw-Ge6">
@@ -2611,33 +2613,18 @@
                         <outlet property="image3" destination="8dj-r1-2OW" id="X12-jK-8AT"/>
                         <outlet property="image4" destination="ZRl-kr-6w1" id="77u-hq-IpD"/>
                         <outlet property="mainProductImage" destination="5To-cf-fyk" id="sX9-uX-YEc"/>
+                        <outlet property="productColorTextField" destination="TzN-Yz-t4d" id="Xab-bI-Py3"/>
                         <outlet property="productCountTextField" destination="eaP-Lb-slL" id="dE8-gR-Ffp"/>
                         <outlet property="productDescriptionTextField" destination="cS1-K4-MFf" id="5cH-TV-sch"/>
                         <outlet property="productNameTextField" destination="r7O-2s-Ww5" id="wIN-zY-PQi"/>
                         <outlet property="productNumberTextField" destination="Pvd-lX-eol" id="Mbv-JE-v0U"/>
                         <outlet property="productPriceTextField" destination="No6-Rf-k5t" id="wCh-F6-u1m"/>
+                        <outlet property="productSizeTextField" destination="t1a-aU-DHe" id="gJP-Bh-75M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DkY-C4-41e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="2267"/>
-        </scene>
-        <!--three-->
-        <scene sceneID="rrE-p1-MCl">
-            <objects>
-                <viewController id="Gei-M9-wPn" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4iH-Go-0cL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="b2R-g4-f9W"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="three" id="PaG-kD-htz"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CLl-7o-h3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-497" y="1589"/>
+            <point key="canvasLocation" x="188" y="2267"/>
         </scene>
         <!--Basket-->
         <scene sceneID="CH0-Sa-WJr">
@@ -3629,9 +3616,9 @@
                     <connections>
                         <segue destination="lbf-84-k4g" kind="relationship" relationship="viewControllers" id="2Cv-X9-euc"/>
                         <segue destination="NlB-lf-O5F" kind="relationship" relationship="viewControllers" id="xAW-bF-qm2"/>
-                        <segue destination="Gei-M9-wPn" kind="relationship" relationship="viewControllers" id="Itp-6A-whx"/>
-                        <segue destination="9Y9-ru-Y9c" kind="relationship" relationship="viewControllers" id="W5Z-qA-IyE"/>
                         <segue destination="YLs-SF-4d1" kind="relationship" relationship="viewControllers" id="XE0-ab-UPm"/>
+                        <segue destination="9Y9-ru-Y9c" kind="relationship" relationship="viewControllers" id="W5Z-qA-IyE"/>
+                        <segue destination="M3Y-24-Yle" kind="relationship" relationship="viewControllers" id="9E8-MH-XRi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IGQ-lB-jrM" userLabel="First Responder" sceneMemberID="firstResponder"/>

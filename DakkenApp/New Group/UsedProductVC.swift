@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
@@ -18,6 +19,8 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
     @IBOutlet weak var productCountTextField: UITextField!
     @IBOutlet weak var productPriceTextField: UITextField!
     @IBOutlet weak var productDescriptionTextField: UITextField!
+    @IBOutlet weak var productColorTextField: UITextField!
+    @IBOutlet weak var productSizeTextField: UITextField!
     @IBOutlet weak var image2: UIImageView!
     @IBOutlet weak var image3: UIImageView!
     @IBOutlet weak var image4: UIImageView!
@@ -25,6 +28,7 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
     var selectedmainimage = false
     var imagedone = false
     var imageCount = 1
+    var ADDUSEDITEMURL = "https://dkaken.alsalil.net/api/additem"
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -65,6 +69,22 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
+        ////
+        //check if the productColorTextFieTextField.text?.isEmpty)!{
+        if(productColorTextField.text?.isEmpty)!{
+            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
+                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
+        }
+        //check if the productNumberextField textfield is empty or not
+        if(productSizeTextField.text?.isEmpty)!{
+            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
+                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
+        }
+        ////
         //check if the productCountTextField textfield is empty or not
         if(productCountTextField.text?.isEmpty)!{
             displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
@@ -166,11 +186,93 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    //Start function to post request to add new food
+    func addItemRequest(){
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            let params =
+                [   "category"       : "\(3)",
+                    "trader_id"      : "\(AppDelegate.global_user.id)",
+                    "user_hash"      : "\(AppDelegate.global_user.user_hash)",
+                    "title"          : "\(self.productNameTextField.text!)",
+                    "price"          : "\(self.productPriceTextField.text!)",
+                    "qty"            : "\(self.productCountTextField.text!)",
+                    "desc"           : "\(self.productDescriptionTextField.text!)",
+                    "image"          : "",
+                    "itemimgs[]"     : "",
+                    "productnum"     : "\(self.productNumberTextField.text!)",
+                    "size"           : "\(self.productNameTextField.text!)",
+                    "color "         : "\(self.productColorTextField.text!)",
+                    ]
+            
+            for (key, value) in params {
+                if let data = value.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) {
+                    multipartFormData.append(data, withName: key)
+                    
+                }
+            }
+            
+            let imageData1 = UIImageJPEGRepresentation(self.mainProductImage.image as! UIImage, 0.5)!
+            multipartFormData.append(imageData1, withName: "image", fileName: "mainImage.jpg", mimeType: "image/jpeg")
+            print("success");
+            
+            for i in 2..<self.imageCount + 1{
+                print("i == \(i)")
+                if (i == 2){
+                    let imageData1 = UIImageJPEGRepresentation(self.image2.image as! UIImage, 0.5)!
+                    multipartFormData.append(imageData1, withName: "itemimgs[]", fileName: "image1.jpg", mimeType: "image/jpeg")
+                    print("success");
+                }
+                if (i == 3){
+                    let imageData1 = UIImageJPEGRepresentation(self.image3.image as! UIImage, 0.5)!
+                    multipartFormData.append(imageData1, withName: "itemimgs[]", fileName: "image1.jpg", mimeType: "image/jpeg")
+                    print("success");
+                }
+                if (i == 4){
+                    let imageData1 = UIImageJPEGRepresentation(self.image4.image as! UIImage, 0.5)!
+                    multipartFormData.append(imageData1, withName: "itemimgs[]", fileName: "image1.jpg", mimeType: "image/jpeg")
+                    print("success");
+                }
+                
+            }
+            //                        for i in 1..<self.imageDataArray.count{
+            //                            if self.imageFlagArray[i] as! Bool == true{
+            //                                let imageData1 = UIImageJPEGRepresentation(self.imageDataArray[i] as! UIImage, 0.5)!
+            //                                multipartFormData.append(imageData1, withName: "image"+String(format:"%d",i), fileName: "image.jpg", mimeType: "image/jpeg")
+            //                                print("success");
+            //                            }
+            //                        }
+            
+        },
+                         to: self.ADDUSEDITEMURL,method:HTTPMethod.post,
+                         headers:nil, encodingCompletion: { encodingResult in
+                            switch encodingResult {
+                            case .success(let upload, _, _):
+                                upload
+                                    .validate()
+                                    .responseJSON { response in
+                                        switch response.result {
+                                        case .success(let value):
+                                            print("responseObject: \(value)")
+                                            self.displayAlertMessage(title: "تنبيه",messageToDisplay: "تم اضافه المنتج😍 بنجاح", titleofaction : "الرئيسيه")
+                                        case .failure(let responseError):
+                                            print("responseError: \(responseError)")
+                                        }
+                                }
+                            case .failure(let encodingError):
+                                print("encodingError: \(encodingError)")
+                            }
+        })
+        
+        
+        
+        
     }
-    extension addFoodVC {
+}
+    extension UsedProductVC {
         //Hideen Keyboard
         func hideKeyboardWhenTappedAround() {
-            let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(addFoodVC.dismissKeyboard))
+            let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(UsedProductVC.dismissKeyboard))
             tap.cancelsTouchesInView = false
             view.addGestureRecognizer(tap)
         }
