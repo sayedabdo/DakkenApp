@@ -24,9 +24,20 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         basketTableView.dataSource = self
         basketTableView.delegate = self
         // Do any additional setup after loading the view.
-        getAllItemsFromCard(item : 23)
+       // getAllItemsFromCard(item : 23)
         buttonborder(button_outlet_name:confirmAllOrder)
         basketTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewLoadSetup()
+        
+    }
+    
+    
+    func viewLoadSetup(){
+        // setup view did load here
+        getAllItemsFromCard()
     }
     //start deleteItemAction
     @IBAction func deleteItemAction(_ sender: Any) {
@@ -84,7 +95,7 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     //end table view jobs
     //start getAllItemsFromCard
-    func getAllItemsFromCard(item : Int){
+    func getAllItemsFromCard(){
         orders.removeAll()
         self.total_price = 0
         let cartitemsURL = "https://dkaken.alsalil.net/api/cartitems"

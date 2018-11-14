@@ -11,6 +11,7 @@ target 'DakkenApp' do
   pod 'Alamofire'
   pod 'ScrollableSegmentedControl', '~> 1.3.0'
   pod 'TextFieldEffects'
+  pod 'JSSAlertView', '~> 4.0.0'
 end
 # Workaround for @IBDesignable (https://github.com/CocoaPods/CocoaPods/issues/5334)
 post_install do |installer|

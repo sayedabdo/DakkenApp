@@ -33,15 +33,14 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         jobsTableView.dataSource = self
         jobsTableView.delegate = self
         // Do any additional setup after loading the view.
-        get_product(category: 1)
         for tabDataCounter in tab_data{
             self.segmentedControl.insertSegment(withTitle: "\(tabDataCounter)", at: self.tab_data_count)
             self.tab_data_count = self.tab_data_count + 1
         }
-        //get user data after sign up
-        if(fromsignUp == true){
-            getUserData()
-        }
+//        //get user data after sign up
+//        if(fromsignUp == true){
+//            getUserData()
+//        }
         //start segmentedControl
         segmentedControl.segmentStyle = .textOnly
         segmentedControl.underlineSelected = true
@@ -52,6 +51,23 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         segmentedControl.backgroundColor = #colorLiteral(red: 1, green: 0.8256774545, blue: 0, alpha: 1)
         //end segmentedControl
         jobsTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewLoadSetup()
+        
+    }
+    
+    
+    func viewLoadSetup(){
+        // setup view did load here
+        get_product(category: 1)
+        //get user data after sign up
+        if(fromsignUp == true){
+            getUserData()
+        }
+
     }
     //End viewDidLoad
     //start collection view to display product

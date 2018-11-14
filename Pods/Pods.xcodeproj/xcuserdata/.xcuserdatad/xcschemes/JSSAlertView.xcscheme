@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D32C17EF2B6FE9614F47F78ABC4F3A91"
-               BlueprintName = "Pods-DakkenApp"
+               BlueprintIdentifier = "D368184BEED712B6A15E4767FE420BE5"
+               BlueprintName = "JSSAlertView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-DakkenApp.framework">
+               BuildableName = "JSSAlertView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

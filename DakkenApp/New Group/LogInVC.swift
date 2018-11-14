@@ -9,6 +9,7 @@
 
 import UIKit
 import Alamofire
+import JSSAlertView
 
 class LogInVC: UIViewController {
     
@@ -60,16 +61,22 @@ class LogInVC: UIViewController {
         let isEmailAddressValid = isValidEmailAddress(emailAddressString: EmailAddress!)
         if isEmailAddressValid
         {} else {
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the password textfield is empty or not
         if(passwordTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+                )
             return
         }
         //End Function Validation
@@ -88,9 +95,12 @@ class LogInVC: UIViewController {
                 print("the result is : \(String(describing: result.value))")
                 if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
                     if(arrayOfDic["success"] as! Bool == false ){
-                        self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
-                                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                        JSSAlertView().danger(
+                            self,
+                            title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                            text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
+                            buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+                        )
                         return
                     }
                     let userData = arrayOfDic["message"]!
@@ -120,6 +130,11 @@ class LogInVC: UIViewController {
                         job : userData["job"] as! Int
                     )
                     //got to MainTabBar
+                    JSSAlertView().success(
+                    self, // the parent view controller of the alert
+                    title: "I'm an alert", // the alert's title
+                    delay: 3 // time in secs
+                    )
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                     let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
                     self.present(nextViewController, animated:true, completion:nil)

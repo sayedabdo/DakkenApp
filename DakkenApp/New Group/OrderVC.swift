@@ -24,6 +24,27 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         superOrderTableView.dataSource = self
         superOrderTableView.delegate = self
         
+//        if(AppDelegate.global_user.role == "1"){
+//            requestedOrderTableView.isHidden = false
+//            superOrderTableView.isHidden = true
+//            getOrderDetails()
+//        }else{
+//            requestedOrderTableView.isHidden = true
+//            superOrderTableView.isHidden = false
+//            getOrder()
+//        }
+        superOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
+        requestedOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewLoadSetup()
+        
+    }
+    
+    
+    func viewLoadSetup(){
+        // setup view did load here
         if(AppDelegate.global_user.role == "1"){
             requestedOrderTableView.isHidden = false
             superOrderTableView.isHidden = true
@@ -33,8 +54,6 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
             superOrderTableView.isHidden = false
             getOrder()
         }
-        superOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
-        requestedOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
     @IBAction func closeOrderStatus(_ sender: Any) {
         statusView.isHidden = true
@@ -91,6 +110,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     //end table view jobs
     //Start getOrderDetails
     func getOrderDetails(){
+        requestedOrder.removeAll()
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/mytraderorders"
         let params: [String : String] =
             [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
@@ -130,6 +150,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     ////////////
     //start get orders
     func getOrder(){
+        superorder.removeAll()
         let OrderDetailsURL = "https://dkaken.alsalil.net/api/myuserorders"
         let params: [String : String] =
             [   "user_hash"              : "\(AppDelegate.global_user.user_hash)",
