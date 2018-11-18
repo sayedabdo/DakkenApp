@@ -12,6 +12,7 @@ target 'DakkenApp' do
   pod 'ScrollableSegmentedControl', '~> 1.3.0'
   pod 'TextFieldEffects'
   pod 'JSSAlertView', '~> 4.0.0'
+  pod 'Cosmos'
 end
 # Workaround for @IBDesignable (https://github.com/CocoaPods/CocoaPods/issues/5334)
 post_install do |installer|

@@ -80,8 +80,8 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-       // nextViewController.product = products[indexPath.row]
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "FoodsDetailesVC") as! FoodsDetailesVC
+        nextViewController.product = products[indexPath.row]
         self.present(nextViewController, animated:true, completion:nil)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

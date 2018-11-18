@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD1DAC573FD473AADE8D479609962889"
+               BlueprintIdentifier = "EEDE4B9E9C66E6F02A63E10C117B2EB7"
                BlueprintName = "ScrollableSegmentedControl"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "ScrollableSegmentedControl.framework">
