@@ -23,6 +23,17 @@ class LogInVC: UIViewController {
     var role : Int!
     //start viewDidLoad
     override func viewDidLoad() {
+        loginBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 6.0,
+                       options: .allowAnimatedContent,
+                       animations: { [weak self] in
+                        self?.loginBtn.transform = .identity
+            },
+                       completion: nil)
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
        
@@ -36,7 +47,7 @@ class LogInVC: UIViewController {
         emailTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailPlaceHolder", comment: "")
         passwordTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordPlaceHolder", comment: "")
         buttonborder(button_outlet_name:loginBtn)
-        
+
         self.hideKeyboardWhenTappedAround()
     }
     //End viewDidLoad
@@ -130,11 +141,6 @@ class LogInVC: UIViewController {
                         job : userData["job"] as! Int
                     )
                     //got to MainTabBar
-                    JSSAlertView().success(
-                    self, // the parent view controller of the alert
-                    title: "I'm an alert", // the alert's title
-                    delay: 3 // time in secs
-                    )
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                     let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
                     self.present(nextViewController, animated:true, completion:nil)

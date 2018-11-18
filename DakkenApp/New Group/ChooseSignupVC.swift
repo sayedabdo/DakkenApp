@@ -50,12 +50,16 @@ class ChooseSignupVC: UIViewController {
     @IBAction func signUpAsTager(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
+        let modalStyle: UIModalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        nextViewController.modalTransitionStyle = modalStyle
         nextViewController.role = 1
         self.present(nextViewController, animated:true, completion:nil)
     }
     @IBAction func signUpAs3amel(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
+        let modalStyle: UIModalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        nextViewController.modalTransitionStyle = modalStyle
         nextViewController.role = 0
         self.present(nextViewController, animated:true, completion:nil)
     }
