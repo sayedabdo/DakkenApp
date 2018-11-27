@@ -40,7 +40,7 @@
 "passwordlenght" = "☹️password less than 6 characher";
 "chooseprofileimage" = "choose profile image";
 "profile image" = "please, chosse image😞";
-"signuperoor" = "error while sign Up please try again";
+"signuperror" = "error while sign Up please try again";
 //ChangePassWordVC
 "newPassWordPlaceholder" = "New PassWord";
 "confirmNewPassWordPlaceholder" = "Confirm New Password";

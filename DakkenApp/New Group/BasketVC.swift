@@ -33,17 +33,13 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         viewLoadSetup()
         
     }
-    
-    
     func viewLoadSetup(){
         // setup view did load here
         getAllItemsFromCard()
     }
     //start deleteItemAction
     @IBAction func deleteItemAction(_ sender: Any) {
-        orders.remove(at: (sender as AnyObject).tag)
-        print( orders[(sender as AnyObject).tag].id)
-        deleteItemFromCard(deleteitem : orders[(sender as AnyObject).tag].id)
+        displayAlerttodelete(title: "تنبيه!",messageToDisplay: "هل تريد حذف المنتج؟",idOfOrder: (sender as AnyObject).tag)
     }
     //end deleteItemAction
     @IBAction func showDetiles(_ sender: Any) {
@@ -78,9 +74,9 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         guard let cell = basketTableView.dequeueReusableCell(withIdentifier: "BasketCell", for: indexPath) as? BasketCell
             else { return UITableViewCell()
         }
-        if(indexPath.row % 2 == 1){
-            cell.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-        }
+//        if(indexPath.row % 2 == 1){
+//            cell.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+//        }
         cell.setOrder(Order: orders[indexPath.row])
         cell.productDetiles.tag = indexPath.row
         cell.productDelete.tag = indexPath.row
@@ -127,7 +123,7 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         trader : aDic1["trader"] as! Int,
                         qty : aDic1["qty"] as! Int,
                         price : aDic1["price"] as! Double,
-                        status : aDic1["status"] as! Int,
+                        status : aDic1["status"] as! String,
                         created_at : aDic1["created_at"]  as! String
                     ))
                     self.total_price =  self.total_price + Double(aDic1["price"]  as! Double)
@@ -158,10 +154,27 @@ class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         return
                     }
                     var messagedata = arrayOfDic["message"] as? [[String: Any]]
-                    self.basketTableView.reloadData()
+                    
                 }
         }
     }
     //end Delete Item From Card
-
+    func displayAlerttodelete(title: String,messageToDisplay: String,idOfOrder: Int)
+    {
+        let alertController = UIAlertController(title: title, message: messageToDisplay, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "YES", style: .default) { (action:UIAlertAction!) in
+            // Code in this block will trigger when OK button tapped
+            self.orders.remove(at: idOfOrder)
+            self.basketTableView.reloadData()
+            self.deleteItemFromCard(deleteitem : self.orders[idOfOrder].id)
+            return
+        }
+        let noAction = UIAlertAction(title: "NO", style: .default) { (action:UIAlertAction!) in
+            // Code in this block will trigger when OK button tapped
+            return
+        }
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        present(alertController, animated: true, completion:nil)
+    }
 }

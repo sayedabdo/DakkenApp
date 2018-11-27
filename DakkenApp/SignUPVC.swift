@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import JSSAlertView
 
 class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
@@ -57,9 +58,11 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
         //Start Validation
         //check if the nameTextField textfield is empty or not
         if(nameTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
         //check if the email textfield is valid or not
@@ -67,51 +70,67 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
         let isEmailAddressValid = isValidEmailAddress(emailAddressString: EmailAddress!)
         if isEmailAddressValid
         {} else {
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
         //check if the password textfield is empty or not
         if(passwordTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                JSSAlertView().danger(
+                    self,
+                    title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                    text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
+                    buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
         //check password lenght
         let pass = passwordTextField.text!
         if(Int(pass.count) < 6){
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordlenght", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordlenght", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
+            
         }
         //check if the confirm password textfield is empty or not
         if(confirmTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmpassword", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmpassword", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
         //check if password and confirm is matched
         if(confirmTextField.text! != passwordTextField.text!){
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                    messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
-                    titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                JSSAlertView().danger(
+                    self,
+                    title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                    text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
+                    buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
+            
         }
         //check if the phoneTextField textfield is empty or not
         if(phoneTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "phone", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
-                                return
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "phone", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            return
         }
         if(imagedone == false){
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "profile image", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "profile image", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
         //End Validation
@@ -186,8 +205,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
         Alamofire.upload(multipartFormData: { multipartFormData in
             let params =
                 [
-                    
-                    "name"                  : "\(self.nameTextField.text!)",
+                                        "name"                  : "\(self.nameTextField.text!)",
                     "email"                 : "\(self.emailTextField.text!)",
                     "password"              : "\(self.passwordTextField.text!)",
                     "confirmpass"           : "\(self.confirmTextField.text!)",
@@ -228,9 +246,11 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                                 self.present(nextViewController, animated:true, completion:nil)
                             case .failure(let responseError):
                                 print("responseError: \(responseError)")
-                                self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                        messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "signuperoor", comment: ""),
-                                        titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                                JSSAlertView().danger(
+                                    self,
+                                    title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                                    text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "signuperror", comment: ""),
+                                    buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
                                 return
                             }
                     }

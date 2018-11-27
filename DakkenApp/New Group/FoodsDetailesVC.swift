@@ -31,7 +31,7 @@ class FoodsDetailesVC: UIViewController {
     func getcomments(){
         let RatingURL = "https://dkaken.alsalil.net/api/itemrates"
         let params: [String : String] =
-            [   "item_id"                  : "20",
+            [   "item_id"                  : "20"
         ]
         Alamofire.request(RatingURL, method: .post, parameters: params)
             .responseJSON { response in
