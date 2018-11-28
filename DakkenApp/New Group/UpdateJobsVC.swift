@@ -25,7 +25,7 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     
     var cvs : CVS!
     var status = ["متزوج","أعزب"]
-    var tableStatus = 0
+    var tableStatus = 100
     var updateStatus : Int = 0
     let UPDATEJOB_URL = "https://dkaken.alsalil.net/api/updatejob"
     override func viewDidLoad() {
@@ -36,6 +36,7 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         buttonborder(button_outlet_name:changeImage)
         buttonborder(button_outlet_name:updateJobBtn)
         buttonborder(button_outlet_name:deleteJobBtn)
+        getJobData()
     }
     //start table view status
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,6 +47,9 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatusCell") as? StatusCell
+        if (tableStatus == indexPath.row){
+            cell?.contentView.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+        }
         cell?.statusLabel.text = "\(status[indexPath.row])"
         return cell!
     }
@@ -222,12 +226,12 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     //End update data function
     //Start Get Job data
     func getJobData(){
-        let loginurl = "https://dkaken.alsalil.net/api/userjob"
+        let JOBDATAURL = "https://dkaken.alsalil.net/api/userjob"
         let params: [String : String] =
             [   "user_id"                  : "\(AppDelegate.global_user.id)",
                 "user_hash"                : "\(AppDelegate.global_user.user_hash)",
             ]
-        Alamofire.request(loginurl, method: .post, parameters: params)
+        Alamofire.request(JOBDATAURL, method: .post, parameters: params)
             .responseJSON { response in
                 print("the response is : \(response)")
                 let result = response.result
@@ -244,8 +248,8 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                                    id : userData["id"] as! Int,
                                    user_id : userData["user_id"] as! Int,
                                    name : userData["name"] as! String,
-                                   country : userData["country"] as! String,
-                                   phone : userData["phone"] as! String,
+                                   country : 0,
+                                   phone : "userData[phone] as! String",
                                    age : userData["age"] as! String,
                                    social_status : userData["social_status"] as! Int,
                                    job : userData["job"] as! String,
@@ -260,7 +264,7 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                     self.jobTitle.text = "\(userData["job"] as! String)"
                     self.certification.text = "\(userData["certification"] as! String)"
                     self.graduationYear.text = "\(userData["graduation_year"] as! String)"
-                    download_image(image_url:"",imagedisplayed: self.images)
+                    //download_image(image_url:"",imagedisplayed: self.images)
                     self.tableStatus = userData["social_status"] as! Int
                     self.statusTableView.reloadData()
                 }

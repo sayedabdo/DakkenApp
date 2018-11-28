@@ -186,6 +186,10 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    //Start back Button Action
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     //Start function to post request to add new food
     func addItemRequest(){
         

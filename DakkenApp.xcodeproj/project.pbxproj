@@ -30,6 +30,7 @@
 		16159EA4217B321D0093B5AF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA3217B321D0093B5AF /* Product.swift */; };
 		1616655F218DB62000511347 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616655E218DB62000511347 /* MainTabBar.swift */; };
 		1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616EA4E21762D3100373D16 /* LogInVC.swift */; };
+		1618314421ACDE7D00E6D3CC /* MainAddVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618314321ACDE7D00E6D3CC /* MainAddVc.swift */; };
 		1618641321761235000EABAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641221761235000EABAA /* AppDelegate.swift */; };
 		1618641521761235000EABAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641421761235000EABAA /* ViewController.swift */; };
 		1618641821761235000EABAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1618641621761235000EABAA /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		16159EA3217B321D0093B5AF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1616655E218DB62000511347 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		1616EA4E21762D3100373D16 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInVC\U0010.swift"; sourceTree = "<group>"; };
+		1618314321ACDE7D00E6D3CC /* MainAddVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAddVc.swift; sourceTree = "<group>"; };
 		1618640F21761235000EABAA /* DakkenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DakkenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1618641221761235000EABAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1618641421761235000EABAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				168BD5482199A2BB00ACCC35 /* addFoodVC.swift */,
 				1606228B2199E81A000D6C9B /* UsedProductVC.swift */,
 				160920F921A1E271007D961B /* FoodsDetailesVC.swift */,
+				1618314321ACDE7D00E6D3CC /* MainAddVc.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -388,6 +391,7 @@
 				1602E83D2192175B00BAD682 /* SubOrderCell.swift in Sources */,
 				16083A43217E085800A1AB8A /* StatusCell.swift in Sources */,
 				1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */,
+				1618314421ACDE7D00E6D3CC /* MainAddVc.swift in Sources */,
 				1604138F218478CB0057D60C /* MyProductCell.swift in Sources */,
 				167199D7217A13590031CB95 /* HomeVC.swift in Sources */,
 				168BD5492199A2BB00ACCC35 /* addFoodVC.swift in Sources */,

@@ -55,7 +55,7 @@ class TryJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         id: aDic1["id"] as! Int,
                         user_id: aDic1["user_id"] as! Int,
                         name: aDic1["name"] as! String,
-                        country: aDic1["country"] as! String,
+                        country: aDic1["country"] as! Int,
                         phone: aDic1["phone"] as! String,
                         age: aDic1["age"] as! String,
                         social_status:aDic1["social_status"] as! Int,

@@ -12,7 +12,7 @@ class CVS{
     var id : Int
     var user_id : Int
     var name : String
-    var country : String
+    var country : Int
     var phone : String
     var age : String
     var social_status : Int
@@ -23,7 +23,7 @@ class CVS{
     var created_at : String
     var image : String
     
-    init(id : Int , user_id : Int , name : String , country : String , phone : String
+    init(id : Int , user_id : Int , name : String , country : Int , phone : String
         ,age : String , social_status : Int , job : String , certification : String
         ,graduation_year : String , suspensed : Int , created_at : String , image : String){
         

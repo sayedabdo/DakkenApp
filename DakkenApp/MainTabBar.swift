@@ -22,9 +22,10 @@ class MainTabBar: UITabBarController, UITabBarControllerDelegate  {
         if viewController is BasketVC {
             print("First tab")
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SignUPVC") as! SignUPVC
+            
         }
     }
+    
 
 
 

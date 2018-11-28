@@ -89,6 +89,10 @@ class AddJobVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIIma
         picker.dismiss(animated: true, completion: nil)
     }
     //end change Image
+    //Start back Button Action
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     //Start upDateInfoAction
     @IBAction func addJobDataInfoAction(_ sender: Any) {
         //check if the nameTextField textfield is empty or not
@@ -149,8 +153,8 @@ class AddJobVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIIma
                     "job"               : "\(self.jobTitle.text!)",
                     "certification"     : "\(self.certification.text!)",
                     "graduation_year"   : "\(self.graduationYear.text!)",
-                    "country"           : "",
-                    "phone"             : "",
+                    "country"           : "\(AppDelegate.global_user.country)",
+                    "phone"             : "\(AppDelegate.global_user.phone)",
                     "Image"             : ""
             ]
             for (key, value) in params {
