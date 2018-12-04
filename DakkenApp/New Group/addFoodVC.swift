@@ -29,7 +29,9 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     var imageCount = 1
     var ADDITEMURL = "https://dkaken.alsalil.net/api/additem"
     override func viewDidLoad() {
+        print("sasasasasasa")
         super.viewDidLoad()
+        print("AppDelegate.global_user.id \(AppDelegate.global_user.id)")
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
     }
@@ -180,18 +182,18 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         
         Alamofire.upload(multipartFormData: { multipartFormData in
             let params =
-                [   "category"       : "\(1)",
+                [   "category"       : "1",
                     "trader_id"      : "\(AppDelegate.global_user.id)",
                     "user_hash"      : "\(AppDelegate.global_user.user_hash)",
                     "title"          : "\(self.productNameTextField.text!)",
                     "price"          : "\(self.productPriceTextField.text!)",
                     "qty"            : "\(self.productCountTextField.text!)",
                     "desc"           : "\(self.productDescriptionTextField.text!)",
-                    "image"          : "",
-                    "itemimgs[]"     : "",
+                    "image"          : "l",
+                    "itemimgs[]"     : "l",
                     "productnum"     : "\(self.productNumberTextField.text!)",
-                    "size"           : "",
-                    "color "         : "",
+                    "size"           : "1",
+                    "color "         : "1",
                     ]
             
             for (key, value) in params {
@@ -201,14 +203,14 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                 }
             }
             
-            let imageData1 = UIImageJPEGRepresentation(self.mainProductImage.image as! UIImage, 0.5)!
+            let imageData1 = UIImageJPEGRepresentation(self.mainProductImage.image as! UIImage, 0.1)!
             multipartFormData.append(imageData1, withName: "image", fileName: "mainImage.jpg", mimeType: "image/jpeg")
             print("success");
             
             for i in 2..<self.imageCount + 1{
                 print("i == \(i)")
                 if (i == 2){
-                    let imageData1 = UIImageJPEGRepresentation(self.image2.image as! UIImage, 0.5)!
+                    let imageData1 = UIImageJPEGRepresentation(self.image2.image as! UIImage, 0.1)!
                     multipartFormData.append(imageData1, withName: "itemimgs[]", fileName: "image1.jpg", mimeType: "image/jpeg")
                     print("success");
                 }

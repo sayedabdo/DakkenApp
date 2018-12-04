@@ -26,6 +26,7 @@
 		160AE2D1218093980076074C /* requestedOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160AE2D0218093980076074C /* requestedOrderCell.swift */; };
 		160AE2D3218096CD0076074C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160AE2D2218096CD0076074C /* Order.swift */; };
 		160F9DB42189C2A40022C829 /* SubOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F9DB32189C2A40022C829 /* SubOrder.swift */; };
+		16147FBD21AF579D00443621 /* CallusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16147FBC21AF579D00443621 /* CallusVC.swift */; };
 		16159EA2217B2F3F0093B5AF /* HomeproductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */; };
 		16159EA4217B321D0093B5AF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA3217B321D0093B5AF /* Product.swift */; };
 		1616655F218DB62000511347 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616655E218DB62000511347 /* MainTabBar.swift */; };
@@ -45,6 +46,7 @@
 		164657E5217C698C005F22A7 /* TryJobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164657E4217C698C005F22A7 /* TryJobsVC.swift */; };
 		164657EA217C6C49005F22A7 /* CVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164657E9217C6C49005F22A7 /* CVS.swift */; };
 		164657EC217C795F005F22A7 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164657EB217C795F005F22A7 /* JobCell.swift */; };
+		16502F3921B67262006D185A /* AboutusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16502F3821B67262006D185A /* AboutusVC.swift */; };
 		1653A9262192EBD400D13816 /* AddJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1653A9252192EBD400D13816 /* AddJobVC.swift */; };
 		165ECF6B217766E200F7FA0F /* SignUPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165ECF6A217766E200F7FA0F /* SignUPVC.swift */; };
 		167199D7217A13590031CB95 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167199D6217A13580031CB95 /* HomeVC.swift */; };
@@ -74,6 +76,7 @@
 		160AE2D0218093980076074C /* requestedOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestedOrderCell.swift; sourceTree = "<group>"; };
 		160AE2D2218096CD0076074C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		160F9DB32189C2A40022C829 /* SubOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOrder.swift; sourceTree = "<group>"; };
+		16147FBC21AF579D00443621 /* CallusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallusVC.swift; sourceTree = "<group>"; };
 		16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeproductCell.swift; sourceTree = "<group>"; };
 		16159EA3217B321D0093B5AF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1616655E218DB62000511347 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		164657E4217C698C005F22A7 /* TryJobsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryJobsVC.swift; sourceTree = "<group>"; };
 		164657E9217C6C49005F22A7 /* CVS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVS.swift; sourceTree = "<group>"; };
 		164657EB217C795F005F22A7 /* JobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
+		16502F3821B67262006D185A /* AboutusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutusVC.swift; sourceTree = "<group>"; };
 		1653A9252192EBD400D13816 /* AddJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobVC.swift; sourceTree = "<group>"; };
 		165ECF6A217766E200F7FA0F /* SignUPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUPVC.swift; path = ../SignUPVC.swift; sourceTree = "<group>"; };
 		167199D6217A13580031CB95 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 				1606228B2199E81A000D6C9B /* UsedProductVC.swift */,
 				160920F921A1E271007D961B /* FoodsDetailesVC.swift */,
 				1618314321ACDE7D00E6D3CC /* MainAddVc.swift */,
+				16147FBC21AF579D00443621 /* CallusVC.swift */,
+				16502F3821B67262006D185A /* AboutusVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -377,6 +383,8 @@
 				16080E292184C149007A7A6B /* BasketVC.swift in Sources */,
 				161864352176138A000EABAA /* LocalizationSystem.swift in Sources */,
 				1607BB9A2189DC3400A6498F /* superOrderCell.swift in Sources */,
+				16147FBD21AF579D00443621 /* CallusVC.swift in Sources */,
+				16502F3921B67262006D185A /* AboutusVC.swift in Sources */,
 				165ECF6B217766E200F7FA0F /* SignUPVC.swift in Sources */,
 				160AE2D1218093980076074C /* requestedOrderCell.swift in Sources */,
 				1606228C2199E81A000D6C9B /* UsedProductVC.swift in Sources */,

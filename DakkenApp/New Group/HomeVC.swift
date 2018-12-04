@@ -46,9 +46,10 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         segmentedControl.underlineSelected = true
         
         // change some colors in segmentedControl
-        segmentedControl.segmentContentColor = UIColor.white
-        segmentedControl.selectedSegmentContentColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
-        segmentedControl.backgroundColor = #colorLiteral(red: 1, green: 0.8256774545, blue: 0, alpha: 1)
+        segmentedControl.segmentContentColor = UIColor.black
+        segmentedControl.selectedSegmentContentColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        segmentedControl.backgroundColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
+        segmentedControl.selectedSegmentIndex = 0
         //end segmentedControl
         jobsTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
