@@ -26,10 +26,13 @@
 		160AE2D1218093980076074C /* requestedOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160AE2D0218093980076074C /* requestedOrderCell.swift */; };
 		160AE2D3218096CD0076074C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160AE2D2218096CD0076074C /* Order.swift */; };
 		160F9DB42189C2A40022C829 /* SubOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F9DB32189C2A40022C829 /* SubOrder.swift */; };
+		16134AC321B6C15600E4D1C7 /* twoMuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16134AC221B6C15600E4D1C7 /* twoMuneCell.swift */; };
 		16147FBD21AF579D00443621 /* CallusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16147FBC21AF579D00443621 /* CallusVC.swift */; };
 		16159EA2217B2F3F0093B5AF /* HomeproductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */; };
 		16159EA4217B321D0093B5AF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16159EA3217B321D0093B5AF /* Product.swift */; };
 		1616655F218DB62000511347 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616655E218DB62000511347 /* MainTabBar.swift */; };
+		1616D46121B69AD80095C1DC /* trymnueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616D46021B69AD80095C1DC /* trymnueVC.swift */; };
+		1616D46321B69E350095C1DC /* oneMuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616D46221B69E350095C1DC /* oneMuneCell.swift */; };
 		1616EA4F21762D3100373D16 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616EA4E21762D3100373D16 /* LogInVC.swift */; };
 		1618314421ACDE7D00E6D3CC /* MainAddVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618314321ACDE7D00E6D3CC /* MainAddVc.swift */; };
 		1618641321761235000EABAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618641221761235000EABAA /* AppDelegate.swift */; };
@@ -76,10 +79,13 @@
 		160AE2D0218093980076074C /* requestedOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestedOrderCell.swift; sourceTree = "<group>"; };
 		160AE2D2218096CD0076074C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		160F9DB32189C2A40022C829 /* SubOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubOrder.swift; sourceTree = "<group>"; };
+		16134AC221B6C15600E4D1C7 /* twoMuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twoMuneCell.swift; sourceTree = "<group>"; };
 		16147FBC21AF579D00443621 /* CallusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallusVC.swift; sourceTree = "<group>"; };
 		16159EA1217B2F3F0093B5AF /* HomeproductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeproductCell.swift; sourceTree = "<group>"; };
 		16159EA3217B321D0093B5AF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1616655E218DB62000511347 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		1616D46021B69AD80095C1DC /* trymnueVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trymnueVC.swift; sourceTree = "<group>"; };
+		1616D46221B69E350095C1DC /* oneMuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oneMuneCell.swift; sourceTree = "<group>"; };
 		1616EA4E21762D3100373D16 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInVC\U0010.swift"; sourceTree = "<group>"; };
 		1618314321ACDE7D00E6D3CC /* MainAddVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAddVc.swift; sourceTree = "<group>"; };
 		1618640F21761235000EABAA /* DakkenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DakkenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +180,8 @@
 				161E5DF6218877650038C44A /* MainOrderCell.swift */,
 				1607BB992189DC3400A6498F /* superOrderCell.swift */,
 				1602E83C2192175B00BAD682 /* SubOrderCell.swift */,
+				1616D46221B69E350095C1DC /* oneMuneCell.swift */,
+				16134AC221B6C15600E4D1C7 /* twoMuneCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +217,7 @@
 				1618314321ACDE7D00E6D3CC /* MainAddVc.swift */,
 				16147FBC21AF579D00443621 /* CallusVC.swift */,
 				16502F3821B67262006D185A /* AboutusVC.swift */,
+				1616D46021B69AD80095C1DC /* trymnueVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -384,6 +393,7 @@
 				161864352176138A000EABAA /* LocalizationSystem.swift in Sources */,
 				1607BB9A2189DC3400A6498F /* superOrderCell.swift in Sources */,
 				16147FBD21AF579D00443621 /* CallusVC.swift in Sources */,
+				1616D46121B69AD80095C1DC /* trymnueVC.swift in Sources */,
 				16502F3921B67262006D185A /* AboutusVC.swift in Sources */,
 				165ECF6B217766E200F7FA0F /* SignUPVC.swift in Sources */,
 				160AE2D1218093980076074C /* requestedOrderCell.swift in Sources */,
@@ -391,6 +401,7 @@
 				164657EA217C6C49005F22A7 /* CVS.swift in Sources */,
 				160920FA21A1E271007D961B /* FoodsDetailesVC.swift in Sources */,
 				164657EC217C795F005F22A7 /* JobCell.swift in Sources */,
+				16134AC321B6C15600E4D1C7 /* twoMuneCell.swift in Sources */,
 				16AE8712217DBF43003C6107 /* ProfileVC.swift in Sources */,
 				160F9DB42189C2A40022C829 /* SubOrder.swift in Sources */,
 				160250A82190F803002C697D /* ReequestedOrder.swift in Sources */,
@@ -399,6 +410,7 @@
 				1602E83D2192175B00BAD682 /* SubOrderCell.swift in Sources */,
 				16083A43217E085800A1AB8A /* StatusCell.swift in Sources */,
 				1618643E2176198D000EABAA /* ChooseSignupVC.swift in Sources */,
+				1616D46321B69E350095C1DC /* oneMuneCell.swift in Sources */,
 				1618314421ACDE7D00E6D3CC /* MainAddVc.swift in Sources */,
 				1604138F218478CB0057D60C /* MyProductCell.swift in Sources */,
 				167199D7217A13590031CB95 /* HomeVC.swift in Sources */,
