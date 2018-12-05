@@ -23,16 +23,6 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         requestedOrderTableView.delegate = self
         superOrderTableView.dataSource = self
         superOrderTableView.delegate = self
-        
-//        if(AppDelegate.global_user.role == "1"){
-//            requestedOrderTableView.isHidden = false
-//            superOrderTableView.isHidden = true
-//            getOrderDetails()
-//        }else{
-//            requestedOrderTableView.isHidden = true
-//            superOrderTableView.isHidden = false
-//            getOrder()
-//        }
         superOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
         requestedOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
@@ -41,8 +31,6 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         viewLoadSetup()
         
     }
-    
-    
     func viewLoadSetup(){
         // setup view did load here
         if(AppDelegate.global_user.role == "1"){
@@ -100,14 +88,16 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
              statusView.isHidden = false
              selectedID = "\(requestedOrder[indexPath.row].status)"
         }
-        else{
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SubOrderVC") as! SubOrderVC
-            nextViewController.order_id = Int(superorder[indexPath.row].id)
-            self.present(nextViewController, animated:true, completion:nil)
-        }
+        
     }
     //end table view jobs
+    @IBAction func shoeMoreAction(_ sender: Any) {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SubOrderVC") as! SubOrderVC
+            nextViewController.order_id = Int((sender as AnyObject).tag)
+            self.present(nextViewController, animated:true, completion:nil)
+    }
+    
     //Start getOrderDetails
     func getOrderDetails(){
         requestedOrder.removeAll()
