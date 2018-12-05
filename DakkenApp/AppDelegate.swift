@@ -11,6 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     static var global_user:User!
+    static var selectedsegment = 0
     var window: UIWindow?
 
 

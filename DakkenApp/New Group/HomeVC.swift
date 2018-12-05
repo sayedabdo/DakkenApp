@@ -15,24 +15,41 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     
     //Outlet
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var mnuecollection: UICollectionView!
+    @IBOutlet weak var mnue2collection: UICollectionView!
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var segmentedControl: ScrollableSegmentedControl!
+    @IBOutlet weak var menusView: UIView!
+    @IBOutlet weak var menubtn: UIButton!
+    
     //Var
     var userEmail : String! = ""
     var userPassword : String! = ""
     var fromsignUp : Bool = false
     var tab_data : [String] = ["الأكلات","الملابس","منتجات مستعمله","وظائف","المجتمع"]
+    var firstMune = ["منتجات مستعمله","الملابس","الأكلات","المزيد","المجتمع","وظائف"]
+    var secondMune = ["الطلبات","اتصل بنا","الأعدادات","عن التطبيق"]
+    var firstMuneColor = [#colorLiteral(red: 0, green: 0.7417340875, blue: 0.6716778874, alpha: 1),#colorLiteral(red: 0.8823529412, green: 0.6509803922, blue: 0.2980392157, alpha: 1),#colorLiteral(red: 0.8509803922, green: 0.368627451, blue: 0.2352941176, alpha: 1),#colorLiteral(red: 0.4666666667, green: 0.5254901961, blue: 0.5529411765, alpha: 1),#colorLiteral(red: 0.7254901961, green: 0.7568627451, blue: 0.2901960784, alpha: 1),#colorLiteral(red: 0.2901960784, green: 0.6235294118, blue: 0.768627451, alpha: 1)]
+    var secondMuneColor = [#colorLiteral(red: 0.7254901961, green: 0.7568627451, blue: 0.2901960784, alpha: 1),#colorLiteral(red: 0.2901960784, green: 0.6235294118, blue: 0.768627451, alpha: 1),#colorLiteral(red: 0.8823529412, green: 0.6509803922, blue: 0.2980392157, alpha: 1),#colorLiteral(red: 0.8509803922, green: 0.368627451, blue: 0.2352941176, alpha: 1)]
+    var firstmenuimage = ["natrl","shrt","food","add","grop","caric"]
+    var secondmenuimage = ["phone","food","aboutapp","usere"]
     var tab_data_count = 0
     var products = [Product]()
     var cvs = [CVS]()
+    
     //Start viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.dataSource = self
         collection.delegate = self
+        mnuecollection.dataSource = self
+        mnuecollection.delegate = self
+        mnue2collection.dataSource = self
+        mnue2collection.delegate = self
         jobsTableView.dataSource = self
         jobsTableView.delegate = self
         // Do any additional setup after loading the view.
+        menubtn.isHidden = true
         for tabDataCounter in tab_data{
             self.segmentedControl.insertSegment(withTitle: "\(tabDataCounter)", at: self.tab_data_count)
             self.tab_data_count = self.tab_data_count + 1
@@ -49,7 +66,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         segmentedControl.segmentContentColor = UIColor.black
         segmentedControl.selectedSegmentContentColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         segmentedControl.backgroundColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
-        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.selectedSegmentIndex = AppDelegate.selectedsegment
         //end segmentedControl
         jobsTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
     }
@@ -73,37 +90,148 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     //End viewDidLoad
     //start collection view to display product
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("the count is : ", products.count)
+        if(collectionView == collection){
+            print("the count is : ", products.count)
+            return products.count
+        }
+        if(collectionView == mnuecollection){
+            print("the count is : ", firstMune.count)
+            return firstMune.count
+        }
+        if(collectionView == mnue2collection){
+            print("the count is : ", secondMuneColor.count)
+            return secondMuneColor.count
+        }
         return products.count
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "FoodsDetailesVC") as! FoodsDetailesVC
-        nextViewController.product = products[indexPath.row]
-        self.present(nextViewController, animated:true, completion:nil)
+        if(collectionView == collection){
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "FoodsDetailesVC") as! FoodsDetailesVC
+            nextViewController.product = products[indexPath.row]
+            self.present(nextViewController, animated:true, completion:nil)
+        }
+        if(collectionView == mnuecollection){
+            if(indexPath.row == 0){
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
+                AppDelegate.selectedsegment = 2
+                self.present(nextViewController, animated:true, completion:nil)
+            }
+            if(indexPath.row == 1){
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
+                AppDelegate.selectedsegment = 1
+                self.present(nextViewController, animated:true, completion:nil)
+            }
+            if(indexPath.row == 2){
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
+                AppDelegate.selectedsegment = 0
+                self.present(nextViewController, animated:true, completion:nil)
+            }
+            if(indexPath.row == 3){
+                mnue2collection.isHidden = false
+                menubtn.isHidden = false
+            }
+            if(indexPath.row == 4){
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
+                AppDelegate.selectedsegment = 4
+                self.present(nextViewController, animated:true, completion:nil)
+            }
+            if(indexPath.row == 5){
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
+                AppDelegate.selectedsegment = 3
+                self.present(nextViewController, animated:true, completion:nil)
+            }
+        }
+        if(collectionView == mnue2collection){
+            if(indexPath.row == 0){
+//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CallusVC") as! CallusVC
+//                AppDelegate.selectedsegment = 0
+//                self.present(nextViewController, animated:true, completion:nil)
+            }
+            if(indexPath.row == 1){
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CallusVC") as! CallusVC
+                AppDelegate.selectedsegment = 0
+                self.present(nextViewController, animated:true, completion:nil)
+            }
+            if(indexPath.row == 2){
+//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
+//                AppDelegate.selectedsegment = 0
+//                self.present(nextViewController, animated:true, completion:nil)
+            }
+            if(indexPath.row == 3){
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AboutusVC") as! AboutusVC
+                AppDelegate.selectedsegment = 0
+                self.present(nextViewController, animated:true, completion:nil)
+            }
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collection.dequeueReusableCell(withReuseIdentifier: "HomeproductCell", for: indexPath) as? HomeproductCell
-            else { return UICollectionViewCell()
+         if(collectionView == collection){
+            guard let cell = collection.dequeueReusableCell(withReuseIdentifier: "HomeproductCell", for: indexPath) as? HomeproductCell
+                else { return UICollectionViewCell()
+            }
+            cell.setProduct(product: products[indexPath.row])
+            cell.addtToCard.tag = indexPath.row
+            cell.layer.cornerRadius = 5
+            cell.layer.borderWidth = 1.5
+            cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            return cell
         }
-        cell.setProduct(product: products[indexPath.row])
-        cell.addtToCard.tag = indexPath.row
-        cell.layer.cornerRadius = 5
-        cell.layer.borderWidth = 1.5
-        cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        return cell
+        if(collectionView == mnuecollection){
+            guard let cell = mnuecollection.dequeueReusableCell(withReuseIdentifier: "oneMuneCell", for: indexPath) as? oneMuneCell
+                else { return UICollectionViewCell()
+            }
+            cell.muneTitle.text = "\(firstMune[indexPath.row])"
+            cell.muneimage.image = UIImage(named: "\(firstmenuimage[indexPath.row])")
+            cell.backgroundColor = firstMuneColor[indexPath.row]
+            cell.layer.cornerRadius = 5
+            cell.layer.borderWidth = 1.5
+            cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            return cell
+        }
+     //   if(collectionView == mnue2collection){
+        else{
+            guard let cell = mnue2collection.dequeueReusableCell(withReuseIdentifier: "twoMuneCell", for: indexPath) as? twoMuneCell
+                else { return UICollectionViewCell()
+            }
+            cell.muneTitle.text = "\(secondMune[indexPath.row])"
+            cell.backgroundColor = secondMuneColor[indexPath.row]
+            cell.muneimage.image = UIImage(named: "\(secondmenuimage[indexPath.row])")
+            cell.layer.cornerRadius = 5
+            cell.layer.borderWidth = 1.5
+            cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            return cell
+        }
+      //  return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        if(AppDelegate.global_user.role == "1"){
-            return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 180)
-        }else
-        {
-            return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 200)
+        if(collectionView == collection){
+            if(AppDelegate.global_user.role == "1"){
+                return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 180)
+            }else
+            {
+                return CGSize(width: self.collection.frame.size.width / 2 - 5, height: 200)
+            }
         }
+        if(collectionView == mnuecollection){
+            return CGSize(width: (self.mnuecollection.frame.size.width / 3) - 10, height: 80)
+        }
+        if(collectionView == mnue2collection){
+            return CGSize(width: (self.mnuecollection.frame.size.width / 2) - 10, height: 80)
+        }
+        return CGSize(width: (self.mnuecollection.frame.size.width / 3) - 10, height: 80)
     }
     //End collection view to display product
     //start table view jobs
@@ -122,6 +250,20 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     //end table view jobs
+    
+    @IBAction func showMuneAction(_ sender: Any) {
+        menusView.isHidden = false
+    }
+    @IBAction func cloesMenuAction(_ sender: Any) {
+        menusView.isHidden = true
+        mnue2collection.isHidden = true
+        menubtn.isHidden = true
+    }
+    @IBAction func menubackAction(_ sender: Any) {
+        mnue2collection.isHidden = true
+        menubtn.isHidden = true
+    }
+    
     //start custom segement
     @IBAction func segmentSelected(sender:ScrollableSegmentedControl) {
         print("Segment at index \(sender.selectedSegmentIndex)  selected")

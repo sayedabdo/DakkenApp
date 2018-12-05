@@ -57,6 +57,7 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
             selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
             tableStatus = indexPath.row
+            statusTableView.reloadData()
     }
     //end table view status
     @IBAction func back(_ sender: Any) {

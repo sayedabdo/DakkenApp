@@ -20,6 +20,9 @@ class AboutusVC: UIViewController {
         // Do any additional setup after loading the view.
         getData()
     }
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     func getData(){
         let project_url = "https://dkaken.alsalil.net/api/settings"
         Alamofire.request(project_url).responseJSON { response in

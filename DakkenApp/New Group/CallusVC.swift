@@ -37,7 +37,9 @@ class CallusVC: UIViewController,UITextViewDelegate {
             msgTextView.textColor = UIColor.lightGray
         }
     }
-
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func sendAction(_ sender: Any) {
         let CALLUSURL = "https://dkaken.alsalil.net/api/contactus"
         let params: [String : String] =
