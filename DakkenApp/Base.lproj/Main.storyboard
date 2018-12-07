@@ -149,6 +149,20 @@
                                     <action selector="toSignUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UWi-8h-hGN"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RoU-8P-pc5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="7Ii-Ls-YFt">
+                                        <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                        <color key="color" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="0.38015241564417179" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="7Ii-Ls-YFt" firstAttribute="centerX" secondItem="RoU-8P-pc5" secondAttribute="centerX" id="Q6X-9U-1Di"/>
+                                    <constraint firstItem="7Ii-Ls-YFt" firstAttribute="centerY" secondItem="RoU-8P-pc5" secondAttribute="centerY" id="lcY-XO-sBo"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -156,6 +170,7 @@
                             <constraint firstItem="kdN-An-G3m" firstAttribute="top" secondItem="WCN-c3-EnF" secondAttribute="bottom" constant="8" id="9Tf-hb-vgn"/>
                             <constraint firstItem="sXg-R7-AQu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B11-P7-jHW"/>
                             <constraint firstItem="OZB-RV-vuf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HOv-gf-BDA"/>
+                            <constraint firstItem="RoU-8P-pc5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ILU-uC-Oe3"/>
                             <constraint firstItem="BoY-Xz-lbf" firstAttribute="top" secondItem="sXg-R7-AQu" secondAttribute="bottom" constant="36" id="Mni-r0-cUJ"/>
                             <constraint firstItem="OZB-RV-vuf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PpI-XO-mrc"/>
                             <constraint firstItem="WCN-c3-EnF" firstAttribute="top" secondItem="5fo-l7-H2o" secondAttribute="bottom" constant="62" id="Sp7-Rp-Ofu"/>
@@ -163,8 +178,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5fo-l7-H2o" secondAttribute="trailing" constant="16" id="Woz-yx-LyO"/>
                             <constraint firstItem="OZB-RV-vuf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zag-um-Gxw"/>
                             <constraint firstItem="WCN-c3-EnF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bn5-d2-QME"/>
+                            <constraint firstItem="RoU-8P-pc5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dm9-qM-Jdf"/>
+                            <constraint firstItem="RoU-8P-pc5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eTo-sE-295"/>
                             <constraint firstItem="OZB-RV-vuf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eun-p3-JaX"/>
                             <constraint firstItem="BoY-Xz-lbf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gtx-is-Q9i"/>
+                            <constraint firstItem="RoU-8P-pc5" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gzR-rk-KRD"/>
                             <constraint firstItem="5fo-l7-H2o" firstAttribute="top" secondItem="BoY-Xz-lbf" secondAttribute="bottom" constant="8" symbolic="YES" id="mj3-6o-3HO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kdN-An-G3m" secondAttribute="trailing" constant="16" id="qCa-Co-PA5"/>
                             <constraint firstItem="kdN-An-G3m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="r5C-0J-8Ea"/>
@@ -176,6 +194,8 @@
                     </view>
                     <connections>
                         <outlet property="VCTitle" destination="GDS-a0-AgD" id="33L-Fu-xMp"/>
+                        <outlet property="ViewOfActivityIndi" destination="RoU-8P-pc5" id="Iyc-Qf-5BJ"/>
+                        <outlet property="activityIndi" destination="7Ii-Ls-YFt" id="o6e-L6-3jb"/>
                         <outlet property="emailTextField" destination="GIv-At-f7m" id="5zc-d9-rss"/>
                         <outlet property="loginBtn" destination="WCN-c3-EnF" id="DWN-6x-0pg"/>
                         <outlet property="passwordTextField" destination="vPZ-0R-6Q7" id="J5i-nv-CHl"/>
@@ -183,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="119"/>
+            <point key="canvasLocation" x="202.5" y="118.30985915492958"/>
         </scene>
         <!--SignUPVC-->
         <scene sceneID="1uh-8W-Ejy">
@@ -2061,7 +2081,7 @@
                                     <constraint firstAttribute="height" constant="60" id="mVx-hs-zCl"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y9q-Pb-1XD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y9q-Pb-1XD">
                                 <rect key="frame" x="0.0" y="60" width="320" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
@@ -2238,7 +2258,6 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تم قبول الطلب" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="996-8w-M8P">
                                                         <rect key="frame" x="0.0" y="37.5" width="200" height="27.5"/>
-                                                        <color key="backgroundColor" red="0.93725490199999995" green="0.34509803919999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                         <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -2729,7 +2748,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2iT-8s-y4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-480" y="3056"/>
+            <point key="canvasLocation" x="851" y="2267"/>
         </scene>
         <!--Item-->
         <scene sceneID="JNX-2T-yvo">
@@ -2991,7 +3010,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krZ-50-8zd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="3056"/>
+            <point key="canvasLocation" x="-533" y="2267"/>
         </scene>
         <!--CallusVC-->
         <scene sceneID="EAB-y8-Gyq">
@@ -3107,7 +3126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3x-Ie-zuv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1610.625" y="3055.9859154929577"/>
+            <point key="canvasLocation" x="1980" y="1631"/>
         </scene>
         <!--AboutusVC-->
         <scene sceneID="JZM-gu-Jrx">
@@ -3225,7 +3244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbp-Lo-jxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246.25" y="3055.9859154929577"/>
+            <point key="canvasLocation" x="2717" y="1631"/>
         </scene>
         <!--Used ProductVC-->
         <scene sceneID="K64-XA-jhA">
@@ -3527,7 +3546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DkY-C4-41e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="3056"/>
+            <point key="canvasLocation" x="188" y="2267"/>
         </scene>
         <!--Basket-->
         <scene sceneID="CH0-Sa-WJr">

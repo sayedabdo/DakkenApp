@@ -18,13 +18,13 @@ class LogInVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var VCTitle: UILabel!
-    
+    @IBOutlet weak var activityIndi: UIActivityIndicatorView!
+    @IBOutlet weak var ViewOfActivityIndi:UIView!
     //var
     var role : Int!
     //start viewDidLoad
     override func viewDidLoad() {
         loginBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        
         UIView.animate(withDuration: 2.0,
                        delay: 0,
                        usingSpringWithDamping: 0.2,
@@ -34,6 +34,7 @@ class LogInVC: UIViewController {
                         self?.loginBtn.transform = .identity
             },
                        completion: nil)
+        self.activityIndi.transform = CGAffineTransform(scaleX: 3, y: 3)
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
        
@@ -99,6 +100,7 @@ class LogInVC: UIViewController {
                 "firebase_token"         : "b",
                 "device_id"              : "\(UIDevice.current.identifierForVendor!.uuidString)"
             ]
+        ViewOfActivityIndi.isHidden = false
         Alamofire.request(loginurl, method: .post, parameters: params)
             .responseJSON { response in
                 print("the response is : \(response)")
@@ -106,6 +108,7 @@ class LogInVC: UIViewController {
                 print("the result is : \(String(describing: result.value))")
                 if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
                     if(arrayOfDic["success"] as! Bool == false ){
+                        self.ViewOfActivityIndi.isHidden = true
                         JSSAlertView().danger(
                             self,
                             title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
@@ -141,6 +144,7 @@ class LogInVC: UIViewController {
                         job : userData["job"] as! Int
                     )
                     //got to MainTabBar
+                    self.ViewOfActivityIndi.isHidden = true
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                     let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
                     self.present(nextViewController, animated:true, completion:nil)
