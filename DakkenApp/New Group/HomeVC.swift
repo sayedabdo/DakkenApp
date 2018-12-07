@@ -21,7 +21,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     @IBOutlet weak var segmentedControl: ScrollableSegmentedControl!
     @IBOutlet weak var menusView: UIView!
     @IBOutlet weak var menubtn: UIButton!
-    
+    @IBOutlet weak var activityIndi: UIActivityIndicatorView!
     //Var
     var userEmail : String! = ""
     var userPassword : String! = ""
@@ -266,6 +266,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     
     //start custom segement
     @IBAction func segmentSelected(sender:ScrollableSegmentedControl) {
+        
         print("Segment at index \(sender.selectedSegmentIndex)  selected")
         if(sender.selectedSegmentIndex == 0){
             get_product(category: 1)
@@ -352,6 +353,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     //end get user data when sign up
     //start get_product
     func get_product(category : Int){
+        self.activityIndi.startAnimating()
         products.removeAll()
         let ProductURL = "https://dkaken.alsalil.net/api/allitems"
         let params: [String : String] =
@@ -406,6 +408,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                     ))
                 }
                 //  }
+                    self.activityIndi.stopAnimating()
                 self.collection.reloadData()
             }
         }
@@ -413,6 +416,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     //end get_product
     //start getCvinfo
     func getCvinfo(){
+        self.activityIndi.startAnimating()
         cvs.removeAll()
         let alljobsURL = "https://dkaken.alsalil.net/api/alljobs"
         Alamofire.request(alljobsURL).responseJSON { response in
@@ -445,6 +449,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                         image : aDic1["image"] as! String
                     ))
                 }
+                self.activityIndi.stopAnimating()
                 self.jobsTableView.reloadData()
             }
         }
