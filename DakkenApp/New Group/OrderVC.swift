@@ -47,7 +47,7 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         statusView.isHidden = true
     }
     @IBAction func changeOrderStatus(_ sender: Any) {
-        changeOrdersStatus(itemID : 5 , status : "\((sender as AnyObject).tag)")
+        changeOrdersStatus(itemID :  selectedID, status : "\((sender as AnyObject).tag)")
     }
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,9 +86,8 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if AppDelegate.global_user.role == "1" {
              statusView.isHidden = false
-             selectedID = "\(requestedOrder[indexPath.row].status)"
+             selectedID = "\(requestedOrder[indexPath.row].id)"
         }
-        
     }
     //end table view jobs
     @IBAction func shoeMoreAction(_ sender: Any) {
@@ -175,12 +174,12 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     }
     //end get orders
     //start change Order Status func
-    func changeOrdersStatus(itemID : Int , status : String){
+    func changeOrdersStatus(itemID : String , status : String){
         let changeOrderStatusURL = "https://dkaken.alsalil.net/api/orderprocess"
         let params: [String : String] =
             [   "user_hash"                 : "\(AppDelegate.global_user.user_hash)",
-                "status"                    : "\(9)" ,
-                "item_id"                   : "\(2)"
+                "status"                    : "\(status)" ,
+                "item_id"                   : "\(itemID)"
         ]
         Alamofire.request(changeOrderStatusURL, method: .post, parameters: params)
             .responseJSON { response in

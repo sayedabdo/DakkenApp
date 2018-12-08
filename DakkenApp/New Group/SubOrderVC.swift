@@ -12,8 +12,16 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var subOrder = [SubOrder]()
     var order_id : Int!
     var selectedID : Int!
+    var selectedstatus : String!
     @IBOutlet weak var subOrderTableView: UITableView!
     @IBOutlet weak var statusView: UIView!
+    @IBOutlet weak var acceptedOrderLabel: UILabel!
+    @IBOutlet weak var orderDoneLabel: UILabel!
+    @IBOutlet weak var orderInWayLabel: UILabel!
+    @IBOutlet weak var arrivedDoneBtn: UIButton!
+    @IBOutlet weak var orderTimelabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -29,7 +37,7 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         statusView.isHidden = true
     }
     @IBAction func changeOrderStatus(_ sender: Any) {
-        changeOrdersStatus(itemID : 5 , status : "\((sender as AnyObject).tag)")
+        //changeOrdersStatus(itemID : 5 , status : "\((sender as AnyObject).tag)")
     }
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,8 +58,14 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         statusView.isHidden = false
         //selectedID = subOrder[indexPath.row].
+        orderTimelabel.text = "\(subOrder[indexPath.row].created_at)"
+        selectedstatus = subOrder[indexPath.row].status
+       // currentStatus(selectedstatus : selectedstatus)
     }
     //end table view jobs
+    @IBAction func submitarrive(_ sender: Any) {
+        changeOrdersStatus(itemID : selectedstatus , status : "4")
+    }
     //Start getOrderDetails
     func getOrderDetails(){
         print("Order : \(AppDelegate.global_user.id)")
@@ -92,12 +106,12 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     }
     //ENd getOrderDetails
     //start change Order Status func
-    func changeOrdersStatus(itemID : Int , status : String){
+    func changeOrdersStatus(itemID : String , status : String){
         let changeOrderStatusURL = "https://dkaken.alsalil.net/api/orderprocess"
         let params: [String : String] =
             [   "user_hash"                 : "\(AppDelegate.global_user.user_hash)",
-                "status"                    : "\(9)" ,
-                "item_id"                   : "\(2)"
+                "status"                    : "\(status)" ,
+                "item_id"                   : "\(itemID)"
         ]
         Alamofire.request(changeOrderStatusURL, method: .post, parameters: params)
             .responseJSON { response in
@@ -116,6 +130,24 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         }
     }
     //start change Order Status func
+    func currentStatus(selectedstatus : String){
+        if(selectedstatus == "0"){
+            acceptedOrderLabel.textColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
+        }
+        if(selectedstatus == "1"){
+            acceptedOrderLabel.textColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
+            orderDoneLabel.textColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
+        }
+        if(selectedstatus == "2"){
+            acceptedOrderLabel.textColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
+            orderDoneLabel.textColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
+            orderInWayLabel.textColor = #colorLiteral(red: 0.9586617351, green: 0.4347025454, blue: 0.2375041842, alpha: 1)
+        }
+        if(selectedstatus == "3"){
+            arrivedDoneBtn.isEnabled = false
+        }
+            
+    }
     
 }
 

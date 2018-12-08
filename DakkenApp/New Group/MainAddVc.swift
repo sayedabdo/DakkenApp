@@ -16,6 +16,7 @@ class MainAddVc: UIViewController {
     @IBOutlet weak var addClothesBtn: UIButton!
     @IBOutlet weak var addJobsBtn: UIButton!
     @IBOutlet weak var addUsedBtn: UIButton!
+    @IBOutlet weak var avilablityLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -25,6 +26,9 @@ class MainAddVc: UIViewController {
         buttonborder(button_outlet_name:addJobsBtn)
         buttonborder(button_outlet_name:addUsedBtn)
         // Do any additional setup after loading the view.
+        if(AppDelegate.global_user.role == "1"){
+            avilablityLabel.isHidden = true
+        }
     }
     
     @IBAction func addFootAction(_ sender: Any) {
@@ -39,6 +43,7 @@ class MainAddVc: UIViewController {
         tageralert()
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UsedProductVC") as! UsedProductVC
+        nextViewController.addStatus = 2
         let modalStyle: UIModalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         nextViewController.modalTransitionStyle = modalStyle
         self.present(nextViewController, animated:true, completion:nil)
@@ -66,6 +71,7 @@ class MainAddVc: UIViewController {
         tageralert()
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UsedProductVC") as! UsedProductVC
+        nextViewController.addStatus = 3
         let modalStyle: UIModalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         nextViewController.modalTransitionStyle = modalStyle
         self.present(nextViewController, animated:true, completion:nil)

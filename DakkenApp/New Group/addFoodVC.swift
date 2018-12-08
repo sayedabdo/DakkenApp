@@ -24,6 +24,7 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var image3: UIImageView!
     @IBOutlet weak var image4: UIImageView!
     @IBOutlet weak var addProductBtn: UIButton!
+    @IBOutlet weak var ViewOfActivityIndi:UIView!
     var selectedmainimage = false
     var imagedone  = false
     var imageCount = 1
@@ -92,6 +93,7 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
+        ViewOfActivityIndi.isHidden = false
         addItemRequest()
     }
     //chosse image
@@ -248,10 +250,12 @@ class addFoodVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                                             self.displayAlertMessage(title: "تنبيه",messageToDisplay: "تم اضافه المنتج😍 بنجاح", titleofaction : "الرئيسيه")
                                         case .failure(let responseError):
                                             print("responseError: \(responseError)")
+                                             self.ViewOfActivityIndi.isHidden = true
                                         }
                                 }
                             case .failure(let encodingError):
                                 print("encodingError: \(encodingError)")
+                                 self.ViewOfActivityIndi.isHidden = true
                             }
         })
         

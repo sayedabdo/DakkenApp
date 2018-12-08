@@ -25,9 +25,11 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
     @IBOutlet weak var image3: UIImageView!
     @IBOutlet weak var image4: UIImageView!
     @IBOutlet weak var addProductBtn: UIButton!
+    @IBOutlet weak var ViewOfActivityIndi:UIView!
     var selectedmainimage = false
     var imagedone = false
     var imageCount = 1
+    var addStatus : Int!
     var ADDUSEDITEMURL = "https://dkaken.alsalil.net/api/additem"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +108,7 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
+        addItemRequest()
     }
     //chosse image
     @IBAction func changeimage(_ sender: Any) {
@@ -192,10 +195,10 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
     }
     //Start function to post request to add new food
     func addItemRequest(){
-        
+        ViewOfActivityIndi.isHidden = false
         Alamofire.upload(multipartFormData: { multipartFormData in
             let params =
-                [   "category"       : "\(3)",
+                [   "category"       : "\(self.addStatus!)",
                     "trader_id"      : "\(AppDelegate.global_user.id)",
                     "user_hash"      : "\(AppDelegate.global_user.user_hash)",
                     "title"          : "\(self.productNameTextField.text!)",
@@ -261,10 +264,12 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
                                             self.displayAlertMessage(title: "تنبيه",messageToDisplay: "تم اضافه المنتج😍 بنجاح", titleofaction : "الرئيسيه")
                                         case .failure(let responseError):
                                             print("responseError: \(responseError)")
+                                            self.ViewOfActivityIndi.isHidden = true
                                         }
                                 }
                             case .failure(let encodingError):
                                 print("encodingError: \(encodingError)")
+                                self.ViewOfActivityIndi.isHidden = true
                             }
         })
         

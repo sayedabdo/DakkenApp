@@ -20,6 +20,7 @@ class AddJobVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIIma
     @IBOutlet weak var statusTableView: UITableView!
     @IBOutlet weak var changeImage: UIButton!
     @IBOutlet weak var AddJobBtn: UIButton!
+    @IBOutlet weak var ViewOfActivityIndi:UIView!
     var status = ["متزوج","أعزب"]
     var tableStatus = -1
     let ADDJOB_URL = "https://dkaken.alsalil.net/api/addjob"
@@ -137,6 +138,7 @@ class AddJobVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIIma
                                 titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
             return
         }
+        ViewOfActivityIndi.isHidden = false
         addJobInfo()
     }
     //End upDateInfoAction
@@ -185,11 +187,13 @@ class AddJobVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIIma
                                             self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
                                                                      messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "signuperoor", comment: ""),
                                                                      titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                                            self.ViewOfActivityIndi.isHidden = true
                                             return
                                         }
                                 }
                             case .failure(let encodingError):
                                 print("encodingError: \(encodingError)")
+                                self.ViewOfActivityIndi.isHidden = true
                             }
         })
     }
