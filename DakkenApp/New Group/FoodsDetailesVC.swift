@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Cosmos
 
-class FoodsDetailesVC: UIViewController {
+class FoodsDetailesVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     var product: Product!
@@ -18,8 +18,11 @@ class FoodsDetailesVC: UIViewController {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var ratingTabelView:UITableView!
     var rating = [Rating]()
     override func viewDidLoad() {
+        ratingTabelView.dataSource = self
+        ratingTabelView.delegate = self
         super.viewDidLoad()
         print("HHHH : \(product.image)")
         // Do any additional setup after loading the view.
@@ -27,7 +30,32 @@ class FoodsDetailesVC: UIViewController {
         download_image(image_url: product.image,imagedisplayed: productImage)
         productPrice.text = "\(product.price)"
         productDescription.text = "\(product.desc)"
+        getcomments()
     }
+    //start table view rating
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("the rating count is : \(rating.count)")
+        return rating.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RatingCell") as? RatingCell
+        cell?.name.text = "\(rating[indexPath.row].name)"
+        cell?.comment.text = "\(rating[indexPath.row].title)"
+        cell?.rating.rating = Double(rating[indexPath.row].rate)
+        return cell!
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    //end table view rating
+    //Start back Button Action
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    //End back Button Action
     func getcomments(){
         let RatingURL = "https://dkaken.alsalil.net/api/itemrates"
         let params: [String : String] =
@@ -54,10 +82,8 @@ class FoodsDetailesVC: UIViewController {
                             title : aDic1["title"] as! String,
                             created_date : aDic1["created_date"] as! String
                         ))
-                        
-                        
                     }
-                    
+                    self.ratingTabelView.reloadData()
                     
                     
                 }
