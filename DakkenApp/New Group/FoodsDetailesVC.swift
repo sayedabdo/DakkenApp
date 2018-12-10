@@ -15,6 +15,7 @@ class FoodsDetailesVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
     
     var product: Product!
     @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var ratingView: UIView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productDescription: UILabel!
@@ -56,6 +57,10 @@ class FoodsDetailesVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
         dismiss(animated: true, completion: nil)
     }
     //End back Button Action
+    @IBAction func writerateAction(_ sender: Any) {
+        ratingView.isHidden = false
+    }
+    
     func getcomments(){
         let RatingURL = "https://dkaken.alsalil.net/api/itemrates"
         let params: [String : String] =
