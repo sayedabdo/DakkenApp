@@ -8,10 +8,10 @@
 
 import UIKit
 import Alamofire
-
+import JSSAlertView
 class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
-    
+    @IBOutlet weak var VcTitle: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var jobTitle: UITextField!
@@ -22,13 +22,22 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     @IBOutlet weak var changeImage: UIButton!
     @IBOutlet weak var updateJobBtn: UIButton!
     @IBOutlet weak var deleteJobBtn: UIButton!
-    
+    @IBOutlet weak var ViewOfActivityIndi:UIView!
     var cvs : CVS!
     var status = ["متزوج","أعزب"]
     var tableStatus = 100
     var updateStatus : Int = 0
     let UPDATEJOB_URL = "https://dkaken.alsalil.net/api/updatejob"
     override func viewDidLoad() {
+        VcTitle.text = "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "VCTitleforjob", comment: ""))"
+        updateJobBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "updatebtn", comment: ""), for: .normal)
+        deleteJobBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "deleteJobBtn", comment: ""), for: .normal)
+        changeImage.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "changeImageinjob", comment: ""), for: .normal)
+        nameTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "nameinjob", comment: "")
+        ageTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "ageinjob", comment: "")
+        jobTitle.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "jobtitleinjob", comment: "")
+        certification.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "certificationinjob", comment: "")
+        graduationYear.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "graduationYearinjob", comment: "")
         super.viewDidLoad()
         statusTableView.dataSource = self
         statusTableView.delegate = self
@@ -37,6 +46,7 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         buttonborder(button_outlet_name:updateJobBtn)
         buttonborder(button_outlet_name:deleteJobBtn)
         getJobData()
+        hideKeyboardWhenTappedAround()
     }
     //start table view status
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,13 +79,13 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     @IBAction func changeimage(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+        actionSheet.addAction(UIAlertAction(title: "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "Camera", comment: ""))", style: .default, handler: { (alert:UIAlertAction!) -> Void in
             self.camera()
         }))
-        actionSheet.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+        actionSheet.addAction(UIAlertAction(title: "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "Gallery", comment: ""))", style: .default, handler: { (alert:UIAlertAction!) -> Void in
             self.photoLibrary()
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "Cancel", comment: ""))", style: .cancel, handler: nil))
         
         present(actionSheet, animated: true, completion: nil)
     }
@@ -108,39 +118,55 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     @IBAction func upDateInfoAction(_ sender: Any) {
         //check if the nameTextField textfield is empty or not
         if(nameTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                JSSAlertView().danger(
+                    self,
+                    title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                    text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "nameinjobalert", comment: ""),
+                    buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the ageTextField textfield is empty or not
         if(ageTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "ageinjobalert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the jobTitle textfield is empty or not
         if(jobTitle.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "jobtitleinjobalert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the certification textfield is empty or not
         if(certification.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "certificationinjobalert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the graduationYear textfield is empty or not
         if(graduationYear.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "graduationYearinjobalert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
+        ViewOfActivityIndi.isHidden = false
         uplaodJobInfo()
     }
     //End upDateInfoAction
@@ -159,13 +185,15 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                 print("the result is : \(String(describing: result.value))")
                 if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
                     if(arrayOfDic["success"] as! Bool == false ){
+                        self.ViewOfActivityIndi.isHidden = true
                         self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
+                                                 messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "ڑ", comment: ""),
                                                  titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
                         return
                     }else{
+                        self.ViewOfActivityIndi.isHidden = true
                         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
                         self.present(nextViewController, animated:true, completion:nil)
                     }
                 }
@@ -193,7 +221,7 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                     multipartFormData.append(data, withName: key)
                 }
             }
-            let imageData1 = UIImageJPEGRepresentation(self.images.image as! UIImage, 0.5)!
+            let imageData1 = UIImageJPEGRepresentation(self.images.image as! UIImage, 0.3)!
             multipartFormData.append(imageData1, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
             print("success");
         },
@@ -208,15 +236,16 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                                 case .success(let value):
                                     print("responseObject: \(value)")
                                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-                                    nextViewController.userEmail = AppDelegate.global_user.email
-                                    nextViewController.userPassword = AppDelegate.global_user.password
-                                    nextViewController.fromsignUp = true
+                                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
+                                    //nextViewController.userEmail = AppDelegate.global_user.email
+                                    //nextViewController.userPassword = AppDelegate.global_user.password
+                                    //nextViewController.fromsignUp = true
                                     self.present(nextViewController, animated:true, completion:nil)
                                 case .failure(let responseError):
+                                    self.ViewOfActivityIndi.isHidden = true
                                     print("responseError: \(responseError)")
                                     self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                                             messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "signuperoor", comment: ""),
+                                                             messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "internetconnection", comment: ""),
                                                              titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
                                     return
                                 }
@@ -241,6 +270,7 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                 print("the result is : \(String(describing: result.value))")
                 if let arrayOfDic = result.value as? Dictionary<String, AnyObject> {
                     if(arrayOfDic["success"] as! Bool == false ){
+                        self.ViewOfActivityIndi.isHidden = true
                         self.displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
                                                  messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailOrPassword", comment: ""),
                                                  titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
@@ -260,14 +290,14 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                                    graduation_year : userData["graduation_year"] as! String,
                                    suspensed : userData["suspensed"] as! Int,
                                    created_at : userData["created_at"] as! String,
-                                   image : ""
+                                   image : userData["image"] as! String
                     )
                     self.nameTextField.text = "\(userData["name"] as! String)"
                     self.ageTextField.text = "\(userData["age"] as! String)"
                     self.jobTitle.text = "\(userData["job"] as! String)"
                     self.certification.text = "\(userData["certification"] as! String)"
                     self.graduationYear.text = "\(userData["graduation_year"] as! String)"
-                    //download_image(image_url:"",imagedisplayed: self.images)
+                    download_image(image_url:"\(userData["image"] as! String)",imagedisplayed: self.images)
                     self.tableStatus = userData["social_status"] as! Int
                     self.statusTableView.reloadData()
                 }

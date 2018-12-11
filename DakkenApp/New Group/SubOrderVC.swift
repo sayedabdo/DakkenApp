@@ -13,13 +13,18 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var order_id : Int!
     var selectedID : Int!
     var selectedstatus : String!
+    
+    @IBOutlet weak var VCTitle: UILabel!
     @IBOutlet weak var subOrderTableView: UITableView!
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var acceptedOrderLabel: UILabel!
+    
+    @IBOutlet weak var orderStatus: UILabel!
     @IBOutlet weak var orderDoneLabel: UILabel!
     @IBOutlet weak var orderInWayLabel: UILabel!
     @IBOutlet weak var arrivedDoneBtn: UIButton!
     @IBOutlet weak var orderTimelabel: UILabel!
+    @IBOutlet weak var dateFixed: UILabel!
     
     
     override func viewDidLoad() {
@@ -29,15 +34,20 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         subOrderTableView.delegate = self
         getOrderDetails()
         subOrderTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
+        VCTitle.text =  LocalizationSystem.sharedInstance.localizedStringForKey(key: "orderdetails", comment: "")
+        
+        acceptedOrderLabel.text =  LocalizationSystem.sharedInstance.localizedStringForKey(key: "acceptedOrderLabel", comment: "")
+        orderDoneLabel.text =  LocalizationSystem.sharedInstance.localizedStringForKey(key: "orderDoneLabel", comment: "")
+        orderInWayLabel.text =  LocalizationSystem.sharedInstance.localizedStringForKey(key: "orderInWayLabel", comment: "")
+        dateFixed.text =  LocalizationSystem.sharedInstance.localizedStringForKey(key: "orderTimelabel", comment: "")
+        arrivedDoneBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "orderarrived", comment: ""), for: .normal)
+        orderStatus.text =  LocalizationSystem.sharedInstance.localizedStringForKey(key: "orderStatus", comment: "")
     }
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func closeOrderStatus(_ sender: Any) {
         statusView.isHidden = true
-    }
-    @IBAction func changeOrderStatus(_ sender: Any) {
-        //changeOrdersStatus(itemID : 5 , status : "\((sender as AnyObject).tag)")
     }
     //start table view jobs
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,6 +71,9 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         orderTimelabel.text = "\(subOrder[indexPath.row].created_at)"
         selectedstatus = subOrder[indexPath.row].status
        // currentStatus(selectedstatus : selectedstatus)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
     }
     //end table view jobs
     @IBAction func submitarrive(_ sender: Any) {

@@ -21,6 +21,8 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var myProductBtn: UIButton!
     @IBOutlet weak var changePassWord: UIButton!
     @IBOutlet weak var myInfoLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var logOutBtn: UIButton!
     
     let UPDATEProfile_URL = "https://dkaken.alsalil.net/api/updateprofile"
     override func viewDidLoad() {
@@ -43,11 +45,16 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         jobBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyJob", comment: ""), for: .normal)
         myProductBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyProduct", comment: ""), for: .normal)
         myInfoLabel.text = "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyInfo", comment: ""))"
+        logOutBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "logOut", comment: ""), for: .normal)
 
         nameTextFiled.placeholder  = LocalizationSystem.sharedInstance.localizedStringForKey(key: "nameProfileVCPlaceHolder", comment: "")
         emailTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailProfileVCPlaceHolder", comment: "")
         PhoneTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "phoneProfileVCPlaceHolder", comment: "")
         self.hideKeyboardWhenTappedAround()
+        nameLabel.text  = "\(AppDelegate.global_user.name)"
+        if(AppDelegate.global_user.role == "0"){
+            myProductBtn.isHidden = true
+        }
     }
 
     @IBAction func changeimage(_ sender: Any) {
@@ -108,6 +115,12 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ChangePassWordVC") as! ChangePassWordVC
             self.present(nextViewController, animated:true, completion:nil)
+    }
+    
+    @IBAction func logOutAction(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ChooseSignupVC") as! ChooseSignupVC
+        self.present(nextViewController, animated:true, completion:nil)
     }
     @IBAction func updateAction(_ sender: Any) {
         //check if the nameTextField textfield is empty or not

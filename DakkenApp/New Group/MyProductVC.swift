@@ -11,10 +11,11 @@ import Alamofire
 
 class MyProductVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var VCTitle: UILabel!
     var products = [Product]()
     @IBOutlet weak var MyProductcollection: UICollectionView!
     override func viewDidLoad() {
-        
+        VCTitle.text = "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "MyProduct", comment: ""))"
         MyProductcollection.dataSource = self
         MyProductcollection.delegate = self
         super.viewDidLoad()

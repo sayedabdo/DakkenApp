@@ -13,10 +13,13 @@ class OrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var superorder = [SuperOrder]()
     var requestedOrder = [RequestedOrder]()
     var selectedID : String!
+    
+    @IBOutlet weak var VCTitle: UILabel!
     @IBOutlet weak var requestedOrderTableView: UITableView!
     @IBOutlet weak var superOrderTableView: UITableView!
     @IBOutlet weak var statusView: UIView!
     override func viewDidLoad() {
+        VCTitle.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "order", comment: ""))"
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         requestedOrderTableView.dataSource = self

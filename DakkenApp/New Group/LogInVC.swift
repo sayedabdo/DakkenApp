@@ -20,10 +20,13 @@ class LogInVC: UIViewController {
     @IBOutlet weak var VCTitle: UILabel!
     @IBOutlet weak var activityIndi: UIActivityIndicatorView!
     @IBOutlet weak var ViewOfActivityIndi:UIView!
+    @IBOutlet weak var signupbtn: UIButton!
+    
     //var
     var role : Int!
     //start viewDidLoad
     override func viewDidLoad() {
+        passwordTextField.isSecureTextEntry = true
         loginBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         UIView.animate(withDuration: 2.0,
                        delay: 0,
@@ -45,6 +48,7 @@ class LogInVC: UIViewController {
            VCTitle.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "VCTitle1", comment: ""))"
         }
         loginBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "log in", comment: ""), for: .normal)
+        signupbtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "signup", comment: ""), for: .normal)
         emailTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "emailPlaceHolder", comment: "")
         passwordTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordPlaceHolder", comment: "")
         buttonborder(button_outlet_name:loginBtn)

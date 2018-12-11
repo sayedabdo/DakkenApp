@@ -10,6 +10,10 @@
 "home" = "Home";
 "some_error" = "some error done please,try again";
 "Done" = "Done";
+"Camera" = "Camera";
+"Gallery" = "Gallery";
+"Cancel" = "Cancel";
+"internetconnection" = "falid in internet connection😥";
 //ChooseSignupVC
 "user Sign up" = "User LogIn";
 "Dealer Sign up" = "Dealer LogIn";
@@ -24,6 +28,7 @@
 "emailOrPassword" = "email or password is wong 😞";
 "emailPlaceHolder" = "E-mail";
 "passwordPlaceHolder" = "Password";
+"signup" = "Sign UP";
 //sign Up VC
 "VCSignUpTitle0" = "Sign Up as tager";
 "VCSignUpTitle1" = "Sign Up as 3amel";
@@ -38,6 +43,7 @@
 "email" = "☹️E-mail is InValid";
 "phone" = "☹️phone is empty";
 "passwordlenght" = "☹️password less than 6 characher";
+"passwordnotmatched" = "☹️password and confirm not matched";
 "chooseprofileimage" = "choose profile image";
 "profile image" = "please, chosse image😞";
 "signuperror" = "error while sign Up please try again";
@@ -54,12 +60,66 @@
 "MyInfo" = "My Info";
 "MyProduct" = "My Product";
 "changePassword" = "Change Password";
-"changeImage" = "change Image";
 "MyJob" = "My Job";
 "UpdateProfileData" = "update";
 "nameProfileVCPlaceHolder" = "User Name";
 "emailProfileVCPlaceHolder" = "E-mail";
 "phoneProfileVCPlaceHolder" = "Phone";
 "changePassWord" = "changePassWord";
+"logOut" = "Log Out";
 //Main add
 "youhaveajob" = "You Have a Job";
+//chnge your job
+"VCTitleforjob" = "Job Update";
+"updatebtn" = "update";
+"deleteJobBtn" = "Delete Your Job";
+"changeImageinjob" = "change Image";
+//////////placeholder
+"nameinjob" = "Name";
+"ageinjob" = "Age";
+"jobtitleinjob" = "Job Title";
+"certificationinjob" = "Certification";
+"graduationYearinjob" = "Graduation Year";
+//////////placeholder
+"nameinjobalert" = "☹️Name is empty";
+"ageinjobalert" = "☹️Age is empty";
+"jobtitleinjobalert" = "☹️Job Title is empty";
+"certificationinjobalert" = "☹️Certification is empty";
+"graduationYearinjobalert" = "☹️Graduation Year is empty";
+//MyProductVC
+"MyProduct" = "My Product";
+//order
+"order" = "orders";
+"ordernumber" = "order number";
+"orderdate" = "order date";
+"orderdetails" = "order details";
+//sub order
+"orderNamefixed" = "Name";
+"orderCountfixed" = "Count";
+"priceOrderfixed" = "Price";
+"timeOrderfixed" = "date";
+"acceptedOrderLabel" = "Order Accpted";
+"orderDoneLabel" = "Order Done";
+"orderInWayLabel" = "Order in the wat";
+"orderTimelabel" = "order date";
+"orderarrived" = "order arrived";
+"orderStatus" = "Order Status";
+//main add
+"food" = "Food";
+"Clothes" = "Clothes";
+"Job" = "Job";
+"uesedproduct" = "Used Product";
+"onlytotager" = "Adding Available to trader";
+"chooseaddingtype" = "Choose Adding Type";
+//addfood
+"productName" = "Name";
+"productNumber"  = "Number";
+"productCount"  = "Count";
+"productPrice"  = "Price";
+"productDescription"  = "Description";
+"selectmainimage" = "please select image";
+"productNameAlert" = "Name is Empty😥";
+"productNumberAlert"  = "Numberis Empty😥";
+"productCountAlert"  = "Count is Empty😥";
+"productPriceAlert"  = "Price is Empty😥";
+"productDescriptionAlert"  = "Description is Empty😥";

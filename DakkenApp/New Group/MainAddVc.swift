@@ -17,9 +17,16 @@ class MainAddVc: UIViewController {
     @IBOutlet weak var addJobsBtn: UIButton!
     @IBOutlet weak var addUsedBtn: UIButton!
     @IBOutlet weak var avilablityLabel: UILabel!
-    
+    @IBOutlet weak var hitetochosse: UILabel!
     
     override func viewDidLoad() {
+        addFootBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "food", comment: ""), for: .normal)
+        addClothesBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "Clothes", comment: ""), for: .normal)
+        addJobsBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "Job", comment: ""), for: .normal)
+        addUsedBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "uesedproduct", comment: ""), for: .normal)
+        avilablityLabel.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "onlytotager", comment: ""))"
+        hitetochosse.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "chooseaddingtype", comment: ""))"
+        
         super.viewDidLoad()
         buttonborder(button_outlet_name:addFootBtn)
         buttonborder(button_outlet_name:addClothesBtn)
@@ -81,7 +88,7 @@ class MainAddVc: UIViewController {
             JSSAlertView().danger(
                 self,
                 title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                text:  LocalizationSystem.sharedInstance.localizedStringForKey(key: "إضافه المنتجات متاحه فقط للتجار", comment: ""),
+                text:  LocalizationSystem.sharedInstance.localizedStringForKey(key: "onlytotager", comment: ""),
                 buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "ok", comment: "")
             )
             return

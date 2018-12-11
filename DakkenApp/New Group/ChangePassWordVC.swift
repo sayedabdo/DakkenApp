@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import JSSAlertView
 
 class ChangePassWordVC: UIViewController {
 
@@ -38,31 +39,43 @@ class ChangePassWordVC: UIViewController {
         //Start Validation
         //check if the password textfield is empty or not
         if(passwordTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                JSSAlertView().danger(
+                    self,
+                    title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                    text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
+                    buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check password lenght
         let pass = passwordTextField.text!
         if(Int(pass.count) < 6){
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordlenght", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordlenght", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the confirm password textfield is empty or not
         if(confirmTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmpassword", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirmpassword", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if password and confirm is matched
         if(confirmTextField.text! != passwordTextField.text!){
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "password", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "passwordnotmatched", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //End Validation

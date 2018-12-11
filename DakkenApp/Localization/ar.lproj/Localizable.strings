@@ -10,6 +10,10 @@
 "home" = "الرئيسية";
 "some_error" = "حدث خطأ برجاء اعاده المحاوله";
 "Done" = "تم";
+"Camera" = "الكاميرا";
+"Gallery" = "المعرض";
+"Cancel" = "إلغاء";
+"internetconnection" = "خطأ فى الاتصال بالانترنت😥";
 //ChooseSignupVC
 "user Sign up" = "الدخول كتاجر";
 "Dealer Sign up" = "الدخول كعميل";
@@ -24,6 +28,7 @@
 "emailOrPassword" = "يوجد خطأ فى الاميل او الرقم السرى  😞";
 "emailPlaceHolder" = "البريد الالكترونى";
 "passwordPlaceHolder" = "الرقم السرى";
+"signup" = "تسجيل جديد";
 //sign Up VC
 "VCSignUpTitle0" = "التسجيل كتاجر";
 "VCSignUpTitle1" = "التسجيل كعميل";
@@ -38,9 +43,24 @@
 "phone" = "☹️برجاء ادخال رقم الجوال";
 "passwordlenght" = "☹️الرقم السرى اقل من 6 حروف";
 "confirmpassword" = "برجاء ادخال تاكيد الرقم السرى ☹️";
+"passwordnotmatched" = "☹️كلمات امرور غير متطاقه";
 "chooseprofileimage" = "اختار الصوره الشخصيه";
 "profile image" = "قم باختيار صوره للبروفيل😞";
 "signuperoor" = "حدث خطأ اثناء التسجيل حاول مره اخرى";
+//profile
+"Name" = "الاسم";
+"E-mail" = "البريد الالكترونى";
+"Phone" = "رقم الجوال";
+"MyInfo" = "معلوماتى";
+"MyProduct" = "منتجاتى";
+"changePassword" = "تغيير كلمة المرور";
+"MyJob" = "وظيفتى";
+"UpdateProfileData" = "تحديث";
+"nameProfileVCPlaceHolder" = "اسم المستخدم";
+"emailProfileVCPlaceHolder" = "ابريد الالكترونى";
+"phoneProfileVCPlaceHolder" = "رقم الجوال";
+"changePassWord" = "تغيير كلمة المرور";
+"logOut" = "تسجيل الخروج";
 //ChangePassWordVC
 "newPassWordPlaceholder" = "رقم سرى جديد";
 "confirmNewPassWordPlaceholder" = "تأكيد الرقم السرى الجديد";
@@ -49,3 +69,49 @@
 "changePasswordVCTitle" = "تغيير الكلمه المرور";
 //Main add
 "youhaveajob" = "لديك وظيفه بالفعل😊";
+//chnge your job
+"VCTitleforjob" = "تحديث الوظيفهة";
+"updatebtn" = "تحديث";
+"deleteJobBtn" = "حذف وظيفتك";
+"changeImageinjob" = "نغيير الصوره";
+"nameinjob" = "الاسم";
+"ageinjob" = "العمر";
+"jobtitleinjob" = "اسم الوظيفه";
+"certificationinjob" = "المؤهل الدراسي";
+"graduationYearinjob" = "سنة التخرج";
+"nameinjobalert" = "☹️برجاء ادخال اسم المستخدم";
+"ageinjobalert" = "☹️برجاء ادخال العمر ";
+"jobtitleinjobalert" = "☹️برجاء ادخال اسم الوظيفه";
+"certificationinjobalert" = "☹️برجاء ادخال المؤهل الدراسي";
+"graduationYearinjobalert" = "☹️برجاء ادخال سنه التخرج";
+//MyProductVC
+"MyProduct" = "منتجاتى";
+//order
+"order" = "طلبات";
+"ordernumber" = "رقم الطلب";
+"orderdate" = "تاريخ الطلب";
+"orderdetails" = "تفاصيل الطلب";
+//sub order
+"orderNamefixed" = "الأسم";
+"orderCountfixed" = "الكمية";
+"priceOrderfixed" = "السعر";
+"timeOrderfixed" = "التاريخ";
+"acceptedOrderLabel" = "تم قبول الطلب";
+"orderDoneLabel" = "تم تجهيز الطلب";
+"orderInWayLabel" = "الطلب فى الطريق";
+"orderTimelabel" = "تاريخ الطلب";
+"orderarrived" = "تم استلام الطلب";
+"orderStatus" = "حاله الطلب";
+//main add
+"food" = "الأكلات";
+"Clothes" = "الملابس";
+"Job" = "الوظيفة";
+"uesedproduct" = "منتجات مستعمله";
+"onlytotager" = "الإضافه متاحه فقط للتجار";
+"chooseaddingtype" = "اختر نوع الإضافهة";
+//addfood
+"productName" = "إسم المنتج";
+"productNumber"  = "رقم المنتج";
+"productCount"  = "الكميه";
+"productPrice"  = "السعر";
+"productDescription"  = "الوصف";
