@@ -33,6 +33,10 @@ class FoodsDetailesVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
         productDescription.text = "\(product.desc)"
         getcomments()
     }
+    
+    @IBAction func closeratingview(_ sender: Any) {
+        ratingView.isHidden = true
+    }
     //start table view rating
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

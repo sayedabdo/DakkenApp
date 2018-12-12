@@ -13,6 +13,7 @@
 "Camera" = "الكاميرا";
 "Gallery" = "المعرض";
 "Cancel" = "إلغاء";
+"addingDone" = "تم إضافه المنتج بنجاح";
 "internetconnection" = "خطأ فى الاتصال بالانترنت😥";
 //ChooseSignupVC
 "user Sign up" = "الدخول كتاجر";
@@ -108,10 +109,32 @@
 "Job" = "الوظيفة";
 "uesedproduct" = "منتجات مستعمله";
 "onlytotager" = "الإضافه متاحه فقط للتجار";
-"chooseaddingtype" = "اختر نوع الإضافهة";
+"chooseaddingtype" = "اختر نوع الإضافة";
 //addfood
+"addingfood" = "إضافه اكله";
 "productName" = "إسم المنتج";
 "productNumber"  = "رقم المنتج";
 "productCount"  = "الكميه";
 "productPrice"  = "السعر";
 "productDescription"  = "الوصف";
+"productSize"  = "المقاس";
+"selectmainimage" = "قم باختيار صوره";
+"productNameAlert" = "قم بادخال اسم المنتج😥";
+"productNumberAlert"  = "قم بادخ الرقم المنتج😥";
+"productCountAlert"  = "قم باخال الكميه😥";
+"productPriceAlert"  = "قم بادخال سعر المنتج😥";
+"productDescriptionAlert"  = "قم بادخال الوصف😥";
+"productSizeAlert"  = "قم بادخال المقاس😥";
+"maxnumberofimage" = "تم اختيار الحد الأقصى من الصور";
+"adding" = "إضافة";
+"productColor" = "اللون";
+"productColor" = "قم إضافه اللون";
+"chosseimage" = "اختر الصوره";
+//basket
+"VCBasket" = "العربه";
+"Delete" = "حذف";
+"display" = "عرض التفاصيل";
+"productprice" = "السعر";
+"producttotalprice" = "إجمالى السعر";
+"allprice" = "الإجمالى";
+"ordernow" = "اطلب الإن";

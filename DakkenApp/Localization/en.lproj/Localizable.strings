@@ -13,6 +13,7 @@
 "Camera" = "Camera";
 "Gallery" = "Gallery";
 "Cancel" = "Cancel";
+"addingDone" = "Product Adding succesfully";
 "internetconnection" = "falid in internet connection😥";
 //ChooseSignupVC
 "user Sign up" = "User LogIn";
@@ -112,10 +113,12 @@
 "onlytotager" = "Adding Available to trader";
 "chooseaddingtype" = "Choose Adding Type";
 //addfood
+"addingfood" = "Adding Food";
 "productName" = "Name";
 "productNumber"  = "Number";
 "productCount"  = "Count";
 "productPrice"  = "Price";
+"productSize"  = "Size";
 "productDescription"  = "Description";
 "selectmainimage" = "please select image";
 "productNameAlert" = "Name is Empty😥";
@@ -123,3 +126,18 @@
 "productCountAlert"  = "Count is Empty😥";
 "productPriceAlert"  = "Price is Empty😥";
 "productDescriptionAlert"  = "Description is Empty😥";
+"productSizeAlert"  = "Size is Empty😥";
+"maxnumberofimage" = " max number of image selected";
+"adding" = "ADD";
+"productColor" = "color";
+"productColor" = "color is Empty";
+"chosseimage" = "choose image";
+//basket
+"VCBasket" = "Basket";
+"Delete" = "Delete";
+"display" = "Display Details";
+"productprice" = "Price";
+"producttotalprice" = "Total Price";
+"allprice" = "Total";
+"ordernow" = "Order Now";
+

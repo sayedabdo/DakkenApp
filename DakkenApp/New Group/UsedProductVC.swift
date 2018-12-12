@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import JSSAlertView
 
 class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
@@ -32,6 +33,17 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
     var addStatus : Int!
     var ADDUSEDITEMURL = "https://dkaken.alsalil.net/api/additem"
     override func viewDidLoad() {
+        VCTitle.text =  LocalizationSystem.sharedInstance.localizedStringForKey(key: "adding", comment: "")
+        productNameTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productName", comment: "")
+        productNumberTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productNumber", comment: "")
+        productCountTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productCount", comment: "")
+        productPriceTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productPrice", comment: "")
+        productDescriptionTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productDescription", comment: "")
+        productColorTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productDescription", comment: "")
+        addProductBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "adding", comment: ""), for: .normal)
+        
+        productSizeTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productPrice", comment: "")
+        chooseMainImageBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "chosseimage", comment: ""), for: .normal)
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
@@ -52,60 +64,84 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
     @IBAction func addProductAction(_ sender: Any) {
         //check to chosse main Image
         if(selectedmainimage == false){
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+                JSSAlertView().danger(
+                    self,
+                    title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                    text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "selectmainimage", comment: ""),
+                    buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the productNameTextField textfield is empty or not
         if(productNameTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "productNameAlert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the productNumberextField textfield is empty or not
         if(productNumberTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "productNumberAlert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         ////
         //check if the productColorTextFieTextField.text?.isEmpty)!{
         if(productColorTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "productColorAlert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the productNumberextField textfield is empty or not
         if(productSizeTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "productSizeAlert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         ////
         //check if the productCountTextField textfield is empty or not
         if(productCountTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "productCountAlert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the productPriceTextField textfield is empty or not
         if(productPriceTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "productPriceAlert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         //check if the producDescriptionTextField textfield is empty or not
         if(productDescriptionTextField.text?.isEmpty)!{
-            displayAlertMessage(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
-                                messageToDisplay: LocalizationSystem.sharedInstance.localizedStringForKey(key: "username", comment: ""),
-                                titleofaction: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: ""))
+            JSSAlertView().danger(
+                self,
+                title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "productDescriptionAlert", comment: ""),
+                buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+            )
             return
         }
         addItemRequest()
@@ -114,13 +150,18 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
     @IBAction func changeimage(_ sender: Any) {
         if((sender as AnyObject).tag == 2){
             if(imageCount == 4){
-                displayAlertMessage(title: "تنبيه!", messageToDisplay: "تم اختيار الحد الاقصى من الصور 😞😞😞", titleofaction: "موافق")
+                JSSAlertView().danger(
+                    self,
+                    title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Error", comment: ""),
+                    text: LocalizationSystem.sharedInstance.localizedStringForKey(key: "maxnumberofimage", comment: ""),
+                    buttonText: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Try Again", comment: "")
+                )
                 return
             }
         }
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+        actionSheet.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Camera", comment: ""), style: .default, handler: { (alert:UIAlertAction!) -> Void in
             if((sender as AnyObject).tag == 1){
                 self.imagedone = false
             }
@@ -130,7 +171,7 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
             self.camera()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+        actionSheet.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Gallery", comment: ""), style: .default, handler: { (alert:UIAlertAction!) -> Void in
             if((sender as AnyObject).tag == 1){
                 self.imagedone = false
             }
@@ -140,7 +181,7 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
             self.photoLibrary()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "Cancel", comment: ""), style: .default, handler: nil))
         
         present(actionSheet, animated: true, completion: nil)
     }
@@ -261,7 +302,7 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
                                         switch response.result {
                                         case .success(let value):
                                             print("responseObject: \(value)")
-                                            self.displayAlertMessage(title: "تنبيه",messageToDisplay: "تم اضافه المنتج😍 بنجاح", titleofaction : "الرئيسيه")
+                                            self.displayAlertMessage(title: "😍😍",messageToDisplay: "addingDone", titleofaction : "home")
                                         case .failure(let responseError):
                                             print("responseError: \(responseError)")
                                             self.ViewOfActivityIndi.isHidden = true

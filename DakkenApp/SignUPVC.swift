@@ -224,7 +224,7 @@ class SignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCon
                     multipartFormData.append(data, withName: key)
                 }
             }
-            let imageData1 = UIImageJPEGRepresentation(self.imageas.image as! UIImage, 0.5)!
+            let imageData1 = UIImageJPEGRepresentation(self.imageas.image as! UIImage, 0.1)!
             multipartFormData.append(imageData1, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
             print("success");
         },

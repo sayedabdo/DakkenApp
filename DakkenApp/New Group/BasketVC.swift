@@ -12,14 +12,20 @@ import Alamofire
 class BasketVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
+    @IBOutlet weak var VCTitle: UILabel!
     @IBOutlet weak var basketTableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var confirmAllOrder: UIButton!
+    @IBOutlet weak var totalfixed: UILabel!
+    @IBOutlet weak var ordernow: UIButton!
     var orders = [Order]()
     var count_before = 0
     var count_after = 0
     var total_price = 0.0
     override func viewDidLoad() {
+        VCTitle.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "VCBasket", comment: ""))"
+        totalfixed.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "allprice", comment: ""))"
+        ordernow.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "ordernow", comment: ""), for: .normal)
         super.viewDidLoad()
         basketTableView.dataSource = self
         basketTableView.delegate = self

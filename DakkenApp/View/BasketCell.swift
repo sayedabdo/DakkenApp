@@ -18,6 +18,8 @@ class BasketCell: UITableViewCell {
     @IBOutlet weak var productDetiles: UIButton!
     @IBOutlet weak var productDelete: UIButton!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var fixedPrice: UILabel!
+    @IBOutlet weak var fixedtotal: UILabel!
     
     func setOrder(Order: Order) {
         productName.text = Order.item_title
@@ -27,6 +29,10 @@ class BasketCell: UITableViewCell {
         download_image(image_url: Order.item_img,imagedisplayed: productImage)
         buttonborder(button_outlet_name:productDelete)
         buttonborder(button_outlet_name:productDetiles)
+        productDetiles.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "display", comment: ""), for: .normal)
+        productDelete.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "Delete", comment: ""), for: .normal)
+        fixedPrice.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "productprice", comment: ""))"
+        fixedtotal.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "producttotalprice", comment: ""))"
     }
 
 

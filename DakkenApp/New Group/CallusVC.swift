@@ -16,7 +16,7 @@ class CallusVC: UIViewController,UITextViewDelegate {
     @IBOutlet weak var msgTitleTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         msgTextView.delegate = self
         msgTextView.text = "نص الرساله"
@@ -83,4 +83,15 @@ class CallusVC: UIViewController,UITextViewDelegate {
         present(alertController, animated: true, completion:nil)
     }
     
+}
+extension CallusVC {
+    //To Hidden Keyboard
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(CallusVC.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
