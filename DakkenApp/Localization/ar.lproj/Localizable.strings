@@ -89,7 +89,7 @@
 "MyProduct" = "منتجاتى";
 //order
 "order" = "طلبات";
-"ordernumber" = "رقم الطلب";
+"ordernumber" = "كود الطلب";
 "orderdate" = "تاريخ الطلب";
 "orderdetails" = "تفاصيل الطلب";
 //sub order
@@ -138,3 +138,9 @@
 "producttotalprice" = "إجمالى السعر";
 "allprice" = "الإجمالى";
 "ordernow" = "اطلب الإن";
+//product info
+"ratedetails" = "التقييم";
+"pricedetails" = "العر";
+"addtocard" = "أصف الى العربه";
+"addrate" = "إضافه تقييم";
+"descriptiondetails" = "وصف المنتج";

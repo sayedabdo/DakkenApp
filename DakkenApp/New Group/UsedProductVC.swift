@@ -39,13 +39,14 @@ class UsedProductVC: UIViewController,UIImagePickerControllerDelegate,UINavigati
         productCountTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productCount", comment: "")
         productPriceTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productPrice", comment: "")
         productDescriptionTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productDescription", comment: "")
-        productColorTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productDescription", comment: "")
+        productColorTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productColor", comment: "")
         addProductBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "adding", comment: ""), for: .normal)
         
-        productSizeTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productPrice", comment: "")
+        productSizeTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "productSize", comment: "")
         chooseMainImageBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "chosseimage", comment: ""), for: .normal)
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        hideKeyboardWhenTappedAround()
     }
     @IBAction func cancelimages(_ sender: Any) {
         if(imageCount == 2){

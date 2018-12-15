@@ -23,7 +23,7 @@ class BasketCell: UITableViewCell {
     
     func setOrder(Order: Order) {
         productName.text = Order.item_title
-        productPrice.text = "\(Order.price) ريال "
+        productPrice.text = "\(Order.price) درهم"
         ProductCount.text  = "\(Order.qty)"
         productTotalPrice.text = "\(Order.price * Double(Order.qty))"
         download_image(image_url: Order.item_img,imagedisplayed: productImage)
@@ -34,6 +34,4 @@ class BasketCell: UITableViewCell {
         fixedPrice.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "productprice", comment: ""))"
         fixedtotal.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "producttotalprice", comment: ""))"
     }
-
-
 }

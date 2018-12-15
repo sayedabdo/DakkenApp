@@ -25,6 +25,8 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     @IBOutlet weak var ViewOfActivityIndi:UIView!
     var cvs : CVS!
     var status = ["متزوج","أعزب"]
+    var statusenglih = ["married" , "single"]
+
     var tableStatus = 100
     var updateStatus : Int = 0
     let UPDATEJOB_URL = "https://dkaken.alsalil.net/api/updatejob"
@@ -62,7 +64,13 @@ class UpdateJobsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         }else{
             cell?.contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         }
-        cell?.statusLabel.text = "\(status[indexPath.row])"
+        
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+            cell?.statusLabel.text = "\(status[indexPath.row])"
+        }else{
+            cell?.statusLabel.text = "\(statusenglih[indexPath.row])"
+        }
+        
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

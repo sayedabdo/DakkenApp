@@ -58,6 +58,7 @@
 		16AE8712217DBF43003C6107 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE8711217DBF43003C6107 /* ProfileVC.swift */; };
 		16EBF79C2184640500134E05 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EBF79B2184640500134E05 /* ItemData.swift */; };
 		9D8DF19D92965402243F6152 /* Pods_DakkenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01113039E7705157B2952EE /* Pods_DakkenApp.framework */; };
+		DF591B1621C1B223009B889B /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF591B1521C1B223009B889B /* SettingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		C01113039E7705157B2952EE /* Pods_DakkenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DakkenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1160FF3D1322A5ADCC9CB3D /* Pods-DakkenApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA57055B25249367AEE8D085 /* Pods-DakkenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DakkenApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DakkenApp/Pods-DakkenApp.release.xcconfig"; sourceTree = "<group>"; };
+		DF591B1521C1B223009B889B /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				16147FBC21AF579D00443621 /* CallusVC.swift */,
 				16502F3821B67262006D185A /* AboutusVC.swift */,
 				1616D46021B69AD80095C1DC /* trymnueVC.swift */,
+				DF591B1521C1B223009B889B /* SettingVC.swift */,
 			);
 			name = controller;
 			path = "New Group";
@@ -395,6 +398,7 @@
 				16080E292184C149007A7A6B /* BasketVC.swift in Sources */,
 				161864352176138A000EABAA /* LocalizationSystem.swift in Sources */,
 				1607BB9A2189DC3400A6498F /* superOrderCell.swift in Sources */,
+				DF591B1621C1B223009B889B /* SettingVC.swift in Sources */,
 				16147FBD21AF579D00443621 /* CallusVC.swift in Sources */,
 				1616D46121B69AD80095C1DC /* trymnueVC.swift in Sources */,
 				16502F3921B67262006D185A /* AboutusVC.swift in Sources */,

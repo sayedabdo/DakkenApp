@@ -22,5 +22,6 @@ class HomeproductCell: UICollectionViewCell {
         productPrice.text = "\(product.price)"
         download_image(image_url: product.image,imagedisplayed: productImage)
         buttonborder(button_outlet_name:addtToCard)
+        addtToCard.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "addtocard", comment: ""), for: .normal)
     }
 }

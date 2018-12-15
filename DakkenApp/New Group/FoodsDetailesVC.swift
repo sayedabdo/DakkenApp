@@ -14,12 +14,21 @@ class FoodsDetailesVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
     
     
     var product: Product!
+
+    @IBOutlet weak var VCTitle: UILabel!
+    @IBOutlet weak var pricefixd: UILabel!
+    @IBOutlet weak var ratefixed: UILabel!
     @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var descriptionfixed: UILabel!
     @IBOutlet weak var ratingView: UIView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productDescription: UILabel!
     @IBOutlet weak var ratingTabelView:UITableView!
+    @IBOutlet weak var productrate: CosmosView!
+    @IBOutlet weak var addtocardbtn: UIButton!
+    @IBOutlet weak var addratebtn: UIButton!
+    
     var rating = [Rating]()
     override func viewDidLoad() {
         ratingTabelView.dataSource = self
@@ -32,6 +41,13 @@ class FoodsDetailesVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
         productPrice.text = "\(product.price)"
         productDescription.text = "\(product.desc)"
         getcomments()
+        
+        VCTitle.text = "\(product.title)"
+        descriptionfixed.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "descriptiondetails", comment: ""))"
+        pricefixd.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "pricedetails", comment: ""))"
+        ratefixed.text =  "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "ratedetails", comment: ""))"
+        addtocardbtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "addtocard", comment: ""), for: .normal)
+        addratebtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "addrate", comment: ""), for: .normal)
     }
     
     @IBAction func closeratingview(_ sender: Any) {
@@ -68,7 +84,7 @@ class FoodsDetailesVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
     func getcomments(){
         let RatingURL = "https://dkaken.alsalil.net/api/itemrates"
         let params: [String : String] =
-            [   "item_id"                  : "20"
+            [   "item_id"                  : "\(product.id)"
         ]
         Alamofire.request(RatingURL, method: .post, parameters: params)
             .responseJSON { response in

@@ -77,7 +77,7 @@ class SubOrderVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     }
     //end table view jobs
     @IBAction func submitarrive(_ sender: Any) {
-        changeOrdersStatus(itemID : selectedstatus , status : "4")
+        changeOrdersStatus(itemID : selectedstatus , status : "00")
     }
     //Start getOrderDetails
     func getOrderDetails(){

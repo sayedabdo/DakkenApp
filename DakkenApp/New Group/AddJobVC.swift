@@ -21,13 +21,23 @@ class AddJobVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIIma
     @IBOutlet weak var changeImage: UIButton!
     @IBOutlet weak var AddJobBtn: UIButton!
     @IBOutlet weak var ViewOfActivityIndi:UIView!
+    @IBOutlet weak var VCTitle: UILabel!
     var status = ["متزوج","أعزب"]
+    var statusenglih = ["married" , "single"]
     var tableStatus = -1
     let ADDJOB_URL = "https://dkaken.alsalil.net/api/addjob"
     override func viewDidLoad() {
         statusTableView.dataSource = self
         statusTableView.delegate = self
         super.viewDidLoad()
+        VCTitle.text = "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "VCTitleforjob", comment: ""))"
+        AddJobBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "updatebtn", comment: ""), for: .normal)
+        changeImage.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "changeImageinjob", comment: ""), for: .normal)
+        nameTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "nameinjob", comment: "")
+        ageTextField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "ageinjob", comment: "")
+        jobTitle.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "jobtitleinjob", comment: "")
+        certification.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "certificationinjob", comment: "")
+        graduationYear.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "graduationYearinjob", comment: "")
         // Do any additional setup after loading the view.
         buttonborder(button_outlet_name:AddJobBtn)
         buttonborder(button_outlet_name:changeImage)
@@ -42,7 +52,11 @@ class AddJobVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIIma
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatusCell") as? StatusCell
-        cell?.statusLabel.text = "\(status[indexPath.row])"
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+            cell?.statusLabel.text = "\(status[indexPath.row])"
+        }else{
+            cell?.statusLabel.text = "\(statusenglih[indexPath.row])"
+        }
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -10,9 +10,7 @@ import UIKit
 import Alamofire
 import ScrollableSegmentedControl
 
-class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource {
-    
-    
+class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource{
     //Outlet
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var mnuecollection: UICollectionView!
@@ -22,13 +20,18 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
     @IBOutlet weak var menusView: UIView!
     @IBOutlet weak var menubtn: UIButton!
     @IBOutlet weak var activityIndi: UIActivityIndicatorView!
+    @IBOutlet weak var VCtitle: UILabel!
+    
     //Var
     var userEmail : String! = ""
     var userPassword : String! = ""
     var fromsignUp : Bool = false
     var tab_data : [String] = ["الأكلات","الملابس","منتجات مستعمله","وظائف","المجتمع"]
+    var tab_data_English : [String] = ["Foods" , "clothes" , "used product" , "jobs" , "socity"]
     var firstMune = ["منتجات مستعمله","الملابس","الأكلات","المزيد","المجتمع","وظائف"]
+    var firstMuneEnglish = ["Used","clothes","Food","More","Socity","Jobs"]
     var secondMune = ["الطلبات","اتصل بنا","الأعدادات","عن التطبيق"]
+    var secondMuneEnglish = ["Orders","Call us","Setting","About App"]
     var firstMuneColor = [#colorLiteral(red: 0, green: 0.7417340875, blue: 0.6716778874, alpha: 1),#colorLiteral(red: 0.8823529412, green: 0.6509803922, blue: 0.2980392157, alpha: 1),#colorLiteral(red: 0.8509803922, green: 0.368627451, blue: 0.2352941176, alpha: 1),#colorLiteral(red: 0.4666666667, green: 0.5254901961, blue: 0.5529411765, alpha: 1),#colorLiteral(red: 0.7254901961, green: 0.7568627451, blue: 0.2901960784, alpha: 1),#colorLiteral(red: 0.2901960784, green: 0.6235294118, blue: 0.768627451, alpha: 1)]
     var secondMuneColor = [#colorLiteral(red: 0.7254901961, green: 0.7568627451, blue: 0.2901960784, alpha: 1),#colorLiteral(red: 0.2901960784, green: 0.6235294118, blue: 0.768627451, alpha: 1),#colorLiteral(red: 0.8823529412, green: 0.6509803922, blue: 0.2980392157, alpha: 1),#colorLiteral(red: 0.8509803922, green: 0.368627451, blue: 0.2352941176, alpha: 1)]
     var firstmenuimage = ["natrl","shrt","food","add","grop","caric"]
@@ -50,18 +53,20 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         jobsTableView.delegate = self
         // Do any additional setup after loading the view.
         menubtn.isHidden = true
-        for tabDataCounter in tab_data{
-            self.segmentedControl.insertSegment(withTitle: "\(tabDataCounter)", at: self.tab_data_count)
-            self.tab_data_count = self.tab_data_count + 1
+        if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+            for tabDataCounter in tab_data{
+                self.segmentedControl.insertSegment(withTitle: "\(tabDataCounter)", at: self.tab_data_count)
+                self.tab_data_count = self.tab_data_count + 1
+            }
+        }else{
+            for tabDataCounter in tab_data_English{
+                self.segmentedControl.insertSegment(withTitle: "\(tabDataCounter)", at: self.tab_data_count)
+                self.tab_data_count = self.tab_data_count + 1
+            }
         }
-//        //get user data after sign up
-//        if(fromsignUp == true){
-//            getUserData()
-//        }
         //start segmentedControl
         segmentedControl.segmentStyle = .textOnly
         segmentedControl.underlineSelected = true
-        
         // change some colors in segmentedControl
         segmentedControl.segmentContentColor = UIColor.black
         segmentedControl.selectedSegmentContentColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -69,23 +74,19 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
         segmentedControl.selectedSegmentIndex = AppDelegate.selectedsegment
         //end segmentedControl
         jobsTableView.backgroundView = UIImageView(image: UIImage(named: "bgimage"))
+        VCtitle.text = "\(LocalizationSystem.sharedInstance.localizedStringForKey(key: "home", comment: ""))"
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewLoadSetup()
-        
     }
-    
-    
     func viewLoadSetup(){
         // setup view did load here
-        get_product(category: 1)
+        //get_product(category: 1)
         //get user data after sign up
         if(fromsignUp == true){
             getUserData()
         }
-
     }
     //End viewDidLoad
     //start collection view to display product
@@ -164,10 +165,9 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                 self.present(nextViewController, animated:true, completion:nil)
             }
             if(indexPath.row == 2){
-//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
-//                AppDelegate.selectedsegment = 0
-//                self.present(nextViewController, animated:true, completion:nil)
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+                self.present(nextViewController, animated:true, completion:nil)
             }
             if(indexPath.row == 3){
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -193,7 +193,11 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
             guard let cell = mnuecollection.dequeueReusableCell(withReuseIdentifier: "oneMuneCell", for: indexPath) as? oneMuneCell
                 else { return UICollectionViewCell()
             }
-            cell.muneTitle.text = "\(firstMune[indexPath.row])"
+            if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                cell.muneTitle.text = "\(firstMune[indexPath.row])"
+            }else{
+                cell.muneTitle.text = "\(firstMuneEnglish[indexPath.row])"
+            }
             cell.muneimage.image = UIImage(named: "\(firstmenuimage[indexPath.row])")
             cell.backgroundColor = firstMuneColor[indexPath.row]
             cell.layer.cornerRadius = 5
@@ -206,7 +210,11 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
             guard let cell = mnue2collection.dequeueReusableCell(withReuseIdentifier: "twoMuneCell", for: indexPath) as? twoMuneCell
                 else { return UICollectionViewCell()
             }
-            cell.muneTitle.text = "\(secondMune[indexPath.row])"
+            if LocalizationSystem.sharedInstance.getLanguage() == "ar"{
+                cell.muneTitle.text = "\(secondMune[indexPath.row])"
+            }else{
+                cell.muneTitle.text = "\(secondMuneEnglish[indexPath.row])"
+            }
             cell.backgroundColor = secondMuneColor[indexPath.row]
             cell.muneimage.image = UIImage(named: "\(secondmenuimage[indexPath.row])")
             cell.layer.cornerRadius = 5
@@ -371,26 +379,23 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                     let userData  = arrayOfDic["message"]  as? [[String: Any]]
                     for aDic1  in userData!  {
                         ///
-//                        if("\(aDic1["productnum"]!)" == "<null>"){
-//                            print("3!")
-//                            productnum = "null"
-//                        }else{
-//                            print("3")
-//                        }
-//                        ////
-//                        if("\(aDic1["size"]!)" == "<null>"){
-//                            print("1!")
-//                            size = "null"
-//                        }else{
-//                            print("1")
-//                        }
-//                        /////
-//                        if("\(aDic1["color"]!)" == "<null>"){
-//                            print("2!")
-//                            color = "null"
-//                        }else{
-//                            print("2!")
-//                        }
+                        if("\(aDic1["productnum"]!)" == "<null>"){
+                            productnum = "null"
+                        }else{
+                            productnum = "\(aDic1["productnum"]!)"
+                        }
+                        ////
+                        if("\(aDic1["size"]!)" == "<null>"){
+                            size = "null"
+                        }else{
+                            size = "\(aDic1["size"]!)"
+                        }
+                        /////
+                        if("\(aDic1["color"]!)" == "<null>"){
+                            color = "null"
+                        }else{
+                            color = "\(aDic1["color"]!)"
+                        }
                     self.products.append(Product(
                         id : aDic1["id"] as! Int,
                         category : aDic1["category"] as! Int,
@@ -409,7 +414,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSou
                 }
                 //  }
                     self.activityIndi.stopAnimating()
-                self.collection.reloadData()
+                    self.collection.reloadData()
             }
         }
     }
